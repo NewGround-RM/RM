@@ -1,0 +1,143 @@
+# Themenliste für die Beobachtungsdimension Themenassoziation
+# Offene Liste – neue Einträge am Ende ergänzen
+# Thx-Einträge aus den bisherigen Kodierungen sind hier konsolidiert
+
+# Allgemeine Themen (Th1001–Th1999)
+- id: Th1001
+  label: Forschung/Wissenschaft
+- id: Th1002
+  label: Politikberatung
+- id: Th1003
+  label: Innovation/Zukunft
+- id: Th1004
+  label: Ethik/Verantwortung
+- id: Th1005
+  label: Förderung/Finanzierung
+- id: Th1006
+  label: Organisation/Governance
+- id: Th1007
+  label: Kontroversen/Kritik
+- id: Th1008
+  label: Lehre/Studium
+- id: Th1009
+  label: Internationalisierung
+- id: Th1010
+  label: Transfer/Wissenstransfer
+- id: Th1011
+  label: Nachhaltigkeit/Klima
+- id: Th1012
+  label: Digitalisierung/KI
+- id: Th1013
+  label: Diversität/Chancengleichheit
+- id: Th1014
+  label: Gründung/Entrepreneurship
+- id: Th1015
+  label: Infrastruktur/Campus
+- id: Th1016
+  label: Studierendenzufriedenheit
+- id: Th1017
+  label: Betreuungsrelation
+- id: Th1018
+  label: Praxisnähe/Berufsbefähigung
+- id: Th1019
+  label: Open Science/Open Access
+- id: Th1020
+  label: Wissenschaftskommunikation
+- id: Th1021
+  label: Kooperation/Vernetzung
+- id: Th1022
+  label: Nachwuchsförderung
+- id: Th1023
+  label: Drittmittel/Exzellenz
+- id: Th1024
+  label: Demokratie/Zivilgesellschaft
+- id: Th1025
+  label: Migration/Integration
+- id: Th1026
+  label: Gesundheit/Public Health
+- id: Th1027
+  label: Bürokratie/Verwaltung
+
+# Fachgebiete (Th2001–Th2999)
+- id: Th2001
+  label: Wirtschaftswissenschaften
+- id: Th2002
+  label: Rechtswissenschaft
+- id: Th2003
+  label: Philosophie
+- id: Th2004
+  label: Sozialwissenschaften/Soziologie
+- id: Th2005
+  label: Politikwissenschaft
+- id: Th2006
+  label: Physik
+- id: Th2007
+  label: Biologie
+- id: Th2008
+  label: Chemie
+- id: Th2009
+  label: Medizin
+- id: Th2010
+  label: Informatik
+- id: Th2011
+  label: Mathematik
+- id: Th2012
+  label: Geschichtswissenschaft
+- id: Th2013
+  label: Erziehungswissenschaft/Lehrerbildung
+- id: Th2014
+  label: Psychologie
+- id: Th2015
+  label: Geowissenschaften
+- id: Th2016
+  label: Pharmazie/Biotechnologie
+- id: Th2017
+  label: Linguistik/Sprachen
+- id: Th2018
+  label: Theologie/Religionswissenschaft
+- id: Th2019
+  label: Kunstgeschichte/Kulturwissenschaft
+- id: Th2020
+  label: Kritische Theorie/Frankfurter Schule
+- id: Th2021
+  label: Sozialphilosophie
+- id: Th2022
+  label: Sozialtheorie
+- id: Th2023
+  label: politische Philosophie
+- id: Th2024
+  label: Finanzmarktforschung
+- id: Th2025
+  label: Finance/Geldpolitik
+- id: Th2026
+  label: Makroökonomie
+- id: Th2027
+  label: Europaforschung/EU-Governance
+- id: Th2028
+  label: transformative Forschung
+- id: Th2029
+  label: Neurowissenschaften
+- id: Th2030
+  label: Ökologie/Biodiversität
+
+# Institutionelle Kontexte (Th3001–Th3999)
+- id: Th3001
+  label: EZB/Bundesbank-Nähe
+- id: Th3002
+  label: House of Finance
+- id: Th3003
+  label: Exzellenzstrategie/Exzellenzcluster
+- id: Th3004
+  label: Sonderforschungsbereiche/DFG
+- id: Th3005
+  label: Max-Planck-Kooperation
+- id: Th3006
+  label: Leibniz-Kooperation
+- id: Th3007
+  label: Fraunhofer-Kooperation
+- id: Th3008
+  label: Helmholtz-Kooperation
+- id: Th3009
+  label: Industriekooperation
+- id: Th3010
+  label: Stiftungsuniversität/Governance-Modell

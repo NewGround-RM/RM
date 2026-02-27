@@ -1,0 +1,121 @@
+# Beobachtungsdimensionen (Kodierschema)
+# Jede Dimension hat Kurzform, Langform, Kodierfrage und definierte Codes
+
+- id: S
+  label: Sichtbarkeit
+  langform: Sichtbarkeit und Prominenz
+  kodierfrage: "Wird die Zielinstitution genannt – und wie prominent?"
+  codes:
+    - code: S0
+      label: keine Nennung
+    - code: S1
+      label: beiläufige Nennung
+    - code: S2
+      label: zentrale Nennung
+    - code: S3
+      label: dominante/hervorgehobene Nennung
+  vermerke:
+    - code: S1
+      label: Erwähnung im Fließtext ohne Fokus
+    - code: S2
+      label: klarer Bezug, eigener Satz oder Abschnitt
+    - code: S3
+      label: erstes Beispiel, Leitbeispiel, mehrfach hervorgehoben
+  defaults:
+    bei_S0: S0
+
+- id: K
+  label: Kontext
+  langform: Kontextualisierung
+  kodierfrage: "In welchem inhaltlichen Rahmen erscheint die Institution?"
+  codes:
+    - code: K0
+      label: kein erkennbarer Kontext
+    - code: K1
+      label: fachlich-wissenschaftlich
+    - code: K2
+      label: politikbezogen
+    - code: K3
+      label: gesellschaftlich/zivilgesellschaftlich
+    - code: K4
+      label: institutions-/organisationsbezogen
+  mehrfachkodierung: true
+  defaults:
+    - wenn nicht beantwortbar: "—"
+
+- id: T
+  label: Tonalität
+  langform: Tonalität und Bewertung
+  kodierfrage: "Wie wird die Institution dargestellt?"
+  codes:
+    - code: "T+"
+      label: positiv/legitimierend
+    - code: T0
+      label: neutral/beschreibend
+    - code: "T±"
+      label: ambivalent
+    - code: "T−"
+      label: kritisch/problematisierend
+  defaults:
+    - wenn S0: "—"
+    - wenn nicht beantwortbar: "—"
+  hinweise:
+    - "T± nur bei klaren gegensätzlichen Signalen"
+
+- id: V
+  label: Vergleich
+  langform: Vergleich und Positionierung
+  kodierfrage: "Wird die Institution relativ zu anderen eingeordnet?"
+  codes:
+    - code: V0
+      label: kein Vergleich
+    - code: "V="
+      label: gleichrangig
+    - code: "V+"
+      label: führende Institution / Spitzenposition
+    - code: "V−"
+      label: nachgeordnet
+    - code: "V≠"
+      label: nicht vergleichbar / andersartig
+  defaults:
+    - wenn S0: V0
+    - wenn nicht beantwortbar: V0
+  hinweise:
+    - "Auch implizite Vergleiche (z.B. neben, ähnlich wie) zählen"
+
+- id: R
+  label: Rolle
+  langform: Rollen- und Akteurszuschreibung
+  kodierfrage: "Welche Funktion wird der Institution zugeschrieben?"
+  codes:
+    - code: R0
+      label: keine klare Rollenzuschreibung
+    - code: R1
+      label: autoritative Wissensquelle
+    - code: R2
+      label: forschende Institution
+    - code: R3
+      label: beratende Institution
+    - code: R4
+      label: umsetzende/operative Akteurin
+    - code: R5
+      label: politischer Akteur
+    - code: R6
+      label: Problemträger/-verursacher
+    - code: R7
+      label: Vergleichsmaßstab
+  mehrfachkodierung: true
+  defaults:
+    - wenn S0: R0
+
+- id: Th
+  label: Thema
+  langform: Themenassoziation
+  kodierfrage: "Mit welchen Themen wird die Institution verknüpft?"
+  offen: true
+  mehrfachkodierung: true
+  defaults:
+    - wenn S0: "—"
+  hinweise:
+    - "Offene Liste – neue Themen als Thx mit Benennung ergänzen"
+    - "Siehe config/themen.yaml für die vollständige Themenliste"

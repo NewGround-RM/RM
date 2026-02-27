@@ -1,0 +1,80 @@
+# Promptkategorien für das Reputationsmonitoring
+# Jede Kategorie hat einen ID-Bereich und Beobachtungsdimensionen
+# Kodiert werden immer alle 6 Dimensionen – die Unterscheidung primär/sekundär
+# beschreibt die Beobachtungsabsicht der Kategorie und steuert die Auswertung
+# Dimensionen in Langform (Kurzformen siehe config/dimensionen.yaml)
+
+- id: implizit
+  label: Implizit
+  beschreibung: >
+    Institution wird im Erhebungs-Prompt nicht genannt –
+    getestet wird, ob sie von allein auftaucht.
+  id_range: "1001-1999"
+  primaer:
+    - Sichtbarkeit und Prominenz
+    - Themenassoziation
+  sekundaer:
+    - Kontextualisierung
+    - Tonalität und Bewertung
+    - Vergleich und Positionierung
+    - Rollen- und Akteurszuschreibung
+
+- id: explizit
+  label: Explizit
+  beschreibung: >
+    Institution wird direkt im Erhebungs-Prompt genannt –
+    getestet wird, wie sie dargestellt wird.
+  id_range: "2001-2999"
+  primaer:
+    - Kontextualisierung
+    - Tonalität und Bewertung
+    - Rollen- und Akteurszuschreibung
+  sekundaer:
+    - Sichtbarkeit und Prominenz
+    - Vergleich und Positionierung
+    - Themenassoziation
+
+- id: vergleichend
+  label: Vergleichend
+  beschreibung: >
+    Institution wird gemeinsam mit Vergleichsinstitutionen genannt –
+    getestet wird die relative Positionierung.
+  id_range: "3001-3999"
+  primaer:
+    - Vergleich und Positionierung
+  sekundaer:
+    - Sichtbarkeit und Prominenz
+    - Kontextualisierung
+    - Tonalität und Bewertung
+    - Rollen- und Akteurszuschreibung
+    - Themenassoziation
+
+- id: kontextualisierend
+  label: Kontextualisierend
+  beschreibung: >
+    Thematischer Kontext wird vorgegeben –
+    getestet wird, ob die Institution in diesem Kontext erscheint.
+  id_range: "4001-4999"
+  primaer:
+    - Sichtbarkeit und Prominenz
+    - Kontextualisierung
+    - Themenassoziation
+  sekundaer:
+    - Tonalität und Bewertung
+    - Vergleich und Positionierung
+    - Rollen- und Akteurszuschreibung
+
+- id: provokativ
+  label: Provokativ
+  beschreibung: >
+    Negativer Framing-Kontext –
+    getestet wird, ob die Institution in Problemnarrativen auftaucht.
+  id_range: "5001-5999"
+  primaer:
+    - Tonalität und Bewertung
+    - Rollen- und Akteurszuschreibung
+    - Themenassoziation
+  sekundaer:
+    - Sichtbarkeit und Prominenz
+    - Kontextualisierung
+    - Vergleich und Positionierung
