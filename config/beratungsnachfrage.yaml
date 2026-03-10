@@ -1,0 +1,181 @@
+# Organisationen und Gremien mit Bedarf an wissenschaftlicher Beratung
+# Beschreibt Abnehmer wissenschaftlicher Expertise und deren typische Beratungsformate
+# Relevant für GEO-Kontextualisierung: In welchen Beratungskontexten wird eine Institution erwähnt?
+# ID-Kreise: Politik/Regierung, Zentralbanken/Finanzen, Internationale Org., Justiz,
+#             Stiftungen/Förderung, Regulierung/Standards, Verbände/Sozialpartner,
+#             Medien/Öffentlichkeit, Wirtschaft/Industrie
+
+# Politik und Regierung (BN1001–BN1999)
+- id: BN1001
+  label: Bundesregierung / Bundeskanzleramt
+  beratungsformate: Sachverständigenräte, Regierungsberater, Strategiepapiere
+  beispiele: Sachverständigenrat zur Begutachtung der gesamtwirtschaftlichen Entwicklung, Wissenschaftlicher Beirat beim Bundeskanzleramt
+- id: BN1002
+  label: Bundesministerien
+  beratungsformate: Wissenschaftliche Beiräte, Ressortforschung, Gutachten
+  beispiele: Wissenschaftlicher Beirat BMF, Wissenschaftlicher Beirat BMEL, Ethikrat (BMG)
+- id: BN1003
+  label: Bundestag / Bundestagsausschüsse
+  beratungsformate: Sachverständigenanhörungen, Enquete-Kommissionen, Wissenschaftliche Dienste
+  beispiele: Enquete-Kommission KI, Ausschussanhörungen zu Gesetzesvorhaben
+- id: BN1004
+  label: Landesregierungen / Landesministerien
+  beratungsformate: Landesbeiräte, Gutachten, Strategieberatung
+  beispiele: Wissenschaftsräte der Länder, Landesentwicklungspläne
+- id: BN1005
+  label: Europäische Kommission
+  beratungsformate: Expert Groups, Horizon-Europe-Evaluation, Policy Briefs
+  beispiele: High-Level Expert Group on AI, Scientific Advice Mechanism (SAM)
+- id: BN1006
+  label: Europäisches Parlament
+  beratungsformate: Studien, Anhörungen, STOA-Panel
+  beispiele: Science and Technology Options Assessment (STOA)
+- id: BN1007
+  label: Europäischer Rat / Rat der EU
+  beratungsformate: Präsidentschaftsberatung, Strategiepapiere
+
+# Zentralbanken und Finanzaufsicht (BN2001–BN2999)
+- id: BN2001
+  label: Europäische Zentralbank (EZB)
+  beratungsformate: Research Visitors, Advisory Panels, Konferenzbeiträge
+  beispiele: ECB Research Bulletin, Sintra-Konferenz
+- id: BN2002
+  label: Deutsche Bundesbank
+  beratungsformate: Forschungskooperationen, Gastforscher, Diskussionspapiere
+  beispiele: Bundesbank Research Centre, Discussion Paper Series
+- id: BN2003
+  label: BaFin / ESMA
+  beratungsformate: Regulierungsberatung, Konsultationsverfahren, Gutachten
+  beispiele: Konsultationen zu Finanzmarktregulierung
+- id: BN2004
+  label: Europäische Investitionsbank (EIB)
+  beratungsformate: Forschungskooperationen, Impact-Evaluationen
+
+# Internationale Organisationen (BN3001–BN3999)
+- id: BN3001
+  label: OECD
+  beratungsformate: Länderberichte, Expert Panels, Konsultationen
+  beispiele: OECD Education Policy Reviews, Economic Surveys
+- id: BN3002
+  label: Weltbank / IWF
+  beratungsformate: Forschungskooperationen, Länderberatung, Working Papers
+- id: BN3003
+  label: Vereinte Nationen / UN-Unterorganisationen
+  beratungsformate: Advisory Boards, Berichterstellung, SDG-Monitoring
+  beispiele: IPCC, UNESCO, UNEP, UN Women
+- id: BN3004
+  label: WHO
+  beratungsformate: Technical Advisory Groups, Leitlinienentwicklung, Pandemie-Beratung
+- id: BN3005
+  label: NATO / Sicherheitspolitische Organisationen
+  beratungsformate: Science for Peace Programme, Advisory Panels
+- id: BN3006
+  label: WTO
+  beratungsformate: Handelspolitische Gutachten, Streitschlichtung
+
+# Justiz und Rechtsorgane (BN4001–BN4999)
+- id: BN4001
+  label: Bundesverfassungsgericht
+  beratungsformate: Sachverständigengutachten, Amicus-Curiae-Stellungnahmen
+- id: BN4002
+  label: Europäischer Gerichtshof (EuGH)
+  beratungsformate: Sachverständigengutachten, Generalanwaltsberatung
+- id: BN4003
+  label: Internationale Tribunale / ICC
+  beratungsformate: Expertengutachten, völkerrechtliche Stellungnahmen
+
+# Stiftungen und Förderorganisationen (BN5001–BN5999)
+- id: BN5001
+  label: VolkswagenStiftung
+  beratungsformate: Förderentscheidungen, Jurys, Impuls-Workshops
+- id: BN5002
+  label: Deutsche Forschungsgemeinschaft (DFG)
+  beratungsformate: Fachkollegien, Gutachterausschüsse, Strategieberatung
+- id: BN5003
+  label: Wissenschaftsrat
+  beratungsformate: Akkreditierung, Strukturempfehlungen, Systemevaluation
+- id: BN5004
+  label: Politische Stiftungen (Adenauer, Ebert, Böll, Naumann, Luxemburg, Seidel)
+  beratungsformate: Studien, Positionspapiere, Fachkonferenzen
+- id: BN5005
+  label: Privatstiftungen (Thyssen, Körber, Mercator, Bosch, Hertie)
+  beratungsformate: Forschungsaufträge, Fellowship-Programme, Think-Tank-Kooperationen
+- id: BN5006
+  label: Europäischer Forschungsrat (ERC)
+  beratungsformate: Peer Review, Panel-Begutachtung
+
+# Regulierungs- und Standardisierungsbehörden (BN6001–BN6999)
+- id: BN6001
+  label: Umweltbundesamt (UBA)
+  beratungsformate: Forschungsaufträge, Gutachten, Kommissionen
+- id: BN6002
+  label: Bundesamt für Sicherheit in der Informationstechnik (BSI)
+  beratungsformate: Technische Beratung, Forschungskooperationen
+- id: BN6003
+  label: Bundesinstitut für Arzneimittel und Medizinprodukte (BfArM) / Paul-Ehrlich-Institut (PEI)
+  beratungsformate: Zulassungsberatung, wissenschaftliche Gutachten
+- id: BN6004
+  label: European Medicines Agency (EMA)
+  beratungsformate: Scientific Advisory Groups, Pharmacovigilance
+- id: BN6005
+  label: Robert Koch-Institut (RKI)
+  beratungsformate: Wissenschaftliche Beratung, Pandemie-Modellierung, Surveillance
+- id: BN6006
+  label: Europäische Behörde für Lebensmittelsicherheit (EFSA)
+  beratungsformate: Scientific Panels, Risk Assessment
+- id: BN6007
+  label: DIN / ISO / CEN
+  beratungsformate: Normungsausschüsse, technische Komitees
+- id: BN6008
+  label: Bundesnetzagentur
+  beratungsformate: Regulierungsgutachten, Marktanalysen
+
+# Verbände und Sozialpartner (BN7001–BN7999)
+- id: BN7001
+  label: BDI / BDA / DIHK
+  beratungsformate: Forschungsbeiräte, Gutachten, Positionspapiere
+- id: BN7002
+  label: IG Metall / ver.di / DGB
+  beratungsformate: Studien, Arbeitsweltforschung, Tarifberatung
+- id: BN7003
+  label: Berufs- und Fachverbände
+  beratungsformate: Leitlinienentwicklung, Fachgutachten, Weiterbildung
+  beispiele: Deutsche Gesellschaft für Chirurgie, Deutscher Anwaltverein
+- id: BN7004
+  label: Handelskammern / IHKs
+  beratungsformate: Regionalanalysen, Fachkräftegutachten
+
+# Medien und Öffentlichkeit (BN8001–BN8999)
+- id: BN8001
+  label: Leitmedien / Qualitätspresse
+  beratungsformate: Expertenzitate, Gastbeiträge, Hintergrundgespräche
+  beispiele: FAZ, SZ, ZEIT, Spiegel, Handelsblatt
+- id: BN8002
+  label: Öffentlich-rechtlicher Rundfunk
+  beratungsformate: Studiogespräche, Dokumentationen, Factchecking
+  beispiele: ARD, ZDF, Deutschlandfunk
+- id: BN8003
+  label: Fachmedien und Science-Kommunikation
+  beratungsformate: Peer Commentary, Wissenschaftsjournalismus
+  beispiele: Spektrum, Science Media Center
+
+# Wirtschaft und Industrie (BN9001–BN9999)
+- id: BN9001
+  label: Pharmaindustrie / Biotechnologie
+  beratungsformate: F&E-Kooperationen, Clinical Advisory Boards, Lizenzierung
+- id: BN9002
+  label: Automobilindustrie / Maschinenbau
+  beratungsformate: Forschungskooperationen, Technologietransfer, Gutachten
+- id: BN9003
+  label: Technologie- und Digitalunternehmen
+  beratungsformate: AI Ethics Boards, Forschungspartnerschaften, Open-Source-Kooperation
+- id: BN9004
+  label: Finanzindustrie / Versicherungen
+  beratungsformate: Risikomodellierung, Regulierungsberatung, Finanzmarktforschung
+- id: BN9005
+  label: Energieunternehmen / Versorger
+  beratungsformate: Transformationsberatung, Forschungskooperationen, Gutachten
+- id: BN9006
+  label: Unternehmensberatungen / Think Tanks
+  beratungsformate: Studienpartnerschaften, Gastforschung, Co-Publikation
+  beispiele: McKinsey Global Institute, Boston Consulting Group, ifo Institut, DIW, IW Köln

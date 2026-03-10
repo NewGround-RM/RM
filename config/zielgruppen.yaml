@@ -1,0 +1,56 @@
+# Zielgruppen für das Reputationsmonitoring
+# Beschreibt, welche Gruppen typischerweise LLM-Anfragen zu Hochschulen stellen
+# und deren spezifische Informationsinteressen
+
+# Akademische Zielgruppen (Z1001–Z1999)
+- id: Z1001
+  label: Wissenschaftler:innen
+  interessen: Forschungskooperationen, Berufungen, Fachreputation
+- id: Z1002
+  label: Studierende
+  interessen: Studienwahl, Betreuung, Campusleben, Karrierechancen
+- id: Z1003
+  label: Studieninteressierte
+  interessen: Fächerangebot, Zulassung, Rankings, Standort
+- id: Z1004
+  label: Promovierende / Postdocs
+  interessen: Graduiertenprogramme, Forschungsumfeld, Karrierewege
+- id: Z1005
+  label: Wissenschaftsmanagement
+  interessen: Governance, Strategieentwicklung, Best Practices
+
+# Medien und Öffentlichkeit (Z2001–Z2999)
+- id: Z2001
+  label: Journalist:innen
+  interessen: Expertise, Hintergrund, Einordnung, Kontroversen
+- id: Z2002
+  label: Wissenschaftskommunikator:innen
+  interessen: Forschungsergebnisse, Transfer, Narrative
+- id: Z2003
+  label: Allgemeine Öffentlichkeit
+  interessen: Reputation, Bekanntheitsgrad, regionale Bedeutung
+
+# Politik und Verwaltung (Z3001–Z3999)
+- id: Z3001
+  label: Politische Akteure
+  interessen: Politikberatung, Standortfaktor, Förderwürdigkeit
+- id: Z3002
+  label: Ministerien / Wissenschaftsverwaltung
+  interessen: Leistungskennzahlen, Strukturentwicklung, Mittelverteilung
+- id: Z3003
+  label: Förderorganisationen
+  interessen: Forschungsstärke, Antragsqualität, Schwerpunkte
+
+# Wirtschaft und Zivilgesellschaft (Z4001–Z4999)
+- id: Z4001
+  label: Unternehmen / Arbeitgeber
+  interessen: Absolventenqualität, Kooperationsmöglichkeiten, Transferpotenzial
+- id: Z4002
+  label: Zivilgesellschaftliche Organisationen
+  interessen: Gesellschaftliche Verantwortung, Zugänglichkeit, Diversität
+- id: Z4003
+  label: Stiftungen / Mäzene
+  interessen: Förderanlässe, Wirkung, institutionelle Verlässlichkeit
+- id: Z4004
+  label: Internationale Partner
+  interessen: Kooperationsfähigkeit, Rankings, Fachprofile

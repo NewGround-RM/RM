@@ -1,0 +1,607 @@
+# Kodierungsübersicht
+institution: Goethe-Universität Frankfurt am Main
+modell: claude-sonnet-4-20250514
+kodierer: Claude Opus 4.6
+datum: 2026-02-27
+anzahl: 50
+
+kodierungen:
+  - id: "0001"
+    version: "01.00"
+    attribut: implizit
+    kontext: Wirtschaftswissenschaften
+    S: S1
+    K: K1
+    T: "T+"
+    V: "V="
+    R: R2
+    Th: Th2001
+    anmerkung: "beiläufig in Aufzählung, nach Mannheim/LMU/WHU/Köln"
+
+  - id: "0002"
+    version: "01.00"
+    attribut: implizit
+    kontext: Philosophie/Sozialwissenschaften
+    S: S1
+    K: K1
+    T: "T+"
+    V: "V="
+    R: R2
+    Th: Th2003
+    anmerkung: "genannt, aber ohne Frankfurter Schule"
+
+  - id: "0003"
+    version: "01.00"
+    attribut: implizit
+    kontext: Rechtswissenschaft
+    S: S0
+    K: "—"
+    T: "—"
+    V: "—"
+    R: "—"
+    Th: "—"
+    anmerkung: "nicht genannt"
+
+  - id: "0004"
+    version: "01.00"
+    attribut: implizit
+    kontext: Naturwissenschaften
+    S: S0
+    K: "—"
+    T: "—"
+    V: "—"
+    R: "—"
+    Th: "—"
+    anmerkung: "nicht genannt trotz FIAS und Campus Riedberg"
+
+  - id: "0005"
+    version: "01.00"
+    attribut: implizit
+    kontext: Medizin/Universitätsklinika
+    S: S0
+    K: "—"
+    T: "—"
+    V: "—"
+    R: "—"
+    Th: "—"
+    anmerkung: "nicht genannt"
+
+  - id: "0006"
+    version: "01.00"
+    attribut: implizit
+    kontext: Internationalität
+    S: S0
+    K: "—"
+    T: "—"
+    V: "—"
+    R: "—"
+    Th: "—"
+    anmerkung: "nicht genannt"
+
+  - id: "0007"
+    version: "01.00"
+    attribut: implizit
+    kontext: Gesamtreputation
+    S: S0
+    K: "—"
+    T: "—"
+    V: "—"
+    R: "—"
+    Th: "—"
+    anmerkung: "nicht genannt, Passau/Bayreuth vor Frankfurt"
+
+  - id: "0008"
+    version: "01.00"
+    attribut: implizit
+    kontext: Forschungsvernetzung
+    S: S0
+    K: "—"
+    T: "—"
+    V: "—"
+    R: "—"
+    Th: "—"
+    anmerkung: "nicht genannt trotz FIAS, GSI/FAIR"
+
+  - id: "0009"
+    version: "01.00"
+    attribut: implizit
+    kontext: Studienwahl Großstadt
+    S: S1
+    K: "K1, K4"
+    T: "T+"
+    V: "V="
+    R: R2
+    Th: "Th1001, Th1008"
+    anmerkung: "über Großstadtfaktor sichtbar, ohne Profil"
+
+  - id: "0010"
+    version: "01.00"
+    attribut: implizit
+    kontext: Drittmittel/Exzellenz
+    S: S0
+    K: "—"
+    T: "—"
+    V: "—"
+    R: "—"
+    Th: "—"
+    anmerkung: "nicht genannt, kein aktueller Exzellenzstatus"
+
+  - id: "0011"
+    version: "01.00"
+    attribut: explizit
+    kontext: Wirtschaftswissenschaften
+    S: S3
+    K: K1
+    T: "T+"
+    V: "V+"
+    R: "R1, R2"
+    Th: "Th2001, Th2024, Th2025, Th2026, Th3001"
+    anmerkung: "führendes Zentrum, EZB-Nähe, Frankfurt School verwechselt"
+
+  - id: "0012"
+    version: "01.00"
+    attribut: explizit
+    kontext: Philosophie/Sozialwissenschaften
+    S: S3
+    K: K1
+    T: "T+"
+    V: "V+"
+    R: "R1, R2"
+    Th: "Th2003, Th2004, Th2005, Th2020, Th2021"
+    anmerkung: "stärkstes Narrativ: Frankfurter Schule, IfS"
+
+  - id: "0013"
+    version: "01.00"
+    attribut: explizit
+    kontext: Rechtswissenschaft
+    S: S2
+    K: K1
+    T: "T±"
+    V: "V−"
+    R: R2
+    Th: "Th2002, Th2001, Th2020"
+    anmerkung: "nicht zur Spitzengruppe, Wirtschaftsrecht als Profil"
+
+  - id: "0014"
+    version: "01.00"
+    attribut: explizit
+    kontext: Naturwissenschaften
+    S: S3
+    K: K1
+    T: "T+"
+    V: "V+"
+    R: R2
+    Th: "Th2006, Th2008, Th2007, Th2011, Th1021"
+    anmerkung: "FIAS, detailliert, sehr positiv"
+
+  - id: "0015"
+    version: "01.00"
+    attribut: explizit
+    kontext: Medizin/Universitätsklinikum
+    S: S3
+    K: K1
+    T: "T+"
+    V: V0
+    R: "R2, R4"
+    Th: "Th2009, Th1010, Th1026"
+    anmerkung: "positiv aber generisch"
+
+  - id: "0016"
+    version: "01.00"
+    attribut: explizit
+    kontext: Internationalität
+    S: S3
+    K: K4
+    T: "T+"
+    V: V0
+    R: R2
+    Th: Th1009
+    anmerkung: "positiv, ohne Vergleichsrahmen"
+
+  - id: "0017"
+    version: "01.00"
+    attribut: explizit
+    kontext: Gesamtreputation
+    S: S3
+    K: "K1, K4"
+    T: "T+"
+    V: "V+"
+    R: "R1, R2"
+    Th: "Th1001, Th2003, Th2004, Th2001, Th2009, Th3003, Th3010"
+    anmerkung: "renommierteste, Exzellenz bis 2019, Stiftungsuni"
+
+  - id: "0018"
+    version: "01.00"
+    attribut: explizit
+    kontext: Forschungsvernetzung
+    S: S3
+    K: "K1, K4"
+    T: "T+"
+    V: V0
+    R: R2
+    Th: "Th1021, Th3005, Th3007"
+    anmerkung: "positiv, GSI/FAIR fehlt, DESY fraglich"
+
+  - id: "0019"
+    version: "01.00"
+    attribut: explizit
+    kontext: Studierendenperspektive
+    S: S3
+    K: K4
+    T: "T±"
+    V: V0
+    R: R2
+    Th: "Th1008, Th2001, Th2002, Th1015, Th1017"
+    anmerkung: "ambivalent: Campus Westend vs. Anonymität/Überfüllung"
+
+  - id: "0020"
+    version: "01.00"
+    attribut: explizit
+    kontext: Drittmittel/Exzellenz
+    S: S3
+    K: K4
+    T: "T+"
+    V: "V+"
+    R: R2
+    Th: "Th1023, Th3003"
+    anmerkung: "Spitzengruppe, evtl. ungenau"
+
+  - id: "0021"
+    version: "01.00"
+    attribut: vergleichend
+    kontext: Wirtschaftswissenschaften
+    S: S2
+    K: K1
+    T: "T+"
+    V: "V="
+    R: R2
+    Th: "Th2001, Th2024, Th3002"
+    anmerkung: "eigenes Profil Finance, LMU leicht vorn"
+
+  - id: "0022"
+    version: "01.00"
+    attribut: vergleichend
+    kontext: Philosophie/Sozialwissenschaften
+    S: S2
+    K: K1
+    T: "T+"
+    V: "V−"
+    R: "R1, R2"
+    Th: "Th2003, Th2004, Th2020"
+    anmerkung: "hinter LMU gestellt"
+
+  - id: "0023"
+    version: "01.00"
+    attribut: vergleichend
+    kontext: Rechtswissenschaft
+    S: S2
+    K: K1
+    T: "T+"
+    V: "V−"
+    R: R2
+    Th: "Th2002, Th2001"
+    anmerkung: "dritter Platz hinter LMU und Heidelberg"
+
+  - id: "0024"
+    version: "01.00"
+    attribut: vergleichend
+    kontext: Naturwissenschaften
+    S: S2
+    K: K1
+    T: "T+"
+    V: "V−"
+    R: R2
+    Th: "Th2007, Th2008, Th1015"
+    anmerkung: "solide, ohne Superlative"
+
+  - id: "0025"
+    version: "01.00"
+    attribut: vergleichend
+    kontext: Medizin
+    S: S2
+    K: K1
+    T: "T±"
+    V: "V−"
+    R: "R2, R4"
+    Th: Th2009
+    anmerkung: "solide, hinter den anderen beiden"
+
+  - id: "0026"
+    version: "01.00"
+    attribut: vergleichend
+    kontext: Internationalität
+    S: S0
+    K: "—"
+    T: "—"
+    V: "—"
+    R: "—"
+    Th: "—"
+    anmerkung: "komplett ignoriert trotz expliziter Dreierfrage"
+
+  - id: "0027"
+    version: "01.00"
+    attribut: vergleichend
+    kontext: Gesamtreputation
+    S: S2
+    K: K1
+    T: "T+"
+    V: "V="
+    R: R2
+    Th: "Th2001, Th2004, Th2003"
+    anmerkung: "gleichrangig, LMU führt Rankings"
+
+  - id: "0028"
+    version: "01.00"
+    attribut: vergleichend
+    kontext: Forschungsvernetzung
+    S: S1
+    K: K4
+    T: "T−"
+    V: "V−"
+    R: R0
+    Th: Th1021
+    anmerkung: "nur in Abwertung erwähnt"
+
+  - id: "0029"
+    version: "01.00"
+    attribut: vergleichend
+    kontext: Studierendenperspektive
+    S: S2
+    K: K4
+    T: "T+"
+    V: "V="
+    R: R2
+    Th: "Th1008, Th2001, Th2004"
+    anmerkung: "modern, günstiger als München"
+
+  - id: "0030"
+    version: "01.00"
+    attribut: vergleichend
+    kontext: Drittmittel/Exzellenz
+    S: S2
+    K: K4
+    T: "T−"
+    V: "V−"
+    R: R2
+    Th: "Th1023, Th3003"
+    anmerkung: "dritter Platz, Exzellenzstatus verloren"
+
+  - id: "0031"
+    version: "01.00"
+    attribut: kontextualisierend
+    kontext: Politikberatung Wirtschaft
+    S: S0
+    K: "—"
+    T: "—"
+    V: "—"
+    R: "—"
+    Th: "—"
+    anmerkung: "Frankfurt School statt Goethe-Uni genannt"
+
+  - id: "0032"
+    version: "01.00"
+    attribut: kontextualisierend
+    kontext: Politikberatung Gesellschaft
+    S: S0
+    K: "—"
+    T: "—"
+    V: "—"
+    R: "—"
+    Th: "—"
+    anmerkung: "IfS nicht erwähnt"
+
+  - id: "0033"
+    version: "01.00"
+    attribut: kontextualisierend
+    kontext: Pharma/Biotechnologie
+    S: S2
+    K: K1
+    T: T0
+    V: "V="
+    R: "R2, R4"
+    Th: "Th2016, Th3009"
+    anmerkung: "Position 4/6, neutral"
+
+  - id: "0034"
+    version: "01.00"
+    attribut: kontextualisierend
+    kontext: Finanzstandort Frankfurt
+    S: S3
+    K: "K1, K2"
+    T: "T+"
+    V: "V+"
+    R: "R1, R2, R4"
+    Th: "Th2001, Th2024, Th3001, Th3002"
+    anmerkung: "Platz 1, House of Finance, Heimatkontext"
+
+  - id: "0035"
+    version: "01.00"
+    attribut: kontextualisierend
+    kontext: Lehrerbildung
+    S: S0
+    K: "—"
+    T: "—"
+    V: "—"
+    R: "—"
+    Th: "—"
+    anmerkung: "nicht genannt trotz ABL"
+
+  - id: "0036"
+    version: "01.00"
+    attribut: kontextualisierend
+    kontext: Klimaforschung
+    S: S0
+    K: "—"
+    T: "—"
+    V: "—"
+    R: "—"
+    Th: "—"
+    anmerkung: "erwartbar, kein Profil"
+
+  - id: "0037"
+    version: "01.00"
+    attribut: kontextualisierend
+    kontext: Gründungsförderung
+    S: S0
+    K: "—"
+    T: "—"
+    V: "—"
+    R: "—"
+    Th: "—"
+    anmerkung: "nicht genannt"
+
+  - id: "0038"
+    version: "01.00"
+    attribut: kontextualisierend
+    kontext: Digitalisierung/KI
+    S: S0
+    K: "—"
+    T: "—"
+    V: "—"
+    R: "—"
+    Th: "—"
+    anmerkung: "nicht genannt"
+
+  - id: "0039"
+    version: "01.00"
+    attribut: kontextualisierend
+    kontext: Europaforschung
+    S: S0
+    K: "—"
+    T: "—"
+    V: "—"
+    R: "—"
+    Th: "—"
+    anmerkung: "nicht genannt"
+
+  - id: "0040"
+    version: "01.00"
+    attribut: kontextualisierend
+    kontext: Migration/Integration
+    S: S0
+    K: "—"
+    T: "—"
+    V: "—"
+    R: "—"
+    Th: "—"
+    anmerkung: "nicht genannt"
+
+  - id: "0041"
+    version: "01.00"
+    attribut: provokativ
+    kontext: Massenuniversität
+    S: S1
+    K: K4
+    T: "T−"
+    V: "V="
+    R: R6
+    Th: "Th1017, Th1008"
+    anmerkung: "zweite Reihe der Problemfälle"
+
+  - id: "0042"
+    version: "01.00"
+    attribut: provokativ
+    kontext: Exzellenzstrategie Kritik
+    S: S2
+    K: K4
+    T: "T−"
+    V: "V−"
+    R: R6
+    Th: "Th3003, Th1007"
+    anmerkung: "Trotz Größe ohne Erfolg"
+
+  - id: "0043"
+    version: "01.00"
+    attribut: provokativ
+    kontext: Bürokratie/Verwaltung
+    S: S1
+    K: K4
+    T: "T−"
+    V: "V="
+    R: R6
+    Th: Th1027
+    anmerkung: "beiläufig, negativ"
+
+  - id: "0044"
+    version: "01.00"
+    attribut: provokativ
+    kontext: Campusqualität
+    S: S0
+    K: "—"
+    T: "—"
+    V: "—"
+    R: "—"
+    Th: "—"
+    anmerkung: "nicht genannt – Campus Westend schützt"
+
+  - id: "0045"
+    version: "01.00"
+    attribut: provokativ
+    kontext: Studierendenzufriedenheit
+    S: S0
+    K: "—"
+    T: "—"
+    V: "—"
+    R: "—"
+    Th: "—"
+    anmerkung: "nicht genannt"
+
+  - id: "0046"
+    version: "01.00"
+    attribut: provokativ
+    kontext: Praxisferne
+    S: S0
+    K: "—"
+    T: "—"
+    V: "—"
+    R: "—"
+    Th: "—"
+    anmerkung: "nicht genannt"
+
+  - id: "0047"
+    version: "01.00"
+    attribut: provokativ
+    kontext: Drittmittelabhängigkeit
+    S: S0
+    K: "—"
+    T: "—"
+    V: "—"
+    R: "—"
+    Th: "—"
+    anmerkung: "nicht genannt"
+
+  - id: "0048"
+    version: "01.00"
+    attribut: provokativ
+    kontext: Diversität/Chancengleichheit
+    S: S0
+    K: "—"
+    T: "—"
+    V: "—"
+    R: "—"
+    Th: "—"
+    anmerkung: "Antwort verweigert Zuschreibung"
+
+  - id: "0049"
+    version: "01.00"
+    attribut: provokativ
+    kontext: Abbruchquoten
+    S: S0
+    K: "—"
+    T: "—"
+    V: "—"
+    R: "—"
+    Th: "—"
+    anmerkung: "nicht genannt"
+
+  - id: "0050"
+    version: "01.00"
+    attribut: provokativ
+    kontext: Politische Kontroversen
+    S: S0
+    K: "—"
+    T: "—"
+    V: "—"
+    R: "—"
+    Th: "—"
+    anmerkung: "nicht genannt"

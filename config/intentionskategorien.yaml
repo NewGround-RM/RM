@@ -1,0 +1,99 @@
+# Intentionskategorien für das Reputationsmonitoring
+# Klassifiziert die Nutzerabsicht hinter einer LLM-Anfrage
+# Ergänzende analytische Schicht zu Promptkategorien und Promptbezügen:
+# - Promptkategorie = wie wird gefragt (implizit, explizit, vergleichend, ...)
+# - Promptbezug = worauf bezieht sich die Frage (Institution, Thema, Person)
+# - Intentionskategorie = was will der Fragende erreichen
+# Jeder Prompt im Erhebungskorpus erhält eine Intentionskategorie
+# Offene Liste – neue Einträge am Ende des jeweiligen Blocks ergänzen
+
+# Informationsorientierte Intentionen (Int1001–Int1999)
+- id: Int1001
+  label: Informational
+  beschreibung: >
+    Nutzer:in sucht Sachinformation, Überblick oder Erklärung
+    ohne erkennbare Handlungsabsicht.
+  beispiele:
+    - "Was ist die Goethe-Universität Frankfurt?"
+    - "Wofür ist das KIT bekannt?"
+    - "Was versteht man unter Kritischer Theorie?"
+  typische_zielgruppen: [Z2003, Z2001, Z1002]
+
+- id: Int1002
+  label: Explorativ
+  beschreibung: >
+    Nutzer:in erkundet ein Themenfeld offen, ohne eine bestimmte
+    Institution oder Person im Blick zu haben.
+  beispiele:
+    - "Welche Universitäten forschen zu Biodiversität?"
+    - "Wo kann man in Deutschland Kognitionswissenschaft studieren?"
+    - "Wer sind führende Forscher:innen zur Finanzsystemstabilität?"
+  typische_zielgruppen: [Z1003, Z1001, Z3003]
+
+# Entscheidungsorientierte Intentionen (Int2001–Int2999)
+- id: Int2001
+  label: Evaluativ
+  beschreibung: >
+    Nutzer:in will vergleichen, bewerten oder eine Rangfolge erstellen,
+    um eine Entscheidung vorzubereiten.
+  beispiele:
+    - "Vergleiche die Wirtschaftswissenschaften an der Goethe-Uni und der LMU."
+    - "Was sind die besten Universitäten für Physik in Deutschland?"
+    - "Lohnt sich ein Studium an der TU Darmstadt gegenüber dem KIT?"
+  typische_zielgruppen: [Z1003, Z1002, Z4004]
+
+- id: Int2002
+  label: Navigational
+  beschreibung: >
+    Nutzer:in will eine bestimmte Institution, ein Angebot oder eine
+    Anlaufstelle finden – die Suchintention ist zielgerichtet.
+  beispiele:
+    - "Wo finde ich die Bewerbungsfristen der Goethe-Universität?"
+    - "Wer leitet das Institut für Sozialforschung in Frankfurt?"
+    - "Gibt es ein Graduiertenkolleg zu Klimaökonomie an der Goethe-Uni?"
+  typische_zielgruppen: [Z1003, Z1004, Z1001]
+
+- id: Int2003
+  label: Transaktional
+  beschreibung: >
+    Nutzer:in will eine konkrete Handlung einleiten –
+    Bewerbung, Kontaktaufnahme, Anmeldung, Förderantrag.
+  beispiele:
+    - "Wie bewerbe ich mich für den Master Finance in Frankfurt?"
+    - "Wo kann ich mich für eine Konferenz an der Goethe-Uni anmelden?"
+    - "Welche Förderprogramme gibt es für Postdocs in den Geisteswissenschaften?"
+  typische_zielgruppen: [Z1003, Z1004, Z4001]
+
+# Reputationsbezogene Intentionen (Int3001–Int3999)
+- id: Int3001
+  label: Reputational
+  beschreibung: >
+    Nutzer:in fragt gezielt nach dem Ruf, der Qualität oder dem
+    Standing einer Institution – oft mit kritischem oder prüfendem Blick.
+  beispiele:
+    - "Hat die Goethe-Universität einen guten Ruf?"
+    - "Wie wird das Lehrangebot der Goethe-Uni bewertet?"
+    - "Gibt es Kritik an der Goethe-Universität?"
+  typische_zielgruppen: [Z1003, Z2001, Z3001]
+
+- id: Int3002
+  label: Kontextualisierend
+  beschreibung: >
+    Nutzer:in will eine Institution in einen größeren Zusammenhang einordnen –
+    historisch, regional, politisch oder wissenschaftssystemisch.
+  beispiele:
+    - "Welche Rolle spielt die Goethe-Uni im Rhein-Main-Gebiet?"
+    - "Wie hat sich die Frankfurter Schule auf die deutsche Soziologie ausgewirkt?"
+    - "Welche Bedeutung hat die Nähe zur EZB für die Frankfurter Wirtschaftsforschung?"
+  typische_zielgruppen: [Z2001, Z3001, Z1005]
+
+- id: Int3003
+  label: Kritisch-prüfend
+  beschreibung: >
+    Nutzer:in formuliert eine skeptische, herausfordernde oder
+    problemorientierte Anfrage – testet Schwachstellen.
+  beispiele:
+    - "Welche Probleme gibt es an der Goethe-Universität?"
+    - "Stimmt es, dass die Goethe-Uni bei Rankings schlecht abschneidet?"
+    - "Warum verliert Frankfurt Studierende an andere Standorte?"
+  typische_zielgruppen: [Z2001, Z1003, Z3002]

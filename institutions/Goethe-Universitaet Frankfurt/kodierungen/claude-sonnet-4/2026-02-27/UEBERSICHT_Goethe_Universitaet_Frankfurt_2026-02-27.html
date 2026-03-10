@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kodierungsübersicht – Goethe-Universität Frankfurt</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #faf9f7;
+    --bg-card: #ffffff;
+    --border: #e8e5e0;
+    --text: #1a1a1a;
+    --text-muted: #6b6560;
+    --text-light: #9b9590;
+    --accent: #c45028;
+    --accent-light: #f4e8e3;
+    --positive: #2d7a4f;
+    --positive-bg: #e8f5ee;
+    --negative: #b83232;
+    --negative-bg: #fce8e8;
+    --neutral: #5a6570;
+    --neutral-bg: #eef0f2;
+    --ambivalent: #a07828;
+    --ambivalent-bg: #faf3e0;
+    --s0: #d4d0cc;
+    --s1: #a8bcd0;
+    --s2: #5a8ab5;
+    --s3: #1a5a8a;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.04);
+    --shadow-md: 0 4px 12px rgba(0,0,0,0.06);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'IBM Plex Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.5;
+    font-size: 14px;
+    -webkit-font-smoothing: antialiased;
+  }
+  .container { max-width: 1400px; margin: 0 auto; padding: 40px 32px; }
+  header { margin-bottom: 48px; border-bottom: 2px solid var(--text); padding-bottom: 24px; }
+  header h1 { font-family: 'DM Serif Display', serif; font-size: 32px; font-weight: 400; letter-spacing: -0.5px; margin-bottom: 8px; }
+  .meta-line { font-size: 13px; color: var(--text-muted); font-weight: 300; display: flex; gap: 24px; flex-wrap: wrap; }
+  .meta-line span { white-space: nowrap; }
+  .meta-line span::before { content: ''; display: inline-block; width: 4px; height: 4px; background: var(--text-light); border-radius: 50%; margin-right: 8px; vertical-align: middle; }
+  .meta-line span:first-child::before { display: none; }
+  .summary-strip { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 16px; margin-bottom: 40px; }
+  .summary-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 20px; box-shadow: var(--shadow-sm); }
+  .summary-card .label { font-size: 11px; text-transform: uppercase; letter-spacing: 1.2px; color: var(--text-light); font-weight: 500; margin-bottom: 6px; }
+  .summary-card .value { font-family: 'IBM Plex Mono', monospace; font-size: 28px; font-weight: 500; color: var(--text); }
+  .summary-card .sub { font-size: 12px; color: var(--text-muted); margin-top: 4px; }
+  .filter-bar { display: flex; gap: 12px; margin-bottom: 24px; flex-wrap: wrap; align-items: center; }
+  .filter-bar label { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: var(--text-light); font-weight: 500; }
+  .filter-group { display: flex; gap: 4px; }
+  .filter-btn { font-family: 'IBM Plex Sans', sans-serif; font-size: 12px; font-weight: 500; padding: 6px 14px; border: 1px solid var(--border); border-radius: 20px; background: var(--bg-card); color: var(--text-muted); cursor: pointer; transition: all 0.15s ease; }
+  .filter-btn:hover { border-color: var(--text-muted); color: var(--text); }
+  .filter-btn.active { background: var(--text); color: var(--bg); border-color: var(--text); }
+  .table-wrap { background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; box-shadow: var(--shadow-md); overflow: hidden; }
+  table { width: 100%; border-collapse: collapse; }
+  thead th { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; color: var(--text-muted); padding: 14px 12px; text-align: left; border-bottom: 2px solid var(--border); position: sticky; top: 0; background: var(--bg-card); cursor: pointer; user-select: none; white-space: nowrap; }
+  thead th:hover { color: var(--text); }
+  thead th.sorted { color: var(--accent); }
+  thead th .sort-arrow { font-size: 10px; margin-left: 4px; opacity: 0.5; }
+  thead th.sorted .sort-arrow { opacity: 1; }
+  tbody tr { border-bottom: 1px solid #f0eeeb; transition: background 0.1s ease; }
+  tbody tr:last-child { border-bottom: none; }
+  tbody tr:hover { background: #faf8f5; }
+  td { padding: 12px 12px; vertical-align: top; font-size: 13px; }
+  td.id-col { font-family: 'IBM Plex Mono', monospace; font-weight: 500; font-size: 13px; width: 60px; }
+  td.attr-col { width: 120px; }
+  td.kontext-col { width: 180px; font-weight: 500; }
+  .tag { display: inline-block; font-size: 11px; font-weight: 500; padding: 3px 10px; border-radius: 12px; white-space: nowrap; }
+  .tag-implizit { background: #e8eef5; color: #3a5a80; }
+  .tag-explizit { background: #e8f0e8; color: #2d6030; }
+  .tag-vergleichend { background: #f0eae5; color: #7a5530; }
+  .tag-kontextualisierend { background: #eee8f0; color: #5a3570; }
+  .tag-provokativ { background: #f5e8e8; color: #803a3a; }
+  .code { font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 500; display: inline-block; padding: 2px 8px; border-radius: 4px; white-space: nowrap; }
+  .code-empty { color: var(--text-light); }
+  .code-s0 { background: #f0eeeb; color: #999; }
+  .code-s1 { background: #dce8f2; color: var(--s1); }
+  .code-s2 { background: #c8dce8; color: var(--s2); }
+  .code-s3 { background: #1a5a8a; color: #fff; }
+  .code-tplus { background: var(--positive-bg); color: var(--positive); }
+  .code-t0 { background: var(--neutral-bg); color: var(--neutral); }
+  .code-tpm { background: var(--ambivalent-bg); color: var(--ambivalent); }
+  .code-tminus { background: var(--negative-bg); color: var(--negative); }
+  .code-vplus { background: var(--positive-bg); color: var(--positive); }
+  .code-veq { background: var(--neutral-bg); color: var(--neutral); }
+  .code-vminus { background: var(--negative-bg); color: var(--negative); }
+  .code-v0 { background: #f0eeeb; color: #999; }
+  td.anmerkung-col { font-size: 12px; color: var(--text-muted); font-weight: 300; max-width: 280px; line-height: 1.4; }
+  .th-codes { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--text-muted); word-break: break-word; }
+  tr.hidden { display: none; }
+  .count-badge { display: inline-block; font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 500; background: var(--bg); border: 1px solid var(--border); border-radius: 12px; padding: 4px 12px; margin-left: 16px; color: var(--text-muted); }
+  footer { margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border); font-size: 12px; color: var(--text-light); display: flex; justify-content: space-between; }
+  @media (max-width: 900px) { .container { padding: 20px 16px; } header h1 { font-size: 24px; } .table-wrap { overflow-x: auto; } table { min-width: 900px; } }
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+  <h1>Kodierungsübersicht</h1>
+  <div class="meta-line">
+    <span>Goethe-Universität Frankfurt am Main</span>
+    <span>Modell: claude-sonnet-4-20250514</span>
+    <span>Kodierer: Claude Opus 4.6</span>
+    <span>Erhebung: 2026-02-27</span>
+  </div>
+</header>
+<div class="summary-strip" id="summaryStrip"></div>
+<div class="filter-bar">
+  <label>Kategorie</label>
+  <div class="filter-group" id="attrFilters">
+    <button class="filter-btn active" data-filter="alle">Alle</button>
+    <button class="filter-btn" data-filter="implizit">Implizit</button>
+    <button class="filter-btn" data-filter="explizit">Explizit</button>
+    <button class="filter-btn" data-filter="vergleichend">Vergleichend</button>
+    <button class="filter-btn" data-filter="kontextualisierend">Kontext.</button>
+    <button class="filter-btn" data-filter="provokativ">Provokativ</button>
+  </div>
+  <span class="count-badge" id="countBadge">50 / 50</span>
+</div>
+<div class="table-wrap">
+  <table>
+    <thead><tr>
+      <th data-col="id">ID <span class="sort-arrow">↕</span></th>
+      <th data-col="attribut">Kategorie <span class="sort-arrow">↕</span></th>
+      <th data-col="kontext">Kontext <span class="sort-arrow">↕</span></th>
+      <th data-col="S">S <span class="sort-arrow">↕</span></th>
+      <th data-col="K">K</th>
+      <th data-col="T">T <span class="sort-arrow">↕</span></th>
+      <th data-col="V">V <span class="sort-arrow">↕</span></th>
+      <th data-col="R">R</th>
+      <th data-col="Th">Th</th>
+      <th>Anmerkung</th>
+    </tr></thead>
+    <tbody id="tableBody"></tbody>
+  </table>
+</div>
+<footer>
+  <span>RepMon · GEO-Reputationsmonitoring</span>
+  <span>Generiert aus UEBERSICHT_Goethe_Universitaet_Frankfurt_2026-02-27.yaml</span>
+</footer>
+</div>
+<script>
+const DATA=[{id:"0001",v:"01.00",attribut:"implizit",kontext:"Wirtschaftswissenschaften",S:"S1",K:"K1",T:"T+",V:"V=",R:"R2",Th:"Th2001",anm:"beiläufig in Aufzählung, nach Mannheim/LMU/WHU/Köln"},{id:"0002",v:"01.00",attribut:"implizit",kontext:"Philosophie/Sozialwiss.",S:"S1",K:"K1",T:"T+",V:"V=",R:"R2",Th:"Th2003",anm:"genannt, aber ohne Frankfurter Schule"},{id:"0003",v:"01.00",attribut:"implizit",kontext:"Rechtswissenschaft",S:"S0",K:"—",T:"—",V:"—",R:"—",Th:"—",anm:"nicht genannt"},{id:"0004",v:"01.00",attribut:"implizit",kontext:"Naturwissenschaften",S:"S0",K:"—",T:"—",V:"—",R:"—",Th:"—",anm:"nicht genannt trotz FIAS"},{id:"0005",v:"01.00",attribut:"implizit",kontext:"Medizin/Uniklinika",S:"S0",K:"—",T:"—",V:"—",R:"—",Th:"—",anm:"nicht genannt"},{id:"0006",v:"01.00",attribut:"implizit",kontext:"Internationalität",S:"S0",K:"—",T:"—",V:"—",R:"—",Th:"—",anm:"nicht genannt"},{id:"0007",v:"01.00",attribut:"implizit",kontext:"Gesamtreputation",S:"S0",K:"—",T:"—",V:"—",R:"—",Th:"—",anm:"nicht genannt, Passau vor Frankfurt"},{id:"0008",v:"01.00",attribut:"implizit",kontext:"Forschungsvernetzung",S:"S0",K:"—",T:"—",V:"—",R:"—",Th:"—",anm:"nicht genannt trotz FIAS, GSI/FAIR"},{id:"0009",v:"01.00",attribut:"implizit",kontext:"Studienwahl Großstadt",S:"S1",K:"K1, K4",T:"T+",V:"V=",R:"R2",Th:"Th1001, Th1008",anm:"über Großstadtfaktor sichtbar"},{id:"0010",v:"01.00",attribut:"implizit",kontext:"Drittmittel/Exzellenz",S:"S0",K:"—",T:"—",V:"—",R:"—",Th:"—",anm:"nicht genannt"},{id:"0011",v:"01.00",attribut:"explizit",kontext:"Wirtschaftswissenschaften",S:"S3",K:"K1",T:"T+",V:"V+",R:"R1, R2",Th:"Th2001, Th2024, Th2025, Th2026, Th3001",anm:"führendes Zentrum, EZB-Nähe"},{id:"0012",v:"01.00",attribut:"explizit",kontext:"Philosophie/Sozialwiss.",S:"S3",K:"K1",T:"T+",V:"V+",R:"R1, R2",Th:"Th2003, Th2004, Th2005, Th2020, Th2021",anm:"stärkstes Narrativ: Frankfurter Schule"},{id:"0013",v:"01.00",attribut:"explizit",kontext:"Rechtswissenschaft",S:"S2",K:"K1",T:"T±",V:"V−",R:"R2",Th:"Th2002, Th2001, Th2020",anm:"nicht zur Spitzengruppe"},{id:"0014",v:"01.00",attribut:"explizit",kontext:"Naturwissenschaften",S:"S3",K:"K1",T:"T+",V:"V+",R:"R2",Th:"Th2006, Th2008, Th2007, Th2011, Th1021",anm:"FIAS, detailliert, sehr positiv"},{id:"0015",v:"01.00",attribut:"explizit",kontext:"Medizin/Uniklinikum",S:"S3",K:"K1",T:"T+",V:"V0",R:"R2, R4",Th:"Th2009, Th1010, Th1026",anm:"positiv aber generisch"},{id:"0016",v:"01.00",attribut:"explizit",kontext:"Internationalität",S:"S3",K:"K4",T:"T+",V:"V0",R:"R2",Th:"Th1009",anm:"positiv, ohne Vergleichsrahmen"},{id:"0017",v:"01.00",attribut:"explizit",kontext:"Gesamtreputation",S:"S3",K:"K1, K4",T:"T+",V:"V+",R:"R1, R2",Th:"Th1001, Th2003, Th2004, Th2001, Th2009, Th3003, Th3010",anm:"renommierteste, Stiftungsuni"},{id:"0018",v:"01.00",attribut:"explizit",kontext:"Forschungsvernetzung",S:"S3",K:"K1, K4",T:"T+",V:"V0",R:"R2",Th:"Th1021, Th3005, Th3007",anm:"positiv, GSI/FAIR fehlt"},{id:"0019",v:"01.00",attribut:"explizit",kontext:"Studierendenperspektive",S:"S3",K:"K4",T:"T±",V:"V0",R:"R2",Th:"Th1008, Th2001, Th2002, Th1015, Th1017",anm:"Campus Westend vs. Anonymität"},{id:"0020",v:"01.00",attribut:"explizit",kontext:"Drittmittel/Exzellenz",S:"S3",K:"K4",T:"T+",V:"V+",R:"R2",Th:"Th1023, Th3003",anm:"Spitzengruppe, evtl. ungenau"},{id:"0021",v:"01.00",attribut:"vergleichend",kontext:"Wirtschaftswissenschaften",S:"S2",K:"K1",T:"T+",V:"V=",R:"R2",Th:"Th2001, Th2024, Th3002",anm:"eigenes Profil, LMU leicht vorn"},{id:"0022",v:"01.00",attribut:"vergleichend",kontext:"Philosophie/Sozialwiss.",S:"S2",K:"K1",T:"T+",V:"V−",R:"R1, R2",Th:"Th2003, Th2004, Th2020",anm:"hinter LMU gestellt"},{id:"0023",v:"01.00",attribut:"vergleichend",kontext:"Rechtswissenschaft",S:"S2",K:"K1",T:"T+",V:"V−",R:"R2",Th:"Th2002, Th2001",anm:"dritter Platz"},{id:"0024",v:"01.00",attribut:"vergleichend",kontext:"Naturwissenschaften",S:"S2",K:"K1",T:"T+",V:"V−",R:"R2",Th:"Th2007, Th2008, Th1015",anm:"solide, ohne Superlative"},{id:"0025",v:"01.00",attribut:"vergleichend",kontext:"Medizin",S:"S2",K:"K1",T:"T±",V:"V−",R:"R2, R4",Th:"Th2009",anm:"solide, hinter den anderen"},{id:"0026",v:"01.00",attribut:"vergleichend",kontext:"Internationalität",S:"S0",K:"—",T:"—",V:"—",R:"—",Th:"—",anm:"komplett ignoriert"},{id:"0027",v:"01.00",attribut:"vergleichend",kontext:"Gesamtreputation",S:"S2",K:"K1",T:"T+",V:"V=",R:"R2",Th:"Th2001, Th2004, Th2003",anm:"gleichrangig, LMU führt Rankings"},{id:"0028",v:"01.00",attribut:"vergleichend",kontext:"Forschungsvernetzung",S:"S1",K:"K4",T:"T−",V:"V−",R:"R0",Th:"Th1021",anm:"nur in Abwertung erwähnt"},{id:"0029",v:"01.00",attribut:"vergleichend",kontext:"Studierendenperspektive",S:"S2",K:"K4",T:"T+",V:"V=",R:"R2",Th:"Th1008, Th2001, Th2004",anm:"modern, günstiger als München"},{id:"0030",v:"01.00",attribut:"vergleichend",kontext:"Drittmittel/Exzellenz",S:"S2",K:"K4",T:"T−",V:"V−",R:"R2",Th:"Th1023, Th3003",anm:"dritter Platz, Status verloren"},{id:"0031",v:"01.00",attribut:"kontextualisierend",kontext:"Politikberatung Wirt.",S:"S0",K:"—",T:"—",V:"—",R:"—",Th:"—",anm:"Frankfurt School statt Goethe-Uni"},{id:"0032",v:"01.00",attribut:"kontextualisierend",kontext:"Politikberatung Ges.",S:"S0",K:"—",T:"—",V:"—",R:"—",Th:"—",anm:"IfS nicht erwähnt"},{id:"0033",v:"01.00",attribut:"kontextualisierend",kontext:"Pharma/Biotech",S:"S2",K:"K1",T:"T0",V:"V=",R:"R2, R4",Th:"Th2016, Th3009",anm:"Position 4/6, neutral"},{id:"0034",v:"01.00",attribut:"kontextualisierend",kontext:"Finanzstandort",S:"S3",K:"K1, K2",T:"T+",V:"V+",R:"R1, R2, R4",Th:"Th2001, Th2024, Th3001, Th3002",anm:"Platz 1, House of Finance"},{id:"0035",v:"01.00",attribut:"kontextualisierend",kontext:"Lehrerbildung",S:"S0",K:"—",T:"—",V:"—",R:"—",Th:"—",anm:"nicht genannt trotz ABL"},{id:"0036",v:"01.00",attribut:"kontextualisierend",kontext:"Klimaforschung",S:"S0",K:"—",T:"—",V:"—",R:"—",Th:"—",anm:"erwartbar, kein Profil"},{id:"0037",v:"01.00",attribut:"kontextualisierend",kontext:"Gründungsförderung",S:"S0",K:"—",T:"—",V:"—",R:"—",Th:"—",anm:"nicht genannt"},{id:"0038",v:"01.00",attribut:"kontextualisierend",kontext:"Digitalisierung/KI",S:"S0",K:"—",T:"—",V:"—",R:"—",Th:"—",anm:"nicht genannt"},{id:"0039",v:"01.00",attribut:"kontextualisierend",kontext:"Europaforschung",S:"S0",K:"—",T:"—",V:"—",R:"—",Th:"—",anm:"nicht genannt"},{id:"0040",v:"01.00",attribut:"kontextualisierend",kontext:"Migration/Integration",S:"S0",K:"—",T:"—",V:"—",R:"—",Th:"—",anm:"nicht genannt"},{id:"0041",v:"01.00",attribut:"provokativ",kontext:"Massenuniversität",S:"S1",K:"K4",T:"T−",V:"V=",R:"R6",Th:"Th1017, Th1008",anm:"zweite Reihe der Problemfälle"},{id:"0042",v:"01.00",attribut:"provokativ",kontext:"Exzellenzstrategie",S:"S2",K:"K4",T:"T−",V:"V−",R:"R6",Th:"Th3003, Th1007",anm:"Trotz Größe ohne Erfolg"},{id:"0043",v:"01.00",attribut:"provokativ",kontext:"Bürokratie/Verwaltung",S:"S1",K:"K4",T:"T−",V:"V=",R:"R6",Th:"Th1027",anm:"beiläufig, negativ"},{id:"0044",v:"01.00",attribut:"provokativ",kontext:"Campusqualität",S:"S0",K:"—",T:"—",V:"—",R:"—",Th:"—",anm:"nicht genannt – Campus Westend schützt"},{id:"0045",v:"01.00",attribut:"provokativ",kontext:"Studierendenzufriedenheit",S:"S0",K:"—",T:"—",V:"—",R:"—",Th:"—",anm:"nicht genannt"},{id:"0046",v:"01.00",attribut:"provokativ",kontext:"Praxisferne",S:"S0",K:"—",T:"—",V:"—",R:"—",Th:"—",anm:"nicht genannt"},{id:"0047",v:"01.00",attribut:"provokativ",kontext:"Drittmittelabhängigkeit",S:"S0",K:"—",T:"—",V:"—",R:"—",Th:"—",anm:"nicht genannt"},{id:"0048",v:"01.00",attribut:"provokativ",kontext:"Diversität",S:"S0",K:"—",T:"—",V:"—",R:"—",Th:"—",anm:"Antwort verweigert Zuschreibung"},{id:"0049",v:"01.00",attribut:"provokativ",kontext:"Abbruchquoten",S:"S0",K:"—",T:"—",V:"—",R:"—",Th:"—",anm:"nicht genannt"},{id:"0050",v:"01.00",attribut:"provokativ",kontext:"Politische Kontroversen",S:"S0",K:"—",T:"—",V:"—",R:"—",Th:"—",anm:"nicht genannt"}];
+function sClass(s){return s==='S0'?'code-s0':s==='S1'?'code-s1':s==='S2'?'code-s2':s==='S3'?'code-s3':'code-empty'}
+function tClass(t){return t==='T+'?'code-tplus':t==='T0'?'code-t0':t==='T±'?'code-tpm':t==='T−'?'code-tminus':'code-empty'}
+function vClass(v){return v==='V+'?'code-vplus':v==='V='?'code-veq':v==='V−'?'code-vminus':v==='V0'?'code-v0':'code-empty'}
+function attrTag(a){return`<span class="tag tag-${a}">${a}</span>`}
+function renderRow(d){return`<tr data-attr="${d.attribut}"><td class="id-col">${d.id}</td><td class="attr-col">${attrTag(d.attribut)}</td><td class="kontext-col">${d.kontext}</td><td><span class="code ${sClass(d.S)}">${d.S}</span></td><td><span class="code ${d.K==='—'?'code-empty':''}">${d.K}</span></td><td><span class="code ${tClass(d.T)}">${d.T}</span></td><td><span class="code ${vClass(d.V)}">${d.V}</span></td><td><span class="code ${d.R==='—'?'code-empty':''}">${d.R}</span></td><td><span class="th-codes">${d.Th}</span></td><td class="anmerkung-col">${d.anm}</td></tr>`}
+function renderTable(data){document.getElementById('tableBody').innerHTML=data.map(renderRow).join('')}
+let activeFilter='alle';
+function updateSummary(data){const f=activeFilter==='alle'?data:data.filter(d=>d.attribut===activeFilter);const s0=f.filter(d=>d.S==='S0').length;const s1=f.filter(d=>d.S==='S1').length;const s2=f.filter(d=>d.S==='S2').length;const s3=f.filter(d=>d.S==='S3').length;const tP=f.filter(d=>d.T==='T+').length;const tM=f.filter(d=>d.T==='T−').length;const tA=f.filter(d=>d.T==='T±').length;const vP=f.filter(d=>d.V==='V+').length;const vM=f.filter(d=>d.V==='V−').length;document.getElementById('summaryStrip').innerHTML=`<div class="summary-card"><div class="label">Prompts</div><div class="value">${f.length}</div></div><div class="summary-card"><div class="label">Nicht sichtbar (S0)</div><div class="value" style="color:var(--s0)">${s0}</div><div class="sub">${Math.round(s0/f.length*100)}% unsichtbar</div></div><div class="summary-card"><div class="label">Sichtbar (S1–S3)</div><div class="value" style="color:var(--s3)">${s1+s2+s3}</div><div class="sub">S1: ${s1} · S2: ${s2} · S3: ${s3}</div></div><div class="summary-card"><div class="label">Tonalität</div><div class="value" style="color:var(--positive)">${tP}× T+</div><div class="sub">${tM}× T− · ${tA}× T±</div></div><div class="summary-card"><div class="label">Positionierung</div><div class="value" style="color:var(--positive)">${vP}× V+</div><div class="sub">${vM}× V−</div></div>`}
+document.getElementById('attrFilters').addEventListener('click',e=>{if(!e.target.classList.contains('filter-btn'))return;document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));e.target.classList.add('active');activeFilter=e.target.dataset.filter;const rows=document.querySelectorAll('tbody tr');let count=0;rows.forEach(row=>{if(activeFilter==='alle'||row.dataset.attr===activeFilter){row.classList.remove('hidden');count++}else{row.classList.add('hidden')}});document.getElementById('countBadge').textContent=`${count} / ${DATA.length}`;updateSummary(DATA)});
+let sortCol=null,sortDir=1;
+document.querySelectorAll('thead th[data-col]').forEach(th=>{th.addEventListener('click',()=>{const col=th.dataset.col;if(sortCol===col){sortDir*=-1}else{sortCol=col;sortDir=1}document.querySelectorAll('thead th').forEach(h=>h.classList.remove('sorted'));th.classList.add('sorted');DATA.sort((a,b)=>{const va=a[col]||'';const vb=b[col]||'';return va.localeCompare(vb,'de')*sortDir});renderTable(DATA);if(activeFilter!=='alle'){document.querySelectorAll('tbody tr').forEach(row=>{if(row.dataset.attr!==activeFilter)row.classList.add('hidden')})}})});
+renderTable(DATA);updateSummary(DATA);
+</script>
+</body>
+</html>

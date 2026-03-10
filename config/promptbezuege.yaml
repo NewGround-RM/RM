@@ -1,0 +1,66 @@
+# Promptbezüge für das Reputationsmonitoring
+# Jeder Bezug definiert die Einheit, auf die sich ein Prompt bezieht:
+# Institution, Thema oder Person
+# Die Unterscheidung primär/sekundär beschreibt die Beobachtungsabsicht
+# und steuert die Auswertung – kodiert werden immer alle 6 Dimensionen
+# Dimensionen in Langform (Kurzformen siehe config/dimensionen.yaml)
+# Promptbezüge: z.B. Institution (-> institutionelle Reputation), Thema (-> Relevanz auf bestimmten Feld), Person (-> welcher Mensch an der Institution hat relevante Expertise? (Transfer))
+
+
+- id: institution
+  label: Institution
+  beschreibung: >
+    Der Prompt bezieht sich direkt oder indirekt auf eine Institution –
+    getestet wird, wie die Institution als Ganzes repräsentiert wird.
+  id_suffix: "I"
+  beispiele:
+    - "Welche Universitäten in Frankfurt sind empfehlenswert?"
+    - "Was zeichnet die Goethe-Universität aus?"
+    - "Vergleiche Frankfurter Hochschulen für ein BWL-Studium."
+  beobachtungsabsicht_primaer:
+    - Sichtbarkeit und Prominenz
+    - Kontextualisierung
+    - Vergleich und Positionierung
+  beobachtungsabsicht_sekundaer:
+    - Tonalität und Bewertung
+    - Rollen- und Akteurszuschreibung
+    - Themenassoziation
+
+- id: thema
+  label: Thema
+  beschreibung: >
+    Der Prompt bezieht sich auf ein Fach-, Forschungs- oder Gesellschaftsthema –
+    getestet wird, ob und wie die Institution in diesem thematischen Kontext auftaucht.
+  id_suffix: "T"
+  beispiele:
+    - "Wo wird in Deutschland zu Negativzinsen geforscht?"
+    - "Welche Universitäten sind führend in der Klimaökonomie?"
+    - "Was weiß man über die Frankfurter Schule?"
+  beobachtungsabsicht_primaer:
+    - Themenassoziation
+    - Sichtbarkeit und Prominenz
+    - Kontextualisierung
+  sekundaer:
+    - Tonalität und Bewertung
+    - Vergleich und Positionierung
+    - Rollen- und Akteurszuschreibung
+
+- id: person
+  label: Person
+  beschreibung: >
+    Der Prompt bezieht sich auf eine Person (Forschende, Lehrende, Alumni) –
+    getestet wird, ob die institutionelle Zugehörigkeit erkennbar ist
+    und welche Rolle die Institution im Personenkontext spielt.
+  id_suffix: "P"
+  beispiele:
+    - "Was erforscht Jürgen Habermas?"
+    - "Wer sind führende Ökonominnen in Frankfurt?"
+    - "Welche Wissenschaftler arbeiten zu Finanzsystemstabilität?"
+  beobachtungsabsicht_primaer:
+    - Rollen- und Akteurszuschreibung
+    - Kontextualisierung
+  beobachtungsabsicht_sekundaer:
+    - Sichtbarkeit und Prominenz
+    - Themenassoziation
+    - Tonalität und Bewertung
+    - Vergleich und Positionierung

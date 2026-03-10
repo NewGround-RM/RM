@@ -44,17 +44,12 @@ Vollständige Definition: `config/dimensionen.yaml`
 
 ### S – Sichtbarkeit (Langform: Sichtbarkeit und Prominenz)
 
-| Code | Beschreibung |
-|------|-------------|
-| S0   | keine Nennung |
-| S1   | beiläufige Nennung |
-| S2   | zentrale Nennung |
-| S3   | dominante/hervorgehobene Nennung |
-
-Prominenz-Vermerke (in Klammern hinter S-Code):
-- P1: Erwähnung im Fließtext ohne Fokus
-- P2: klarer Bezug, eigener Satz oder Abschnitt
-- P3: erstes Beispiel, Leitbeispiel, mehrfach hervorgehoben
+| Code | Beschreibung | Prominenz |
+|------|-------------|----------|
+| S0   | keine Nennung | — |
+| S1   | beiläufige Nennung | Erwähnung im Fließtext ohne Fokus |
+| S2   | zentrale Nennung | klarer Bezug, eigener Satz oder Abschnitt |
+| S3   | dominante/hervorgehobene Nennung | erstes Beispiel, Leitbeispiel, mehrfach hervorgehoben |
 
 Bei S0 entfallen alle weiteren Dimensionen (werden mit — kodiert).
 
@@ -127,7 +122,7 @@ Die Datei enthält den vollständigen Inhalt der ANTWORT-Datei, gefolgt von:
 ```markdown
 ## Kodierung
 
-- **Sichtbarkeit:** S1 (P1)
+- **Sichtbarkeit:** S1
 - **Kontext:** K1
 - **Tonalität:** T0
 - **Vergleich:** V0
@@ -140,7 +135,6 @@ Die Datei enthält den vollständigen Inhalt der ANTWORT-Datei, gefolgt von:
 
 Hinweise zum Kodierblock:
 - Dimensionslabels verwenden die **Kurzform** (Sichtbarkeit, nicht Sichtbarkeit und Prominenz)
-- Prominenz-Vermerke in Klammern hinter dem S-Code: S2 (P2)
 - Themen-IDs aus config/themen.yaml verwenden (Th1001, Th2024, ...)
 - Neue Themen, die nicht in der Liste stehen, mit Thx + Benennung kodieren
 - Anmerkung enthält eine kurze qualitative Begründung der Kodierung
@@ -155,7 +149,9 @@ Abgeleitet aus dem ANTWORT-Dateinamen durch Ersetzen von "ANTWORT" durch "KODIER
 
 ## Nach der Kodierung
 
-Claude gibt eine kompakte Übersichtstabelle aller Kodierungen aus:
+### 1. Übersichtstabelle im Chat
+
+Claude gibt eine kompakte Markdown-Tabelle aller Kodierungen im Chat aus:
 
 ```
 | ID   | Attribut          | Kontext   | S  | K  | T  | V  | R  | Th         | Anmerkung |
@@ -163,6 +159,65 @@ Claude gibt eine kompakte Übersichtstabelle aller Kodierungen aus:
 | 0001 | implizit          | WiWi      | S0 | —  | —  | —  | —  | —         | ...       |
 | 0011 | explizit          | WiWi      | S3 | K1 | T+ | V+ | R2 | Th1001... | ...       |
 ```
+
+### 2. Übersichts-YAML als Datei
+
+Claude speichert eine maschinenlesbare Übersicht als YAML-Datei
+im selben Verzeichnis wie die Kodierungen:
+
+**Dateiname:** `UEBERSICHT_[Institution]_[Datum].yaml`
+
+**Format:**
+
+```yaml
+# Kodierungsübersicht
+institution: Goethe-Universität Frankfurt am Main
+modell: claude-sonnet-4-20250514
+kodierer: Claude Opus 4.6
+datum: 2026-02-27
+anzahl: 50
+
+kodierungen:
+  - id: "0001"
+    version: "01.00"
+    attribut: implizit
+    kontext: Wirtschaftswissenschaften
+    S: S0
+    K: "—"
+    T: "—"
+    V: "—"
+    R: "—"
+    Th: "—"
+    anmerkung: "nicht genannt"
+
+  - id: "0011"
+    version: "01.00"
+    attribut: explizit
+    kontext: Wirtschaftswissenschaften
+    S: S3
+    K: K1
+    T: "T+"
+    V: "V+"
+    R: "R1, R2"
+    Th: "Th2001, Th2024, Th2025"
+    anmerkung: "führendes Zentrum, EZB-Nähe"
+```
+
+Diese YAML dient als Grundlage für Aggregation, Visualisierung und Vergleiche.
+
+### 3. Gesamtdatei zerlegen
+
+Wenn die Kodierungen als Gesamtdatei erzeugt wurden (bei vielen Dateien effizienter),
+verweist Claude auf das zentrale Split-Script:
+
+```bash
+cd [Zielverzeichnis]
+bash /pfad/zu/RM/scripts/split.sh KODIERUNG_GESAMT_[Datum].md
+```
+
+Das Script erkennt die `===DATEI:===` / `===DATEIGRENZE===` Marker automatisch.
+
+### 4. Neue Themen
 
 Falls neue Themen als Thx kodiert wurden, schlägt Claude vor, diese in
 config/themen.yaml aufzunehmen.

@@ -1,8 +1,9 @@
 # Themenliste für die Beobachtungsdimension Themenassoziation
 # Offene Liste – neue Einträge am Ende ergänzen
 # Thx-Einträge aus den bisherigen Kodierungen sind hier konsolidiert
+# ID-Kreise: Allgemeine Themen, Fachgebiete, Institutionelle Kontexte etc.
 
-# Allgemeine Themen (Th1001–Th1999)
+# Institutionelle Themen (Th1001–Th1999)
 - id: Th1001
   label: Forschung/Wissenschaft
 - id: Th1002
@@ -58,7 +59,7 @@
 - id: Th1027
   label: Bürokratie/Verwaltung
 
-# Fachgebiete (Th2001–Th2999)
+# wissenschaftliche Fachgebiete (Th2001–Th2999)
 - id: Th2001
   label: Wirtschaftswissenschaften
 - id: Th2002
@@ -120,7 +121,7 @@
 - id: Th2030
   label: Ökologie/Biodiversität
 
-# Institutionelle Kontexte (Th3001–Th3999)
+# Institutionelle Netzwerke (Th3001–Th3999)
 - id: Th3001
   label: EZB/Bundesbank-Nähe
 - id: Th3002

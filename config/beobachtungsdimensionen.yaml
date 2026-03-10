@@ -10,24 +10,21 @@
       label: keine Nennung
     - code: S1
       label: beiläufige Nennung
+      prominenz: Erwähnung im Fließtext ohne Fokus
     - code: S2
       label: zentrale Nennung
+      prominenz: klarer Bezug, eigener Satz oder Abschnitt
     - code: S3
       label: dominante/hervorgehobene Nennung
-  vermerke:
-    - code: S1
-      label: Erwähnung im Fließtext ohne Fokus
-    - code: S2
-      label: klarer Bezug, eigener Satz oder Abschnitt
-    - code: S3
-      label: erstes Beispiel, Leitbeispiel, mehrfach hervorgehoben
+      prominenz: erstes Beispiel, Leitbeispiel, mehrfach hervorgehoben
+
   defaults:
     bei_S0: S0
 
 - id: K
   label: Kontext
-  langform: Kontextualisierung
-  kodierfrage: "In welchem inhaltlichen Rahmen erscheint die Institution?"
+  langform: Kontext
+  kodierfrage: "Wie erscheint die Institution in einem bestimmten Kontext?"
   codes:
     - code: K0
       label: kein erkennbarer Kontext

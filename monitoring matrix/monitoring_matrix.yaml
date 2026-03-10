@@ -1,0 +1,110 @@
+# GEO-Monitoring: Prompt-Matrix
+# Grundstruktur für institutionelles Reputationsmonitoring in LLMs
+# Letzte Aktualisierung: 2026-03-03
+#
+# PROMPT-ID-SCHEMA: [Typ][Einheit]-[Nummer]
+# EI-001 = explizit x institution | IT-003 = implizit x thema
+#
+# KODIERUNGSSCHEMA (quer über alle Zellen):
+#   sichtbarkeit     : ja / nein
+#   position         : 1-3 / tief / nicht genannt
+#   ton              : positiv / neutral / negativ / gemischt
+#   kontext          : in welchem Rahmen genannt?
+#   faktenfehler     : ja / nein / unklar
+#   vollstaendigkeit : hoch / mittel / niedrig
+
+matrix:
+
+  explizit:
+    institution:
+      prompts:
+        - EI-001  # Was sind die Stärken der [Institution]?
+        - EI-002  # Beschreibe das Forschungsprofil der [Institution].
+        - EI-003  # Für welche Fachbereiche ist die [Institution] bekannt?
+        - EI-004  # Wie ist die [Institution] im deutschen Hochschulsystem positioniert?
+    thema:
+      prompts:
+        - ET-001  # Was forscht die [Institution] zu [Profilbereich 1]?
+        - ET-002  # Was forscht die [Institution] zu [Profilbereich 2]?
+        - ET-003  # Was forscht die [Institution] zu [Profilbereich 3]?
+        - ET-004  # Was forscht die [Institution] zu [Profilbereich 4]?
+        - ET-005  # Was forscht die [Institution] zu [Profilbereich 5]?
+        - ET-006  # Was forscht die [Institution] zu [Profilbereich 6]?
+    person:
+      prompts:
+        - EP-001  # Wer forscht an der [Institution] zu [Transferthema 1]?
+        - EP-002  # Wer forscht an der [Institution] zu [Transferthema 2]?
+        - EP-003  # Welche Expertinnen der [Institution] sind öffentlich sichtbar?
+
+  implizit:
+    institution:
+      prompts:
+        - II-001  # Welche deutschen Universitäten sind besonders forschungsstark?
+        - II-002  # Welche Hochschulen in [Stadt/Region] sind empfehlenswert?
+        - II-003  # Wo in Deutschland kann man gut [Fach] studieren?
+        - II-004  # Welche deutschen Unis sind international sichtbar?
+        - II-005  # Welche Universitäten sind Mitglied der German U15?
+    thema:
+      prompts:
+        - IT-001  # Welche deutschen Universitäten haben Expertise in [Transferthema 1]?
+        - IT-002  # Welche deutschen Universitäten haben Expertise in [Transferthema 2]?
+        - IT-003  # Welche deutschen Universitäten haben Expertise in [Transferthema 3]?
+        - IT-004  # Welche deutschen Universitäten haben Expertise in [Transferthema 4]?
+        - IT-005  # Wo in Deutschland forscht man zu [Transferthema 5]?
+        - IT-006  # Wo in Deutschland forscht man zu [Transferthema 6]?
+    person:
+      prompts:
+        - IP-001  # Wer sind führende deutsche Expertinnen für [Transferthema 1]?
+        - IP-002  # Wer sind führende deutsche Expertinnen für [Transferthema 2]?
+        - IP-003  # Wer sind führende deutsche Expertinnen für [Transferthema 3]?
+        - IP-004  # Welche Ökonominnen sollte man zu [Politikfrage] befragen?
+
+  provokativ:
+    institution:
+      prompts:
+        - PI-001  # Hat die [Institution] ihren Ruf zu Recht?
+        - PI-002  # Wo hat die [Institution] Nachholbedarf?
+        - PI-003  # Warum hat die [Institution] keinen Exzellenzstatus?
+    thema:
+      prompts:
+        - PT-001  # Ist die Finanzforschung der [Institution] unabhängig?
+        - PT-002  # Wird [Transferthema] an der [Institution] kritisch behandelt?
+    person:
+      belegung: x
+
+  vergleichend:
+    institution:
+      prompts:
+        - VI-001  # Vergleiche [Institution] mit [Wettbewerber 1].
+        - VI-002  # Vergleiche [Institution] mit [Wettbewerber 2].
+        - VI-003  # Wo ist [Fach] besser: [Institution] oder [Wettbewerber]?
+        - VI-004  # Was unterscheidet [Institution] von anderen Großuniversitäten?
+    thema:
+      prompts:
+        - VT-001  # Welche deutsche Uni hat stärkste Expertise in [Transferthema 1]?
+        - VT-002  # Welche deutsche Uni hat stärkste Expertise in [Transferthema 2]?
+        - VT-003  # Welche deutsche Uni hat stärkste Expertise in [Transferthema 3]?
+        - VT-004  # Wo forscht man in Deutschland am besten zu [Transferthema 4]?
+    person:
+      belegung: x
+
+# MATRIX-ÜBERSICHT
+#              | institution | thema | person | Summe
+# explizit     |      4      |   6   |   3    |  13
+# implizit     |      5      |   6   |   4    |  15
+# provokativ   |      3      |   2   |   x    |   5
+# vergleichend |      4      |   4   |   x    |   8
+# Summe        |     16      |  18   |   7    |  41
+
+ausfuehrung:
+  modelle:
+    - {name: "GPT-4o", anbieter: "OpenAI", websuche: false}
+    - {name: "Claude Sonnet", anbieter: "Anthropic", websuche: false}
+    - {name: "Gemini Pro", anbieter: "Google", websuche: false}
+    - {name: "Llama 3", anbieter: "Meta", websuche: false}
+  sprachen: [de, en]
+
+monitoring:
+  rhythmus: "quartalsweise"
+  erste_ausfuehrung: null
+  versionen: []

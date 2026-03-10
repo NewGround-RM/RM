@@ -1,0 +1,70 @@
+# GEO-Monitoring: Kanonisches Record-Schema
+# Version: 1.2 | 2026-03-10
+# Ein Record = ein Prompt, ausgeführt auf einem Modell, zu einem Zeitpunkt
+
+# ---------------------------------------------------------------------------
+# METADATEN: Erhebungskontext
+# ---------------------------------------------------------------------------
+
+ziel-institution: ""      	# slug, z.B. "Goethe-Universität Frankfurt am Main", "Ludwig-Maximilians-Universität München""
+vergleichs-institutionen: ""	# "Ludwig-Maximilians-Universität München", "Ruperto Carola-Universität Heidelberg" (mehrere Institutionen möglich, komma-separiert)
+modell: ""                	# z.B. "gpt-4o", "claude-sonnet", "gemini-pro", "llama-3"
+modell-version: ""        	# z.B. "gpt-4o-2024-11-20" — für Reproduzierbarkeit
+sprache: ""               	# "de" | "en"
+datum: ""                 	# ISO 8601, z.B. "2026-03-04"
+mit-websuche: false       	# true | false — kritisch für Vergleichbarkeit
+user-interface: ""        	# "api" | "web-app" | "mobile-app" | "desktop-app" — Zugangspfad der Erhebung
+
+# ---------------------------------------------------------------------------
+# PROMPT: Erhebungsinstrument
+# ---------------------------------------------------------------------------
+
+prompt_id: ""             	# aus Matrix, z.B. "EI-001", "IT-003", "VP-002"
+prompt-version: ""
+prompt_kategorie: ""      	# "explizit" | "implizit" | "provokativ" | "vergleichend"
+prompt_bezug: ""          	# "institution" | "thema" | "person"
+prompt_thema: ""		# z.B. "Wirtschaftswissenschaften", "Frankfurter Schule" (mehrere Themen möglich, komma-separiert)
+prompt_intent: []         	# Intentionskategorien gemäß config/intentionskategorien.yaml
+                          	# Mehrfachkodierung möglich, z.B. ["Int1001", "Int3001"]
+                          	# Die Zuordnung erfolgt pro Prompt-Template und ist über Erhebungen hinweg stabil
+prompt_text: ""           	# vollständiger Prompt-Text wie abgeschickt
+
+# ---------------------------------------------------------------------------
+# ROHDATEN: LLM-Ausgabe
+# ---------------------------------------------------------------------------
+
+antwort_text: ""          	# vollständige, ungekürzte LLM-Antwort
+
+# ---------------------------------------------------------------------------
+# KODIERUNG: Dimensionen
+# (Codes gemäß config/dimensionen.yaml)
+# ---------------------------------------------------------------------------
+
+sichtbarkeit: ""          	# Codes gemäß ~/config/dimensionen.yaml, z .B. S0 | S1 | S2 | S3
+kontext: []               	# Liste: K0–K4 (Mehrfachkodierung möglich, komma-separiert)
+tonalitaet: ""            	# "T+" | "T0" | "T±" | "T−" | "—"
+vergleich: ""             	# V0 | "V=" | "V+" | "V−" | "V≠"
+rolle: []                 	# Liste: R0–R7 (Mehrfachkodierung möglich, komma-separiert)
+thema: []                 	# Liste: Th-Codes (offen, Mehrfachkodierung möglich, komma-separiert)
+
+# sekundäre Dimensionen:
+vollstaendigkeit: ""      	# "hoch" | "mittel" | "niedrig" | null
+faktenfehler: null        	# true | false
+faktenfehler_detail: ""   	# Freitext, z.B. "5 Universitäts-Campi genannt statt 4" | "n/a"
+
+# ---------------------------------------------------------------------------
+# INTERVENTION
+# ---------------------------------------------------------------------------
+
+intervention: null	        # "n/a" | "policy-brief" | "medienauftritt" | "award" ... (mehrere Interventionen möglich, komma-separiert) 
+intervention_datum: null 	# wann war die Maßnahme
+intervention_beschreibung: ""
+
+# ---------------------------------------------------------------------------
+# QUALITÄTSSICHERUNG
+# ---------------------------------------------------------------------------
+
+kodiert_von: ""           	# Name des menschlichen Kodierers ODER Modell+Modell-Version der KI,
+                          	# z.B. "claude-sonnet-4-6" | "gpt-4o-2024-11-20" | "Max Mustermann"
+kodiert_am: ""            	# ISO 8601
+anmerkung: ""             	# optionaler Freitext für Grenzfälle

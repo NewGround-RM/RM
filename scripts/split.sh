@@ -1,18 +1,31 @@
 #!/bin/bash
-# Zerlegt die Gesamtdatei in Einzeldateien
-# Ausführen im Verzeichnis, in dem die ERHEBUNG-Datei liegt
+# split.sh – Zerlegt eine Gesamtdatei (ERHEBUNG oder KODIERUNG) in Einzeldateien
+# Erkennt ===DATEI: ...=== und ===DATEIGRENZE=== als Trennmarker
+#
+# Verwendung:
+#   bash /pfad/zu/scripts/split.sh GESAMTDATEI.md
+#
+# Beispiele:
+#   bash split.sh ERHEBUNG_Goethe_Universitaet_Frankfurt_am_Main_2026-02-27.md
+#   bash split.sh KODIERUNG_GESAMT_2026-02-27.md
 
-INPUT="ERHEBUNG_Goethe_Universitaet_Frankfurt_am_Main_2026-02-27.md"
-COUNT=0
+if [ -z "$1" ]; then
+  echo "Verwendung: bash split.sh GESAMTDATEI.md"
+  exit 1
+fi
 
-# Lies die Datei und splitte an den DATEI-Markern
+INPUT="$1"
+
+if [ ! -f "$INPUT" ]; then
+  echo "❌ Datei nicht gefunden: $INPUT"
+  exit 1
+fi
+
 awk '
 /^===DATEI: / {
-    # Extrahiere Dateinamen
     fname = $0
     gsub(/^===DATEI: /, "", fname)
     gsub(/===$/, "", fname)
-    # Entferne führende/trailing Whitespace
     gsub(/^[ \t]+|[ \t]+$/, "", fname)
     outfile = fname
     printing = 1
@@ -28,5 +41,5 @@ printing == 1 && outfile {
 }
 ' "$INPUT"
 
-echo "✅ Fertig. Einzeldateien erstellt:"
-ls -1 ANTWORT*.md 2>/dev/null | wc -l
+COUNT=$(ls -1 ANTWORT*.md KODIERUNG*.md 2>/dev/null | grep -v GESAMT | grep -v UEBERSICHT | wc -l | tr -d ' ')
+echo "✅ Fertig. $COUNT Einzeldateien erstellt."
