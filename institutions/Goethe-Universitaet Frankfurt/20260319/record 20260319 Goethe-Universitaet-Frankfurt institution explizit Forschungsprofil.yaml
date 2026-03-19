@@ -1,0 +1,42 @@
+# GEO-Monitoring: Kanonisches Record-Schema
+# Version: 1.2 | 2026-03-10
+# Ein Record = ein Prompt, ausgeführt auf einem Modell, zu einem Zeitpunkt
+
+ziel-institution: "Goethe-Universität Frankfurt am Main"
+vergleichs-institutionen: "Ludwig-Maximilians-Universität München, Ruperto Carola-Universität Heidelberg"
+modell: "claude-sonnet"
+modell-version: "claude-sonnet-4-6"
+sprache: "de"
+datum: "20260319"
+mit-websuche: true
+user-interface: "desktop-app 1.1.7053"
+
+prompt_id: "2001-I"
+prompt-version: "01.00"
+prompt_kategorie: "explizit"
+prompt_bezug: "institution"
+prompt_thema: "Forschungsprofil GU Frankfurt"
+prompt_intent: []
+prompt_text: "Was zeichnet die Goethe-Universität Frankfurt als Forschungseinrichtung aus? Bitte antworte mit rund 1000 Zeichen."
+prompt_antwortlaenge: 1000
+
+antwort_text: "Die Goethe-Universität Frankfurt zeichnet sich durch mehrere besondere Merkmale aus:\n\nExzellenzstatus: Die Universität gehört zu den deutschen Exzellenzuniversitäten und beherbergt mehrere Exzellenzcluster, darunter \"The Formation of Normative Orders\" und \"Cardio-Pulmonary Institute\".\n\nInterdisziplinäre Forschung: Besonders stark ist die Verbindung von Geistes-, Sozial- und Naturwissenschaften. Die Universität pflegt eine ausgeprägte Kultur des interdisziplinären Dialogs, die sich in gemeinsamen Forschungszentren manifestiert.\n\nStarke Fachbereiche: Herausragend sind Rechtswissenschaften, Wirtschaftswissenschaften, Medizin und die Naturwissenschaften. Die Frankfurt School of Finance & Management genießt internationale Reputation. Auch die Sozialwissenschaften mit ihrer Tradition der Kritischen Theorie (Frankfurter Schule: Adorno, Horkheimer) sind von besonderer Bedeutung.\n\nStiftungsuniversität: Seit 2008 hat die Universität einen besonderen Status als Stiftungsuniversität, was ihr mehr Autonomie und Flexibilität in Forschung und Lehre ermöglicht.\n\nStandortvorteil: Die Lage in Frankfurts Finanz- und Wirtschaftszentrum bietet einzigartige Kooperationsmöglichkeiten mit Banken, Unternehmen und internationalen Institutionen wie der Europäischen Zentralbank.\n\nInternationale Vernetzung: Die Universität pflegt weltweite Partnerschaften und zieht international renommierte Forschende an."
+
+sichtbarkeit: "S3"
+kontext: ["K1", "K4"]
+tonalitaet: "T+"
+vergleich: "V0"
+rolle: ["R1", "R2"]
+thema: ["Th1001", "Th1009", "Th1023", "Th2001", "Th2002", "Th2009", "Th2020", "Th3003", "Th3010"]
+
+vollstaendigkeit: "mittel"
+faktenfehler: true
+faktenfehler_detail: "Die Frankfurt School of Finance & Management ist eine eigenständige private Hochschule, keine Einrichtung der Goethe-Universität. Sie wird im Text fälschlich im Kontext der GU-Fachbereiche erwähnt."
+
+intervention: null
+intervention_datum: null
+intervention_beschreibung: ""
+
+kodiert_von: "claude-sonnet-4-6"
+kodiert_am: "2026-03-19"
+anmerkung: "GU als einziges Subjekt der Antwort, durchweg positiv. Stiftungsuniversitätsstatus korrekt. Faktenfehler: Frankfurt School als GU-Fachbereich subsumiert. Exzellenzcluster-Namen korrekt."

@@ -1,0 +1,41 @@
+# GEO-Monitoring: Kanonisches Record-Schema
+# Version: 1.2 | 2026-03-10
+# Ein Record = ein Prompt, ausgeführt auf einem Modell, zu einem Zeitpunkt
+
+ziel-institution: "Goethe-Universität Frankfurt am Main"
+vergleichs-institutionen: "Ludwig-Maximilians-Universität München, Ruperto Carola-Universität Heidelberg"
+modell: "claude-sonnet"
+modell-version: "claude-sonnet-4-6"
+sprache: "de"
+datum: "20260318"
+mit-websuche: true
+user-interface: "desktop-app 1.1.7053"
+
+prompt_id: "2002-T"
+prompt-version: "01.00"
+prompt_kategorie: "explizit"
+prompt_bezug: "thema"
+prompt_thema: "Frankfurter Schule"
+prompt_intent: []
+prompt_text: "Welche Bedeutung hat die Goethe-Universität Frankfurt für die Entwicklung der Frankfurter Schule?"
+
+antwort_text: "Die Goethe-Universität Frankfurt war die institutionelle Heimat der Frankfurter Schule. Hier wurde 1923 das Institut für Sozialforschung gegründet, wo Denker wie Horkheimer, Adorno, Fromm und Marcuse die Kritische Theorie entwickelten. Nach dem Exil während des NS-Regimes kehrten Horkheimer und Adorno zurück und prägten die intellektuelle Nachkriegskultur. Die Universität bot den theoretischen und akademischen Rahmen für ihre gesellschaftskritischen Arbeiten."
+
+sichtbarkeit: "S3"
+kontext: ["K1", "K3"]
+tonalitaet: "T+"
+vergleich: "V+"
+rolle: ["R1", "R2"]
+thema: ["Th1001", "Th2020", "Th2021"]
+
+vollstaendigkeit: "hoch"
+faktenfehler: false
+faktenfehler_detail: ""
+
+intervention: null
+intervention_datum: null
+intervention_beschreibung: ""
+
+kodiert_von: "claude-sonnet-4-6"
+kodiert_am: "2026-03-19"
+anmerkung: "GU als konstitutiver und einziger Ursprungsort der Frankfurter Schule dargestellt. Gründungsjahr 1923 des IfS korrekt. Exil und Rückkehr korrekt."

@@ -1,0 +1,42 @@
+# GEO-Monitoring: Kanonisches Record-Schema
+# Version: 1.2 | 2026-03-10
+# Ein Record = ein Prompt, ausgeführt auf einem Modell, zu einem Zeitpunkt
+
+ziel-institution: "Goethe-Universität Frankfurt am Main"
+vergleichs-institutionen: "Ludwig-Maximilians-Universität München, Ruperto Carola-Universität Heidelberg"
+modell: "claude-sonnet"
+modell-version: "claude-sonnet-4-6"
+sprache: "de"
+datum: "20260319"
+mit-websuche: true
+user-interface: "desktop-app 1.1.7053"
+
+prompt_id: "2003-P"
+prompt-version: "01.00"
+prompt_kategorie: "explizit"
+prompt_bezug: "person"
+prompt_thema: "Internationale Professuren GU Frankfurt"
+prompt_intent: []
+prompt_text: "Welche Professorinnen und Professoren der Goethe-Universität Frankfurt sind international für ihre Forschung bekannt? Bitte antworte mit rund 1000 Zeichen."
+prompt_antwortlaenge: 1000
+
+antwort_text: "Die Goethe-Universität Frankfurt verfügt über zahlreiche international renommierte Forschende. Besonders hervorzuheben ist die Frankfurter Schule mit ihrer kritischen Theorie, die weltweit Einfluss hat. Axel Honneth gilt als einer der bedeutendsten Sozialphilosophen der Gegenwart mit seiner Anerkennungstheorie.\n\nIn den Wirtschaftswissenschaften ist Rainer Klump für seine entwicklungsökonomische Forschung bekannt. Die Rechtswissenschaft wird durch namhafte Verfassungs- und Europarechtler vertreten.\n\nIn den Naturwissenschaften ragen besonders die Physiker heraus: Reinhard Dörner in der Atomphysik und Joachim Curtius in der Atmosphärenforschung. Die Biochemie mit Ivan Đikić, einem weltweit führenden Zellforscher, hat Frankfurt zum Zentrum der Ubiquitin-Forschung gemacht.\n\nDie Medizin punktet mit Forschern wie Josef Pfeilschifter (Pharmakologie) und Christian Münch (Proteostasis). In der Virologie machte Sandra Ciesek sich international einen Namen, insbesondere während der COVID-19-Pandemie.\n\nDie Archäologie ist durch Rüdiger Krause vertreten, während in der Germanistik und Philosophie traditionell starke Schulen bestehen. Viele dieser Wissenschaftler sind Mitglieder der Nationalen Akademie der Wissenschaften Leopoldina oder erhalten bedeutende Forschungspreise wie den ERC Grant."
+
+sichtbarkeit: "S3"
+kontext: ["K1", "K4"]
+tonalitaet: "T+"
+vergleich: "V0"
+rolle: ["R1", "R2"]
+thema: ["Th1001", "Th1009", "Th1022", "Th1023", "Th2001", "Th2002", "Th2006", "Th2009", "Th2016", "Th2020"]
+
+vollstaendigkeit: "mittel"
+faktenfehler: true
+faktenfehler_detail: "Axel Honneth ist emeritiert und nicht mehr aktiv in Frankfurt tätig (seit 2018 in New York). Sandra Ciesek ist Virologin am Uniklinikum Frankfurt, hat aber keine Professur an der GU Frankfurt im engeren Sinne (Klinikum ist assoziiert, nicht identisch)."
+
+intervention: null
+intervention_datum: null
+intervention_beschreibung: ""
+
+kodiert_von: "claude-sonnet-4-6"
+kodiert_am: "2026-03-19"
+anmerkung: "Breites Personenprofil über viele Fachbereiche. Đikić, Dörner korrekt. Honneth nicht mehr aktiv; Ciesek Grenzfall Klinikum/Universität. Vollständigkeit mittel: wichtige Namen aus Wirtschaftswiss. (Fuchs-Schündeln, Inderst) fehlen."

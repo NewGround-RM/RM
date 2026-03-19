@@ -1,0 +1,41 @@
+# GEO-Monitoring: Kanonisches Record-Schema
+# Version: 1.2 | 2026-03-10
+# Ein Record = ein Prompt, ausgeführt auf einem Modell, zu einem Zeitpunkt
+
+ziel-institution: "Goethe-Universität Frankfurt am Main"
+vergleichs-institutionen: "Ludwig-Maximilians-Universität München, Ruperto Carola-Universität Heidelberg"
+modell: "claude-sonnet"
+modell-version: "claude-sonnet-4-6"
+sprache: "de"
+datum: "20260318"
+mit-websuche: true
+user-interface: "desktop-app 1.1.7053"
+
+prompt_id: "3002-T"
+prompt-version: "01.00"
+prompt_kategorie: "vergleichend"
+prompt_bezug: "thema"
+prompt_thema: "Finanzmarktforschung Deutschland"
+prompt_intent: []
+prompt_text: "Welche deutschen Universitäten sind führend in der Finanzmarktforschung – und wo steht Frankfurt im Vergleich?"
+
+antwort_text: "Führende deutsche Unis in Finanzmarktforschung sind die Goethe-Universität Frankfurt, Mannheim, LMU München und WHU Vallendar. Frankfurt gilt als Spitzenreiter durch das House of Finance, Nähe zur EZB und Bundesbank sowie starke Verbindungen zur Finanzindustrie. Die Uni punktet besonders bei empirischer Finanzmarktforschung, Banking und Asset Pricing. Mannheim ist ebenfalls top, vor allem in Corporate Finance."
+
+sichtbarkeit: "S3"
+kontext: ["K1", "K4"]
+tonalitaet: "T+"
+vergleich: "V+"
+rolle: ["R1", "R2"]
+thema: ["Th2001", "Th2024", "Th2025", "Th3001", "Th3002"]
+
+vollstaendigkeit: "hoch"
+faktenfehler: false
+faktenfehler_detail: ""
+
+intervention: null
+intervention_datum: null
+intervention_beschreibung: ""
+
+kodiert_von: "claude-sonnet-4-6"
+kodiert_am: "2026-03-19"
+anmerkung: "GU explizit als Spitzenreiter bezeichnet und als erste in der Aufzählung genannt. House of Finance und EZB-Nähe korrekt als Alleinstellungsmerkmale identifiziert."

@@ -1,0 +1,42 @@
+# GEO-Monitoring: Kanonisches Record-Schema
+# Version: 1.2 | 2026-03-10
+# Ein Record = ein Prompt, ausgeführt auf einem Modell, zu einem Zeitpunkt
+
+ziel-institution: "Goethe-Universität Frankfurt am Main"
+vergleichs-institutionen: "Ludwig-Maximilians-Universität München, Ruperto Carola-Universität Heidelberg"
+modell: "claude-sonnet"
+modell-version: "claude-sonnet-4-6"
+sprache: "de"
+datum: "20260319"
+mit-websuche: true
+user-interface: "desktop-app 1.1.7053"
+
+prompt_id: "4003-P"
+prompt-version: "01.00"
+prompt_kategorie: "kontextualisierend"
+prompt_bezug: "person"
+prompt_thema: "KI-Regulierung Rechtswissenschaft"
+prompt_intent: []
+prompt_text: "Im Kontext der aktuellen KI-Regulierungsdebatte: Welche Rechtswissenschaftlerinnen und -wissenschaftler aus Deutschland sind relevant? Bitte antworte mit rund 1000 Zeichen."
+prompt_antwortlaenge: 1000
+
+antwort_text: "Im deutschen rechtswissenschaftlichen Diskurs zur KI-Regulierung sind folgende Namen besonders präsent: Mario Martini (Deutsche Universität für Verwaltungswissenschaften Speyer) gilt als eine der produktivsten Stimmen – u.a. zu KI-Aufsicht im Föderalismus und zur Regulierung von General-Purpose-AI. Philipp Hacker (Europa-Universität Viadrina) forscht an der Schnittstelle von KI, Grundrechten und EU-Recht und ist auch international vernetzt. Josef Drexl (Max-Planck-Institut für Innovation und Wettbewerb) beschäftigt sich insbesondere mit Urheberrecht und Vergütungsfragen im KI-Kontext. Georg Borges (Universität des Saarlandes) publiziert prominent zum Risikomanagement für Hochrisiko-KI-Systeme unter dem AI Act. Martin Ebers (Universität Tartu, mit starken deutschen Bezügen) ist Mitherausgeber einschlägiger Standardwerke zur KI-Regulierung. Erik Tuchtfeld (Max-Planck-Institut Heidelberg) kommentiert regelmäßig die praktische Umsetzung des AI Act in Deutschland. Daneben liefern zahlreiche weitere Wissenschaftlerinnen und Wissenschaftler Beiträge, etwa zu Datenschutz (Golland), Transparenz (Merkle) und biometrischer Überwachung (Tschorr)."
+
+sichtbarkeit: "S0"
+kontext: "—"
+tonalitaet: "—"
+vergleich: "—"
+rolle: "—"
+thema: "—"
+
+vollstaendigkeit: "—"
+faktenfehler: null
+faktenfehler_detail: ""
+
+intervention: null
+intervention_datum: null
+intervention_beschreibung: ""
+
+kodiert_von: "claude-sonnet-4-6"
+kodiert_am: "2026-03-19"
+anmerkung: "Kein GU-Rechtswissenschaftler genannt. Repliziert S0-Befund aus 20260318. Konsistente GEO-Lücke: GU-Rechtswissenschaftliche Fakultät im KI-Regulierungsdiskurs nicht assoziiert."

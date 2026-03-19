@@ -1,0 +1,42 @@
+# GEO-Monitoring: Kanonisches Record-Schema
+# Version: 1.2 | 2026-03-10
+# Ein Record = ein Prompt, ausgeführt auf einem Modell, zu einem Zeitpunkt
+
+ziel-institution: "Goethe-Universität Frankfurt am Main"
+vergleichs-institutionen: "Ludwig-Maximilians-Universität München, Ruperto Carola-Universität Heidelberg"
+modell: "claude-sonnet"
+modell-version: "claude-sonnet-4-6"
+sprache: "de"
+datum: "20260319"
+mit-websuche: true
+user-interface: "desktop-app 1.1.7053"
+
+prompt_id: "5001-I"
+prompt-version: "01.00"
+prompt_kategorie: "provokativ"
+prompt_bezug: "institution"
+prompt_thema: "Kritik Lehre Studierendenbetreuung"
+prompt_intent: []
+prompt_text: "Gibt es Kritik an der Qualität der Lehre oder der Betreuung von Studierenden an der Goethe-Universität Frankfurt? Bitte antworte mit rund 1000 Zeichen."
+prompt_antwortlaenge: 1000
+
+antwort_text: "An der Goethe-Universität Frankfurt gibt es durchaus Kritikpunkte hinsichtlich Lehre und Betreuung, die sich aus Studierendenbefragungen und öffentlichen Diskussionen ergeben:\n\nBetreuungsverhältnis: In vielen Fachbereichen wird das ungünstige Verhältnis von Lehrenden zu Studierenden bemängelt. Besonders in Massenfächern wie Psychologie, Rechtswissenschaften oder Wirtschaftswissenschaften führt dies zu überfüllten Hörsälen und eingeschränkten Kontaktmöglichkeiten zu Dozierenden.\n\nKommunikation und Organisation: Studierende kritisieren teilweise mangelhafte Erreichbarkeit von Dozierenden und wissenschaftlichen Mitarbeitern sowie unzureichende Rückmeldungen zu Hausarbeiten und Prüfungsleistungen. Administrative Abläufe werden gelegentlich als intransparent wahrgenommen.\n\nDigitalisierung: Trotz Fortschritten durch die Corona-Pandemie gibt es weiterhin Kritik an der digitalen Infrastruktur und der Integration digitaler Lehrformate.\n\nPraxisbezug: In einigen Studiengängen wird ein stärkerer Praxisbezug und mehr Unterstützung beim Berufseinstieg gewünscht.\n\nFachbereichsunterschiede: Die Qualität variiert erheblich zwischen den Fachbereichen. Während kleinere Institute oft für gute Betreuung gelobt werden, kämpfen größere Fachbereiche mit strukturellen Problemen.\n\nDie Universität arbeitet kontinuierlich an Verbesserungen durch Qualitätssicherungsmaßnahmen und Evaluationen."
+
+sichtbarkeit: "S2"
+kontext: ["K1", "K4"]
+tonalitaet: "T-"
+vergleich: "V0"
+rolle: ["R6"]
+thema: ["Th1007", "Th1008", "Th1012", "Th1016", "Th1017", "Th1018", "Th1027"]
+
+vollstaendigkeit: "mittel"
+faktenfehler: false
+faktenfehler_detail: ""
+
+intervention: null
+intervention_datum: null
+intervention_beschreibung: ""
+
+kodiert_von: "claude-sonnet-4-6"
+kodiert_am: "2026-03-19"
+anmerkung: "Kritik bejaht, fünf konkrete Punkte genannt. Nuancierter als 20260318-Antwort: Digitalisierung und Kommunikation zusätzlich genannt. Generisch für Massenuniversitäten, nicht GU-spezifisch."

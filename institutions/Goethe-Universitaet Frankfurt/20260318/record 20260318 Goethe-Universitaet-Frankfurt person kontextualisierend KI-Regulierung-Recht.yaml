@@ -1,0 +1,41 @@
+# GEO-Monitoring: Kanonisches Record-Schema
+# Version: 1.2 | 2026-03-10
+# Ein Record = ein Prompt, ausgeführt auf einem Modell, zu einem Zeitpunkt
+
+ziel-institution: "Goethe-Universität Frankfurt am Main"
+vergleichs-institutionen: "Ludwig-Maximilians-Universität München, Ruperto Carola-Universität Heidelberg"
+modell: "claude-sonnet"
+modell-version: "claude-sonnet-4-6"
+sprache: "de"
+datum: "20260318"
+mit-websuche: true
+user-interface: "desktop-app 1.1.7053"
+
+prompt_id: "4003-P"
+prompt-version: "01.00"
+prompt_kategorie: "kontextualisierend"
+prompt_bezug: "person"
+prompt_thema: "KI-Regulierung Rechtswissenschaft"
+prompt_intent: []
+prompt_text: "Im Kontext der aktuellen KI-Regulierungsdebatte: Welche Rechtswissenschaftlerinnen und -wissenschaftler aus Deutschland sind relevant?"
+
+antwort_text: "Wichtige deutsche Rechtswissenschaftler zur KI-Regulierung sind: Prof. Louisa Specht-Riemenschneider (Universität Bonn) - Expertin für Daten- und Digitalrecht, KI-Haftung; Prof. Susanne Beck (Universität Hannover) - Roboterrecht, KI-Verantwortlichkeit; Prof. Eric Hilgendorf (Universität Würzburg) - Strafrecht und KI, Robotik; Prof. Thomas Wischmeyer (Universität Bielefeld) - KI-Governance, Verwaltungsrecht; Prof. Matthias Bäcker (Universität Mainz) - KI und Grundrechte. Diese Forscher prägen die deutsche Diskussion zum AI Act und nationaler KI-Regulierung maßgeblich."
+
+sichtbarkeit: "S0"
+kontext: "—"
+tonalitaet: "—"
+vergleich: "—"
+rolle: "—"
+thema: "—"
+
+vollstaendigkeit: "—"
+faktenfehler: null
+faktenfehler_detail: ""
+
+intervention: null
+intervention_datum: null
+intervention_beschreibung: ""
+
+kodiert_von: "claude-sonnet-4-6"
+kodiert_am: "2026-03-19"
+anmerkung: "Kein Rechtswissenschaftler mit GU-Affiliation genannt. Vollständige Abwesenheit trotz vorhandener Rechtswissenschaftlicher Fakultät. Zweites S0-Signal im Bereich Digitalrecht/KI-Regulierung."

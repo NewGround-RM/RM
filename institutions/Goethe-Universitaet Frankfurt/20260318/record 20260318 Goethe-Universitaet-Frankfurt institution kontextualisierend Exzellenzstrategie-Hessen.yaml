@@ -1,0 +1,41 @@
+# GEO-Monitoring: Kanonisches Record-Schema
+# Version: 1.2 | 2026-03-10
+# Ein Record = ein Prompt, ausgeführt auf einem Modell, zu einem Zeitpunkt
+
+ziel-institution: "Goethe-Universität Frankfurt am Main"
+vergleichs-institutionen: "Ludwig-Maximilians-Universität München, Ruperto Carola-Universität Heidelberg"
+modell: "claude-sonnet"
+modell-version: "claude-sonnet-4-6"
+sprache: "de"
+datum: "20260318"
+mit-websuche: true
+user-interface: "desktop-app 1.1.7053"
+
+prompt_id: "4001-I"
+prompt-version: "01.00"
+prompt_kategorie: "kontextualisierend"
+prompt_bezug: "institution"
+prompt_thema: "Exzellenzstrategie hessische Universitäten"
+prompt_intent: []
+prompt_text: "Im Kontext der Exzellenzstrategie des Bundes und der Länder: Welche hessischen Universitäten haben besonders starke Forschungsprofile?"
+
+antwort_text: "In der Exzellenzstrategie stechen die Goethe-Universität Frankfurt und die TU Darmstadt heraus. Frankfurt überzeugt mit Clustern in Medizin, Naturwissenschaften und Geisteswissenschaften. Darmstadt profiliert sich stark in Informatik, Ingenieurwissenschaften und Cybersicherheit. Beide Universitäten konnten mehrfach Exzellenzcluster einwerben."
+
+sichtbarkeit: "S2"
+kontext: ["K1", "K4"]
+tonalitaet: "T+"
+vergleich: "V="
+rolle: ["R1", "R2"]
+thema: ["Th1001", "Th1023", "Th3003"]
+
+vollstaendigkeit: "mittel"
+faktenfehler: false
+faktenfehler_detail: ""
+
+intervention: null
+intervention_datum: null
+intervention_beschreibung: ""
+
+kodiert_von: "claude-sonnet-4-6"
+kodiert_am: "2026-03-19"
+anmerkung: "GU als erste von zwei gleichrangigen hessischen Spitzenuniversitäten. Clusternennung grob korrekt. Vollständigkeit mittel, da Exzellenzuniversitäts-Status nicht erwähnt."

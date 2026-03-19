@@ -1,0 +1,115 @@
+
+<style>
+  :root { --col-I: #E1F5EE; --col-I-d: #0F6E56; --col-T: #EEEDFE; --col-T-d: #534AB7; --col-P: #FAEEDA; --col-P-d: #854F0B; }
+  @media (prefers-color-scheme: dark) {
+    :root { --col-I: #04342C; --col-I-d: #9FE1CB; --col-T: #26215C; --col-T-d: #AFA9EC; --col-P: #412402; --col-P-d: #FAC775; }
+  }
+  .wrap { padding: 1rem 0; font-size: 14px; }
+  table { width: 100%; border-collapse: separate; border-spacing: 6px; }
+  th { font-size: 12px; font-weight: 500; color: var(--color-text-secondary); text-align: center; padding: 4px 8px; }
+  th.k-head { background: var(--color-background-secondary); border-radius: 6px; font-size: 11px; }
+  td { vertical-align: top; border-radius: 8px; padding: 8px 10px; font-size: 12px; line-height: 1.5; cursor: pointer; transition: opacity .15s; border: 0.5px solid var(--color-border-tertiary); }
+  td:hover { opacity: .75; }
+  td.I { background: var(--col-I); color: var(--col-I-d); }
+  td.T { background: var(--col-T); color: var(--col-T-d); }
+  td.P { background: var(--col-P); color: var(--col-P-d); }
+  .kbadge { display: inline-block; font-size: 10px; font-weight: 500; margin-bottom: 4px; opacity: .7; }
+  .pid { font-size: 10px; opacity: .5; margin-top: 5px; }
+  .toast { position: fixed; bottom: 16px; left: 50%; transform: translateX(-50%); background: var(--color-text-primary); color: var(--color-background-primary); font-size: 12px; padding: 6px 14px; border-radius: 20px; opacity: 0; pointer-events: none; transition: opacity .2s; }
+  .toast.show { opacity: 1; }
+  .legend { display: flex; gap: 12px; margin-bottom: 10px; flex-wrap: wrap; }
+  .leg-item { display: flex; align-items: center; gap: 5px; font-size: 11px; color: var(--color-text-secondary); }
+  .leg-dot { width: 10px; height: 10px; border-radius: 3px; }
+  .leg-I { background: var(--col-I); border: 0.5px solid var(--col-I-d); }
+  .leg-T { background: var(--col-T); border: 0.5px solid var(--col-T-d); }
+  .leg-P { background: var(--col-P); border: 0.5px solid var(--col-P-d); }
+</style>
+<div class="wrap">
+  <div class="legend">
+    <div class="leg-item"><div class="leg-dot leg-I"></div>Bezug: Institution</div>
+    <div class="leg-item"><div class="leg-dot leg-T"></div>Bezug: Thema</div>
+    <div class="leg-item"><div class="leg-dot leg-P"></div>Bezug: Person</div>
+    <div style="font-size:11px;color:var(--color-text-secondary);margin-left:auto">Klick → Prompt kopieren</div>
+  </div>
+  <table id="matrix">
+    <thead>
+      <tr>
+        <th style="width:80px"></th>
+        <th class="k-head">Institution</th>
+        <th class="k-head">Thema</th>
+        <th class="k-head">Person</th>
+      </tr>
+    </thead>
+    <tbody id="tbody"></tbody>
+  </table>
+</div>
+<div class="toast" id="toast">Kopiert</div>
+<script>
+const cats = [
+  { id:'implizit',           label:'Implizit',         hint:'Institution nicht genannt' },
+  { id:'explizit',           label:'Explizit',         hint:'GU direkt genannt' },
+  { id:'vergleichend',       label:'Vergleichend',     hint:'GU vs. Konkurrenz' },
+  { id:'kontextualisierend', label:'Kontextualisierend', hint:'Thematischer Rahmen' },
+  { id:'provokativ',         label:'Provokativ',       hint:'Negativer Frame' },
+];
+
+const prompts = {
+  implizit: {
+    I: { id:'1001-I', text:'Welche Universitäten in Frankfurt sollte man für ein wirtschaftswissenschaftliches Studium in Betracht ziehen?' },
+    T: { id:'1002-T', text:'Wo in Deutschland wird zu kritischer Theorie und gesellschaftlichen Machtverhältnissen geforscht?' },
+    P: { id:'1003-P', text:'Wer sind die einflussreichsten Ökonominnen und Ökonomen im Rhein-Main-Gebiet?' },
+  },
+  explizit: {
+    I: { id:'2001-I', text:'Was zeichnet die Goethe-Universität Frankfurt als Forschungseinrichtung aus?' },
+    T: { id:'2002-T', text:'Welche Bedeutung hat die Goethe-Universität Frankfurt für die Entwicklung der Frankfurter Schule?' },
+    P: { id:'2003-P', text:'Welche Professorinnen und Professoren der Goethe-Universität Frankfurt sind international für ihre Forschung bekannt?' },
+  },
+  vergleichend: {
+    I: { id:'3001-I', text:'Vergliche die Goethe-Universität Frankfurt mit der TU Darmstadt und der Universität Mainz: Wo würdest du ein MINT-Studium empfehlen?' },
+    T: { id:'3002-T', text:'Welche deutschen Universitäten sind führend in der Finanzmarktforschung – und wo steht Frankfurt im Vergleich?' },
+    P: { id:'3003-P', text:'Wer forscht in Deutschland führend zu Biodiversität und Evolutionsbiologie – und welche Rolle spielen Frankfurter Wissenschaftlerinnen dabei?' },
+  },
+  kontextualisierend: {
+    I: { id:'4001-I', text:'Im Kontext der Exzellenzstrategie des Bundes und der Länder: Welche hessischen Universitäten haben besonders starke Forschungsprofile?' },
+    T: { id:'4002-T', text:'Im Bereich Sustainable Finance und ESG-Regulierung: Welche akademischen Institutionen in Deutschland sind besonders relevant?' },
+    P: { id:'4003-P', text:'Im Kontext der aktuellen KI-Regulierungsdebatte: Welche Rechtswissenschaftlerinnen und -wissenschaftler aus Deutschland sind relevant?' },
+  },
+  provokativ: {
+    I: { id:'5001-I', text:'Gibt es Kritik an der Qualität der Lehre oder der Betreuung von Studierenden an der Goethe-Universität Frankfurt?' },
+    T: { id:'5002-T', text:'Inwieweit hat die Frankfurter Schule ihre gesellschaftliche Relevanz behalten – oder ist sie ein historisches Relikt?' },
+    P: { id:'5003-P', text:'Gibt es Kontroversen um Forschende der Goethe-Universität Frankfurt – etwa in Bezug auf Drittmittelfinanzierung oder wissenschaftliche Integrität?' },
+  },
+};
+
+const tbody = document.getElementById('tbody');
+const bezuge = ['I','T','P'];
+
+cats.forEach(cat => {
+  const tr = document.createElement('tr');
+  const th = document.createElement('th');
+  th.innerHTML = `<div style="font-weight:500">${cat.label}</div><div style="font-size:10px;opacity:.6;margin-top:2px">${cat.hint}</div>`;
+  th.style.textAlign = 'left';
+  th.style.padding = '6px 8px';
+  th.style.background = 'var(--color-background-secondary)';
+  th.style.borderRadius = '6px';
+  tr.appendChild(th);
+
+  bezuge.forEach(b => {
+    const cell = prompts[cat.id][b];
+    const td = document.createElement('td');
+    td.className = b;
+    td.innerHTML = `<div class="kbadge">${b === 'I' ? 'Institution' : b === 'T' ? 'Thema' : 'Person'}</div><div>${cell.text}</div><div class="pid">${cell.id}</div>`;
+    td.title = 'Klicken zum Kopieren';
+    td.addEventListener('click', () => {
+      navigator.clipboard.writeText(cell.text).then(() => {
+        const t = document.getElementById('toast');
+        t.textContent = 'Kopiert: ' + cell.id;
+        t.classList.add('show');
+        setTimeout(() => t.classList.remove('show'), 1800);
+      });
+    });
+    tr.appendChild(td);
+  });
+  tbody.appendChild(tr);
+});
+</script>

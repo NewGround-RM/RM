@@ -1,0 +1,42 @@
+# GEO-Monitoring: Kanonisches Record-Schema
+# Version: 1.2 | 2026-03-10
+# Ein Record = ein Prompt, ausgeführt auf einem Modell, zu einem Zeitpunkt
+
+ziel-institution: "Goethe-Universität Frankfurt am Main"
+vergleichs-institutionen: "Ludwig-Maximilians-Universität München, Ruperto Carola-Universität Heidelberg"
+modell: "claude-sonnet"
+modell-version: "claude-sonnet-4-6"
+sprache: "de"
+datum: "20260319"
+mit-websuche: true
+user-interface: "desktop-app 1.1.7053"
+
+prompt_id: "3003-P"
+prompt-version: "01.00"
+prompt_kategorie: "vergleichend"
+prompt_bezug: "person"
+prompt_thema: "Biodiversität Evolutionsbiologie Forschende"
+prompt_intent: []
+prompt_text: "Wer forscht in Deutschland führend zu Biodiversität und Evolutionsbiologie – und welche Rolle spielen Frankfurter Wissenschaftlerinnen dabei? Bitte antworte mit rund 1000 Zeichen."
+prompt_antwortlaenge: 1000
+
+antwort_text: "Deutschland verfügt über ein dichtes Netzwerk exzellenter Biodiversitäts- und Evolutionsforschung. Führende Institutionen sind das Museum für Naturkunde Berlin, das Senckenberg Forschungsinstitut Frankfurt, sowie universitäre Zentren in München, Leipzig und Kiel.\n\nIn Frankfurt nimmt das Senckenberg Biodiversität und Klima Forschungszentrum (BiK-F) eine Schlüsselstellung ein. Hier forschen zahlreiche Wissenschaftlerinnen an vorderster Front: Katrin Böhning-Gaese leitet das Zentrum und untersucht globale Biodiversitätsmuster und deren Zusammenhänge mit Klimawandel. Ihre Arbeiten zu Vogelvielfalt und Ökosystemleistungen prägen internationale Forschungsagenden.\n\nImke Schmitt erforscht als Evolutionsbiologin die Diversität von Flechten und deren Anpassungsstrategien. Carsten Nowak leitet die Abteilung Naturschutzgenetik. Wichtige Beiträge kommen auch von Julia Astegiano zu Netzwerkökologie und Catherine Graham zu makroökologischen Mustern.\n\nDie Goethe-Universität Frankfurt verstärkt diesen Hub durch enge Kooperationen. Frankfurter Forscherinnen tragen besonders zu Themen wie funktioneller Biodiversität, molekularer Evolution und Naturschutzbiologie bei. Die Verbindung von Grundlagenforschung mit anwendungsorientiertem Naturschutz macht Frankfurt zu einem der bedeutendsten deutschen Standorte in diesem Feld."
+
+sichtbarkeit: "S2"
+kontext: ["K1"]
+tonalitaet: "T+"
+vergleich: "V="
+rolle: ["R2"]
+thema: ["Th1001", "Th1011", "Th2007", "Th2030"]
+
+vollstaendigkeit: "mittel"
+faktenfehler: true
+faktenfehler_detail: "Senckenberg ist eine eigenständige Leibniz-Forschungseinrichtung, keine Einrichtung der GU Frankfurt. Die GU-Kooperation wird zwar erwähnt, aber Senckenberg-Forschende werden implizit als 'Frankfurter Wissenschaftlerinnen' der GU zugerechnet."
+
+intervention: null
+intervention_datum: null
+intervention_beschreibung: ""
+
+kodiert_von: "claude-sonnet-4-6"
+kodiert_am: "2026-03-19"
+anmerkung: "Frankfurt als Standort korrekt hervorgehoben. Institutionelle Grenzen zwischen GU und Senckenberg verschwimmen. Böhning-Gaese korrekt als Senckenberg-Leiterin. Kooperationshinweis vorhanden aber ungenau."

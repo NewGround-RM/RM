@@ -1,0 +1,491 @@
+# GEO-Monitoring Workflow
+# Systematische Erhebung und Analyse der Repräsentation einer Institution in KI-Systemen.
+
+Init:
+schau mal in die Promptbezüge.yaml und in die promptkategorien.yaml. Denke an die Goethe-Universität Frankfurt. b = zahl der promptbezüge. k = zahl der promptkategorien. Erstelle eine b*k-Matrix mit Prompts, die geeignet sind, eine KI systematisch nach der Goethe-Universität zu befragen, um die Antworten anschließend qualitativ und quantitativ auszuwerten.
+
+Du hast jetzt b*k-Matrix mit Prompts. Erstelle pro Matrixelement (= Prompt) eine Datei, die auf '/Users/thilokorkelair/Dropbox/Thilo/WK/New Ground/_Claude_/_Claude_ RM/RM/record_schema/record_schema.yaml' als Vorlage basiert. Nutze die ID aus der Matrix sowieso folgende Daten:
+ziel-institution: "Goethe-Universität Frankfurt am Main"
+vergleichs-institutionen:  "Ludwig-Maximilians-Universität München", "Ruperto Carola-Universität Heidelberg" 
+modell: "claude-sonnet"                	# z.B. "gpt-4o", "claude-sonnet", "gemini-pro", "llama-3"
+modell-version: "claude-sonnet-4-6"
+sprache: "de"               	# "de" | "en"
+datum: "20260318"                 	# ISO 8601, z.B. "2026-03-04"
+mit-websuche: true       	# true | false — kritisch für Vergleichbarkeit
+user-interface: "desktop-app 1.1.7053"
+Benenne die Datei nach dem Muster: record datum ziel-institution promptbezug promptkategorie <Thema>.yaml
+Extrahiere das Thema des Prompts in möglichst kurzer Form und setze es an Stelle von <Thema>.    
+Erstelle im Ordner '/Users/thilokorkelair/Dropbox/Thilo/WK/New Ground/_Claude_/_Claude_ RM/RM/institutions/Goethe-Universitaet Frankfurt' den Ordner <record datum>. Speichere darin die generierten Dateien. 
+
+Starte das geo erhebung goethe-Artifact und kopiere die json-Daten in den Chat und drücke auf Senden.
+
+Okay, dann nutze diesen Skill um die records hier zu kodieren: '/Users/thilokoerkel/Dropbox/Thilo/WK/New Ground/_Claude_/_Claude_ RM/RM/institutions/Goethe-Universitaet Frankfurt/20260318'
+
+ uebersicht 20260318 Goethe-Universitaet-Frankfurt.yaml
+
+
+Repeat:
+
+
+Du hast jetzt b*k-Matrix mit Prompts. Erstelle pro Matrixelement (= Prompt) eine Datei, die auf '/Users/thilokorkelair/Dropbox/Thilo/WK/New Ground/_Claude_/_Claude_ RM/RM/record_schema/record_schema.yaml' als Vorlage basiert. Ergänze jeden Prompt am Ende um die gewünschte antwort-laenge (z.B.: "Bitte antworte mit rund 1000 Zeichen.") Fülle auch das Feld prompt_antwotlaenge. Nutze die ID aus der Matrix sowieso folgende Daten:
+ziel-institution: "Goethe-Universität Frankfurt am Main"
+vergleichs-institutionen:  "Ludwig-Maximilians-Universität München", "Ruperto Carola-Universität Heidelberg" 
+modell: "claude-sonnet"                	# z.B. "gpt-4o", "claude-sonnet", "gemini-pro", "llama-3"
+modell-version: "claude-sonnet-4-6"
+sprache: "de"               	# "de" | "en"
+datum: "20260319"                 	# ISO 8601, z.B. "2026-03-04"
+mit-websuche: true       	# true | false — kritisch für Vergleichbarkeit
+user-interface: "desktop-app 1.1.7053"
+antwort-laenge: 1000
+Benenne die Datei nach dem Muster: record datum ziel-institution promptbezug promptkategorie <Thema>.yaml
+Extrahiere das Thema des Prompts in möglichst kurzer Form und setze es an Stelle von <Thema>.    
+Erstelle im Ordner '/Users/thilokorkelair/Dropbox/Thilo/WK/New Ground/_Claude_/_Claude_ RM/RM/institutions/Goethe-Universitaet Frankfurt' den Ordner <record datum>. Speichere darin die generierten Dateien. 
+
+
+cd "/Users/thilokoerkel/Dropbox/Thilo/WK/New Ground/_Claude_/_Claude_ RM/RM/streamlit"
+nohup streamlit run app.py --server.port 8501 > streamlit.log 2>&1 &
+echo "PID: $!"
+
+
+GEO-Erhebung: Workflow
+1. Du gibst mir den Pfad
+Formulierung z.B.:
+
+„Führe eine Erhebung durch für: /Users/thilokoerkel/.../institutions/Goethe-Universitaet Frankfurt/20260319"
+
+2. Ich lese den Ordner
+Ich liste den Ordner, lese alle record_*.yaml-Dateien und extrahiere pro Datei: filename, prompt_id, prompt_kategorie, prompt_bezug, prompt_thema, prompt_text, prompt_antwortlaenge.
+3. Ich baue das Artifact
+Ich generiere ein React-Artifact mit einem INITIAL_DATA-Block, der alle extrahierten Daten enthält — Pfad, Modell-API, und die vollständige Records-Liste. Keine hardcodierten Konstanten.
+4. Du startest die Erhebung im Artifact
+Klick auf ▶ Erhebung starten. Das Artifact feuert jeden Prompt als isolierten API-Call ohne Gesprächskontext ab. Die Antwortlänge wird aus prompt_antwortlaenge gesteuert.
+5. Das Artifact schickt die Ergebnisse zurück
+Nach Abschluss: Klick auf ↑ Ergebnisse an Claude senden. Das Artifact ruft sendPrompt() auf und postet ein JSON-Paket mit ziel_pfad und allen Antworten in diesen Chat.
+6. Ich schreibe die Antworten in die YAMLs
+Ich empfange das JSON, iteriere über alle Einträge und schreibe den antwort_text in das entsprechende Feld jeder YAML-Datei im angegebenen Pfad. Alle anderen Felder bleiben unverändert.
+7. Kodierung
+Du beauftragst mich mit der Kodierung des Ordners — ich lese die befüllten Records, wende das Kodierschema an und schreibe die Kodierfelder direkt zurück in die YAMLs.
+
+
+bash# Abhängigkeiten installieren (einmalig)
+pip install -r "/Users/thilokoerkel/Dropbox/Thilo/WK/New Ground/_Claude_/_Claude_ RM/RM/streamlit/requirements.txt"
+
+# App starten
+cd "/Users/thilokoerkel/Dropbox/Thilo/WK/New Ground/_Claude_/_Claude_ RM/RM/streamlit"
+streamlit run app.py
+
+Jede der yaml-Dateien enthält einen Prompt. 
+
+meta:
+  titel: GEO-Monitoring Workflow
+  version: "01.00"
+  beschreibung: >
+    Workflow für die systematische Erhebung und Analyse der
+    Repräsentation einer Institution in KI-Systemen.
+  schritte_übersicht:
+    - id: 1
+      label: Prompts generieren
+    - id: 2
+      label: Erhebung durchführen
+    - id: 3
+      label: Kodierung
+    - id: 4
+      label: Auswertung
+
+# ─────────────────────────────────────────────
+# Verzeichnisstruktur
+# ─────────────────────────────────────────────
+
+verzeichnisstruktur:
+  wurzel: "_Claude_ GEO monitoring/<Institutionsname>/"
+  verzeichnisse:
+    - pfad: "Erhebungs-Prompts/"
+      output_schritt: 1
+      beispieldateien:
+        - "PROMPT 0001 01.00 implizit Wirtschaftswissenschaften.md"
+        - "PROMPT 0002 01.00 implizit Philosophie_und_Sozialwissenschaften.md"
+      anzahl: 50
+    - pfad: "Antworten/"
+      output_schritt: 2
+      beispieldateien:
+        - "ANTWORT 0001 01.00 implizit Wirtschaftswissenschaften.md"
+        - "ANTWORT 0002 01.00 implizit Philosophie_und_Sozialwissenschaften.md"
+      anzahl: 50
+    - pfad: "Kodierungen/"
+      output_schritt: 3
+      beispieldateien:
+        - "KODIERUNG 0001 01.00 implizit Wirtschaftswissenschaften.md"
+        - "KODIERUNG 0002 01.00 implizit Philosophie_und_Sozialwissenschaften.md"
+      anzahl: 50
+    - pfad: "Auswertungen/"
+      output_schritt: 4
+      beispieldateien:
+        - "Sichtbarkeit.jsx"
+        - "Uebersichtstabelle.md"
+
+# ─────────────────────────────────────────────
+# Dateinamenkonvention
+# ─────────────────────────────────────────────
+
+dateinamenkonvention:
+  schema: "<TYP> <ID> <VERSION> <ATTRIBUT> <KONTEXT>.md"
+  felder:
+    - name: TYP
+      beschreibung: Dateityp
+      werte: [PROMPT, ANTWORT, KODIERUNG]
+      beispiel: ANTWORT
+    - name: ID
+      beschreibung: Vierstellig, durchlaufend
+      bereich: "0001–0050"
+      beispiel: "0035"
+    - name: VERSION
+      beschreibung: Major.Minor
+      beispiel: "01.00"
+    - name: ATTRIBUT
+      beschreibung: Prompt-Kategorie
+      beispiel: kontextualisierend
+    - name: KONTEXT
+      beschreibung: Thematischer Kontext, Umlaute ersetzt
+      beispiel: Lehrerbildung
+  umlaut_ersetzung:
+    ä: ae
+    ö: oe
+    ü: ue
+    ß: ss
+    leerzeichen: _
+    sonderzeichen: _
+
+# ─────────────────────────────────────────────
+# Schritt 1: Prompts generieren
+# ─────────────────────────────────────────────
+
+schritt_1_prompts_generieren:
+  skill: geo-prompt-generator
+  input:
+    - institutionsname
+    - vergleichsinstitutionen
+    - ausgabeverzeichnis
+  output: 50 PROMPT-Dateien (je 10 pro Kategorie)
+
+  prompt_kategorien:
+    - id: implizit
+      id_bereich: "0001–0010"
+      beobachtungsdimensionen:
+        - Sichtbarkeit
+        - Kontextualisierung
+        - Themenassoziation
+    - id: explizit
+      id_bereich: "0011–0020"
+      beobachtungsdimensionen:
+        - Kontextualisierung
+        - Tonalität
+        - Rollenzuschreibung
+    - id: vergleichend
+      id_bereich: "0021–0030"
+      beobachtungsdimensionen:
+        - Konkurrenz- und Positionierungslogiken
+    - id: kontextualisierend
+      id_bereich: "0031–0040"
+      beobachtungsdimensionen:
+        - Kontextualisierung
+        - Tonalität
+        - Rollenzuschreibung
+        - Vergleiche
+        - Themenassoziation
+    - id: provokativ
+      id_bereich: "0041–0050"
+      beobachtungsdimensionen:
+        - Erfassung problematischer Narrative
+
+  ausführung:
+    befehl: python3 generate_prompts.py
+    parameter:
+      institution: "Goethe-Universität Frankfurt am Main"
+      vergleich: "LMU München, Universität Heidelberg"
+      output: "/pfad/zu/Erhebungs-Prompts"
+
+  dateiaufbau_prompt:
+    header: "# PROMPT <ID> | Version <VERSION> | <ATTRIBUT> | <KONTEXT>"
+    sektionen:
+      - name: Prompt
+        inhalt: Prompttext
+      - name: Metadaten
+        felder:
+          - Prompt-ID
+          - Version
+          - Kontext
+          - Attribut
+          - Zielinstitution
+          - Beobachtungsdimensionen
+          - Erstellt
+
+# ─────────────────────────────────────────────
+# Schritt 2: Erhebung durchführen
+# ─────────────────────────────────────────────
+
+schritt_2_erhebung:
+  tool: geo-erhebung (React-Artifact)
+  input: PROMPT-Dateien (Prompt-Texte im Script hinterlegt)
+  output: ANTWORT-Dateien
+
+  methodik:
+    api_call_typ: isoliert (kein Gesprächskontext)
+    system_prompt: "Antwort in ca. 250 Zeichen, Deutsch, präzise und informativ"
+    modell: claude-sonnet-4-20250514
+
+  kontextfreiheit:
+    hinweis: >
+      Die Erhebung darf nicht im selben Chat erfolgen, in dem über die
+      Institution gesprochen wird. Das Artifact löst das, indem jeder
+      Prompt ein eigener API-Call ohne Kontext ist.
+
+  ausführung_schritte:
+    - Artifact öffnen
+    - Institution, Vergleichsinstitutionen und Version eingeben
+    - "Erhebung starten" klicken
+    - Nach Abschluss ZIP herunterladen
+    - Dateien in den Antworten-Ordner entpacken
+
+  dateiaufbau_antwort:
+    header: "# ANTWORT <ID> | Version <VERSION> | <ATTRIBUT> | <KONTEXT>"
+    sektionen:
+      - name: Antwort
+        inhalt: Antworttext des LLM
+      - name: Metadaten
+        felder:
+          - Prompt-ID
+          - Version
+          - Kontext
+          - Attribut
+          - Zielinstitution
+          - Beobachtungsdimensionen
+          - Prompt
+          - Modell
+          - Erhoben
+
+# ─────────────────────────────────────────────
+# Schritt 3: Kodierung
+# ─────────────────────────────────────────────
+
+schritt_3_kodierung:
+  skill: geo-kodierung
+  input:
+    - ANTWORT-Dateien
+    - Zielinstitution
+  output: KODIERUNG-Dateien (Originalinhalt + Kodierblock)
+
+  kodierschema:
+
+    - dimension: Sichtbarkeit
+      kürzel: S
+      frage: Wird die Institution genannt – und wie prominent?
+      codes:
+        - code: S0
+          beschreibung: keine Nennung
+        - code: S1
+          beschreibung: beiläufige Nennung
+        - code: S2
+          beschreibung: zentrale Nennung
+        - code: S3
+          beschreibung: dominante/hervorgehobene Nennung
+      vermerke:
+        - code: V1
+          beschreibung: Fließtext ohne Fokus
+        - code: V2
+          beschreibung: eigener Satz/Abschnitt
+        - code: V3
+          beschreibung: Leitbeispiel, mehrfach hervorgehoben
+
+    - dimension: Kontext
+      kürzel: K
+      frage: In welchem inhaltlichen Rahmen erscheint die Institution?
+      mehrfachkodierung: true
+      fallregel: "Bei S0 → K0"
+      codes:
+        - code: K0
+          beschreibung: kein erkennbarer Kontext / Default
+        - code: K1
+          beschreibung: fachlich-wissenschaftlich
+        - code: K2
+          beschreibung: politikbezogen
+        - code: K3
+          beschreibung: gesellschaftlich/zivilgesellschaftlich
+        - code: K4
+          beschreibung: institutions-/organisationsbezogen
+
+    - dimension: Tonalität
+      kürzel: T
+      frage: Wie wird die Institution dargestellt?
+      default: T0
+      fallregel: "Bei S0 → nicht kodierbar (—)"
+      codes:
+        - code: "T+"
+          beschreibung: positiv/legitimierend
+        - code: T0
+          beschreibung: neutral/beschreibend
+        - code: "T±"
+          beschreibung: ambivalent
+        - code: "T−"
+          beschreibung: kritisch/problematisierend
+
+    - dimension: Vergleiche
+      kürzel: V
+      frage: Wird die Institution relativ zu anderen eingeordnet?
+      hinweis: Auch implizite Vergleiche zählen.
+      fallregel: "Bei S0 → V0"
+      codes:
+        - code: V0
+          beschreibung: kein Vergleich / Default
+        - code: "V="
+          beschreibung: gleichrangig
+        - code: "V+"
+          beschreibung: führende Institution / Spitzenposition
+        - code: "V−"
+          beschreibung: nachgeordnet
+        - code: "V≠"
+          beschreibung: nicht vergleichbar / andersartig
+
+    - dimension: Rolle
+      kürzel: R
+      frage: Welche Funktion wird der Institution zugeschrieben?
+      mehrfachkodierung: true
+      fallregel: "Bei S0 → R0"
+      codes:
+        - code: R0
+          beschreibung: keine klare Rollenzuschreibung / Default
+        - code: R1
+          beschreibung: autoritative Wissensquelle
+        - code: R2
+          beschreibung: forschende Institution
+        - code: R3
+          beschreibung: beratende Institution
+        - code: R4
+          beschreibung: umsetzende/operative Akteurin
+        - code: R5
+          beschreibung: politischer Akteur
+        - code: R6
+          beschreibung: Problemträger/-verursacher
+        - code: R7
+          beschreibung: Vergleichsmaßstab
+
+    - dimension: Themenassoziation
+      kürzel: Th
+      frage: Mit welchen Themen wird die Institution verknüpft?
+      mehrfachkodierung: true
+      offen: true
+      fallregel: "Bei S0 → nicht kodierbar (—)"
+      codes:
+        - code: Th1
+          beschreibung: Forschung/Wissenschaft
+        - code: Th2
+          beschreibung: Politikberatung
+        - code: Th3
+          beschreibung: Innovation/Zukunft
+        - code: Th4
+          beschreibung: Ethik/Verantwortung
+        - code: Th5
+          beschreibung: Förderung/Finanzierung
+        - code: Th6
+          beschreibung: Organisation/Governance
+        - code: Th7
+          beschreibung: Kontroversen/Kritik
+        - code: Th8
+          beschreibung: Lehre/Studium
+        - code: Th9
+          beschreibung: Physik
+        - code: Th10
+          beschreibung: Biologie
+        - code: Th11
+          beschreibung: transformative Forschung
+        - code: Thx
+          beschreibung: Sonstiges (benennen)
+
+  ausführung_befehl: >
+    "Kodiere die Antworten in [Quellverzeichnis] für [Institution]
+    und speichere die Kodierungen in [Zielverzeichnis]."
+
+  dateiaufbau_kodierung:
+    basis: Vollständiger Inhalt der ANTWORT-Datei
+    ergänzung:
+      sektion: Kodierung
+      felder:
+        - Sichtbarkeit (Code + Vermerk)
+        - Kontext
+        - Tonalität
+        - Vergleiche
+        - Rolle
+        - Themenassoziation
+        - Kodierer
+        - Kodiert
+        - Anmerkung (qualitative Begründung)
+
+# ─────────────────────────────────────────────
+# Schritt 4: Auswertung
+# ─────────────────────────────────────────────
+
+schritt_4_auswertung:
+  tools:
+    - React-Artifacts
+    - Übersichtstabellen
+    - Excel (optional)
+  input: KODIERUNG-Dateien
+  output:
+    - Visualisierungen
+    - Aggregationstabellen
+
+  aggregationsebenen:
+    - ebene: 1
+      label: Verteilung pro Dimension
+      beschreibung: >
+        Wie oft kommt jeder Code vor?
+        z.B. S0: 12× | S1: 15× | S2: 13× | S3: 10×
+    - ebene: 2
+      label: Kreuzmatrix Kategorie × Dimension
+      beschreibung: >
+        Pro Prompt-Kategorie den dominanten Code je Dimension zeigen.
+    - ebene: 3
+      label: Übersichtstabelle
+      spalten: [ID, Attribut, Kontext, S, K, T, V, R, Th, Anmerkung]
+
+  visualisierung:
+    typ: Balkendiagramme pro Dimension
+    tool: React-Artifacts
+    farbkodierung: nach Prompt-Kategorie
+
+# ─────────────────────────────────────────────
+# Wiederholung und Längsschnitt
+# ─────────────────────────────────────────────
+
+laengsschnitt:
+  neue_erhebung:
+    beschreibung: Gleiche Prompts, neues Datum → neue ANTWORT-Dateien mit aktuellem Datum
+  versionierung:
+    beschreibung: Bei Änderung der Prompts Version hochzählen
+    beispiel: "01.00 → 02.00"
+  vergleich_über_zeit:
+    beschreibung: Kodierungen verschiedener Erhebungszeitpunkte nebeneinanderlegen
+  andere_modelle:
+    beschreibung: Erhebung mit verschiedenen LLMs wiederholen
+    beispiele: [GPT, Gemini]
+
+# ─────────────────────────────────────────────
+# Skills und Tools
+# ─────────────────────────────────────────────
+
+skills_und_tools:
+  - schritt: 1
+    label: Prompts generieren
+    skill_tool: geo-prompt-generator
+    speicherort: "New Ground skills/geo-prompt-generator/"
+  - schritt: 2
+    label: Erhebung
+    skill_tool: geo-erhebung (Artifact)
+    speicherort: im Chat erzeugt
+  - schritt: 3
+    label: Kodierung
+    skill_tool: geo-kodierung
+    speicherort: "New Ground skills/geo-kodierung/"
+  - schritt: 4
+    label: Auswertung
+    skill_tool: Visualisierungs-Artifacts
+    speicherort: im Chat erzeugt

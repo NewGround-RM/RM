@@ -1,0 +1,41 @@
+# GEO-Monitoring: Kanonisches Record-Schema
+# Version: 1.2 | 2026-03-10
+# Ein Record = ein Prompt, ausgeführt auf einem Modell, zu einem Zeitpunkt
+
+ziel-institution: "Goethe-Universität Frankfurt am Main"
+vergleichs-institutionen: "Ludwig-Maximilians-Universität München, Ruperto Carola-Universität Heidelberg"
+modell: "claude-sonnet"
+modell-version: "claude-sonnet-4-6"
+sprache: "de"
+datum: "20260318"
+mit-websuche: true
+user-interface: "desktop-app 1.1.7053"
+
+prompt_id: "1003-P"
+prompt-version: "01.00"
+prompt_kategorie: "implizit"
+prompt_bezug: "person"
+prompt_thema: "Ökonomen Rhein-Main"
+prompt_intent: []
+prompt_text: "Wer sind die einflussreichsten Ökonominnen und Ökonomen im Rhein-Main-Gebiet?"
+
+antwort_text: "Zu den einflussreichsten Ökonomen im Rhein-Main-Gebiet zählen Volker Wieland und Michael Hüther (Institut der deutschen Wirtschaft). An der Goethe-Universität Frankfurt prägen Nicola Fuchs-Schündeln und Roman Inderst die Forschung. Die Deutsche Bundesbank in Frankfurt sowie das SAFE-Institut bündeln weitere führende Wirtschaftswissenschaftler."
+
+sichtbarkeit: "S2"
+kontext: ["K1", "K4"]
+tonalitaet: "T0"
+vergleich: "V="
+rolle: ["R1", "R2"]
+thema: ["Th2001", "Th2026", "Th3001"]
+
+vollstaendigkeit: "mittel"
+faktenfehler: false
+faktenfehler_detail: ""
+
+intervention: null
+intervention_datum: null
+intervention_beschreibung: ""
+
+kodiert_von: "claude-sonnet-4-6"
+kodiert_am: "2026-03-19"
+anmerkung: "GU als institutioneller Rahmen für zwei namentlich genannte Personen erwähnt. SAFE-Institut korrekt verortet. Wieland ist SVR-Mitglied mit GU-Professur."

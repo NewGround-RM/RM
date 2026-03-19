@@ -28,6 +28,7 @@ prompt_intent: []         	# Intentionskategorien gemäß config/intentionskateg
                           	# Mehrfachkodierung möglich, z.B. ["Int1001", "Int3001"]
                           	# Die Zuordnung erfolgt pro Prompt-Template und ist über Erhebungen hinweg stabil
 prompt_text: ""           	# vollständiger Prompt-Text wie abgeschickt
+prompt_antwortlaenge: ""	# vom LLM geforderte ungefähre Antwortlänge in Zeichen, z.B. 500
 
 # ---------------------------------------------------------------------------
 # ROHDATEN: LLM-Ausgabe

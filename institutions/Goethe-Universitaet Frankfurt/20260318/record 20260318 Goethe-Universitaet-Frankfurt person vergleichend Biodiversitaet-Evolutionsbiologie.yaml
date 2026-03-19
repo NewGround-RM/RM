@@ -1,0 +1,41 @@
+# GEO-Monitoring: Kanonisches Record-Schema
+# Version: 1.2 | 2026-03-10
+# Ein Record = ein Prompt, ausgeführt auf einem Modell, zu einem Zeitpunkt
+
+ziel-institution: "Goethe-Universität Frankfurt am Main"
+vergleichs-institutionen: "Ludwig-Maximilians-Universität München, Ruperto Carola-Universität Heidelberg"
+modell: "claude-sonnet"
+modell-version: "claude-sonnet-4-6"
+sprache: "de"
+datum: "20260318"
+mit-websuche: true
+user-interface: "desktop-app 1.1.7053"
+
+prompt_id: "3003-P"
+prompt-version: "01.00"
+prompt_kategorie: "vergleichend"
+prompt_bezug: "person"
+prompt_thema: "Biodiversität Evolutionsbiologie Forschende"
+prompt_intent: []
+prompt_text: "Wer forscht in Deutschland führend zu Biodiversität und Evolutionsbiologie – und welche Rolle spielen Frankfurter Wissenschaftlerinnen dabei?"
+
+antwort_text: "In Deutschland führen das Museum für Naturkunde Berlin, Senckenberg Frankfurt und das Leibniz-Institut zur Analyse des Biodiversitätswandels (LIB) die Biodiversitätsforschung an. In Frankfurt sind besonders Frauen prägend: Katrin Böhning-Gaese leitet Senckenberg und forscht zu globalen Biodiversitätsmustern. Julia Krohmer koordiniert das Citizen-Science-Projekt Insektensommer. Die Evolutionsbiologin Meike Wittmann erforscht Anpassungsprozesse. Frankfurt ist bundesweit Hotspot für integrative Biodiversitäts- und Evolutionsforschung mit starker weiblicher Wissenschaftspräsenz."
+
+sichtbarkeit: "S2"
+kontext: ["K1"]
+tonalitaet: "T+"
+vergleich: "V="
+rolle: ["R2"]
+thema: ["Th1001", "Th2007", "Th2030"]
+
+vollstaendigkeit: "mittel"
+faktenfehler: true
+faktenfehler_detail: "Senckenberg ist eine eigenständige Forschungseinrichtung, keine Einrichtung der GU Frankfurt. Meike Wittmann ist an der Universität Wien tätig, nicht in Frankfurt."
+
+intervention: null
+intervention_datum: null
+intervention_beschreibung: ""
+
+kodiert_von: "claude-sonnet-4-6"
+kodiert_am: "2026-03-19"
+anmerkung: "Frankfurt als Standort korrekt hervorgehoben, aber Senckenberg fälschlich implizit der GU zugeordnet. Böhning-Gaese korrekt. Wittmann falsche institutionelle Verortung."

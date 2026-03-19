@@ -2,16 +2,18 @@
 name: geo-kodierung
 description: >
   Kodiert LLM-Antworten aus GEO-Monitoring-Erhebungen nach einem standardisierten
-  Kodierschema mit 6 Dimensionen. Liest ANTWORT-Dateien, analysiert sie und erzeugt
-  KODIERUNG-Dateien. Referenziert config/dimensionen.yaml als Kodierschema und
-  config/themen.yaml als Themenliste. Nutze diesen Skill wenn der User Antworten
+  Kodierschema mit 6 Dimensionen plus sekundäre Dimensionen. Liest Record-YAML-Dateien
+  (gemäß record_schema.yaml), analysiert den antwort_text und schreibt die Kodierfelder
+  direkt in dieselbe Datei zurück. Referenziert config/dimensionen.yaml als Kodierschema
+  und config/themen.yaml als Themenliste. Nutze diesen Skill wenn der User Antworten
   kodieren, auswerten oder analysieren möchte.
 ---
 
 # GEO Kodierung
 
 Kodiert LLM-Antworten aus GEO-Monitoring-Erhebungen nach einem standardisierten
-Kodierschema und erzeugt KODIERUNG-Dateien.
+Kodierschema. Liest Record-YAML-Dateien, analysiert den `antwort_text` und
+schreibt die Kodierfelder direkt in dieselbe Datei zurück.
 
 ## Vor der Kodierung
 
@@ -26,34 +28,36 @@ dient nur der schnellen Orientierung.
 ## Workflow
 
 1. Claude liest `config/dimensionen.yaml` und `config/themen.yaml`
-2. Claude liest die ANTWORT-Dateien aus dem Quellverzeichnis
-3. Für jede Datei analysiert Claude die Antwort anhand des Kodierschemas
-4. Claude erzeugt eine KODIERUNG-Datei (Originalinhalt + Kodierblock)
-5. Die Originaldateien werden nicht verändert
+2. Claude liest die Record-YAML-Dateien aus dem Quellverzeichnis
+3. Für jede Datei analysiert Claude den `antwort_text` anhand des Kodierschemas
+4. Claude schreibt die Kodierfelder direkt in dieselbe Record-YAML-Datei zurück:
+   `sichtbarkeit`, `kontext`, `tonalitaet`, `vergleich`, `rolle`, `thema`,
+   `vollstaendigkeit`, `faktenfehler`, `faktenfehler_detail`,
+   `kodiert_von`, `kodiert_am`, `anmerkung`
+5. Alle anderen Felder bleiben unverändert
 
 ## Inputs die Claude vom User erfragen muss
 
-1. **Quellverzeichnis** – Wo liegen die ANTWORT-Dateien?
-2. **Zielverzeichnis** – Wo sollen die KODIERUNG-Dateien hin?
+1. **Quellverzeichnis** – Wo liegen die Record-YAML-Dateien?
 
-Die Zielinstitution wird aus den Metadaten der ANTWORT-Dateien gelesen.
+Die Zielinstitution und alle weiteren Metadaten werden aus den Record-Dateien gelesen.
 
 ## Kodierschema (Kurzreferenz)
 
 Vollständige Definition: `config/dimensionen.yaml`
 
-### S – Sichtbarkeit (Langform: Sichtbarkeit und Prominenz)
+### S – Sichtbarkeit
 
-| Code | Beschreibung | Prominenz |
-|------|-------------|----------|
-| S0   | keine Nennung | — |
-| S1   | beiläufige Nennung | Erwähnung im Fließtext ohne Fokus |
-| S2   | zentrale Nennung | klarer Bezug, eigener Satz oder Abschnitt |
-| S3   | dominante/hervorgehobene Nennung | erstes Beispiel, Leitbeispiel, mehrfach hervorgehoben |
+| Code | Beschreibung |
+|------|-------------|
+| S0   | keine Nennung |
+| S1   | beiläufige Nennung (Fließtext ohne Fokus) |
+| S2   | zentrale Nennung (klarer Bezug, eigener Satz oder Abschnitt) |
+| S3   | dominante Nennung (erstes Beispiel, Leitbeispiel, mehrfach hervorgehoben) |
 
-Bei S0 entfallen alle weiteren Dimensionen (werden mit — kodiert).
+Bei S0 entfallen alle weiteren Dimensionen → alle mit `"—"` belegen.
 
-### K – Kontext (Langform: Kontextualisierung)
+### K – Kontext
 
 | Code | Kontext |
 |------|---------|
@@ -63,36 +67,36 @@ Bei S0 entfallen alle weiteren Dimensionen (werden mit — kodiert).
 | K3   | gesellschaftlich/zivilgesellschaftlich |
 | K4   | institutions-/organisationsbezogen |
 
-Mehrfachkodierung möglich. Bei S0: —
+Mehrfachkodierung möglich → YAML-Liste, z.B. `["K1", "K4"]`. Bei S0: `"—"`
 
-### T – Tonalität (Langform: Tonalität und Bewertung)
+### T – Tonalität
 
 | Code | Tonalität |
 |------|-----------|
 | T+   | positiv/legitimierend |
-| T0   | neutral/beschreibend |
-| T±   | ambivalent |
+| T0   | neutral/beschreibend (Default) |
+| T±   | ambivalent (nur bei klaren gegensätzlichen Signalen) |
 | T−   | kritisch/problematisierend |
 
-T0 ist Default. T± nur bei klaren gegensätzlichen Signalen. Bei S0: —
+Bei S0: `"—"`
 
-### V – Vergleich (Langform: Vergleich und Positionierung)
+### V – Vergleich
 
 | Code | Beschreibung |
 |------|-------------|
-| V0   | kein Vergleich |
+| V0   | kein Vergleich (Default) |
 | V=   | gleichrangig |
 | V+   | führende Institution / Spitzenposition |
 | V−   | nachgeordnet |
 | V≠   | nicht vergleichbar / andersartig |
 
-Auch implizite Vergleiche zählen. Bei S0: —
+Auch implizite Vergleiche zählen. Bei S0: `"—"`
 
-### R – Rolle (Langform: Rollen- und Akteurszuschreibung)
+### R – Rolle
 
 | Code | Rolle |
 |------|-------|
-| R0   | keine klare Rollenzuschreibung |
+| R0   | keine klare Rollenzuschreibung (Default) |
 | R1   | autoritative Wissensquelle |
 | R2   | forschende Institution |
 | R3   | beratende Institution |
@@ -101,9 +105,9 @@ Auch implizite Vergleiche zählen. Bei S0: —
 | R6   | Problemträger/-verursacher |
 | R7   | Vergleichsmaßstab |
 
-Mehrfachkodierung möglich. Bei S0: —
+Mehrfachkodierung möglich → YAML-Liste, z.B. `["R1", "R2"]`. Bei S0: `"—"`
 
-### Th – Thema (Langform: Themenassoziation)
+### Th – Thema
 
 Vollständige Liste: `config/themen.yaml`
 
@@ -112,40 +116,54 @@ Nummernkreise:
 - **Th2001–Th2999** – Fachgebiete (Wirtschaftswissenschaften, Physik, ...)
 - **Th3001–Th3999** – Institutionelle Kontexte (EZB-Nähe, Exzellenzcluster, ...)
 
-Offene Liste, Mehrfachkodierung. Neue Themen mit nächster freier ID ergänzen.
-Bei S0: —
+Mehrfachkodierung → YAML-Liste, z.B. `["Th1001", "Th2024"]`.
+Neue Themen mit nächster freier ID als `"Thx: Bezeichnung"` kodieren.
+Bei S0: `"—"`
 
-## Format der KODIERUNG-Datei
+### Sekundäre Dimensionen
 
-Die Datei enthält den vollständigen Inhalt der ANTWORT-Datei, gefolgt von:
+**vollstaendigkeit:** `"hoch"` | `"mittel"` | `"niedrig"` | `null`
+Bewertet, ob die Antwort die für die Zielinstitution relevanten Aspekte
+vollständig abdeckt (unabhängig von Sichtbarkeit).
 
-```markdown
-## Kodierung
+**faktenfehler:** `true` | `false` | `null`
+Wird auf `true` gesetzt, wenn die Antwort nachweislich falsche Aussagen
+über die Zielinstitution enthält.
 
-- **Sichtbarkeit:** S1
-- **Kontext:** K1
-- **Tonalität:** T0
-- **Vergleich:** V0
-- **Rolle:** R2
-- **Thema:** Th1001, Th2001
-- **Kodierer:** [Modellname]
-- **Kodiert:** [Datum]
-- **Anmerkung:** [Kurze qualitative Begründung]
+**faktenfehler_detail:** Freitext-Beschreibung des Fehlers, sonst `""`.
+
+## Kodierte Felder im Record-YAML
+
+Claude überschreibt nach der Analyse folgende Felder in der Record-YAML-Datei:
+
+```yaml
+sichtbarkeit: "S2"
+kontext: ["K1", "K4"]
+tonalitaet: "T+"
+vergleich: "V+"
+rolle: ["R1", "R2"]
+thema: ["Th1001", "Th2001", "Th3002"]
+
+vollstaendigkeit: "hoch"
+faktenfehler: false
+faktenfehler_detail: ""
+
+kodiert_von: "claude-sonnet-4-6"   # oder Name des menschlichen Kodierers
+kodiert_am: "2026-03-18"
+anmerkung: "Kurze qualitative Begründung der Kodierung, Grenzfälle erläutern"
 ```
 
-Hinweise zum Kodierblock:
-- Dimensionslabels verwenden die **Kurzform** (Sichtbarkeit, nicht Sichtbarkeit und Prominenz)
-- Themen-IDs aus config/themen.yaml verwenden (Th1001, Th2024, ...)
-- Neue Themen, die nicht in der Liste stehen, mit Thx + Benennung kodieren
-- Anmerkung enthält eine kurze qualitative Begründung der Kodierung
+Alle übrigen Felder (Metadaten, prompt_*, antwort_text, intervention_*)
+bleiben unverändert.
 
-## Dateinamenschema
+## Dateinamen
 
+Record-Dateien folgen dem Schema:
 ```
-KODIERUNG <ID> <Version> <Attribut> <Kontext>.md
+record <datum> <ziel-institution> <prompt_bezug> <prompt_kategorie> <thema>.yaml
 ```
 
-Abgeleitet aus dem ANTWORT-Dateinamen durch Ersetzen von "ANTWORT" durch "KODIERUNG".
+Die Dateien werden durch die Kodierung nicht umbenannt.
 
 ## Nach der Kodierung
 
@@ -154,70 +172,58 @@ Abgeleitet aus dem ANTWORT-Dateinamen durch Ersetzen von "ANTWORT" durch "KODIER
 Claude gibt eine kompakte Markdown-Tabelle aller Kodierungen im Chat aus:
 
 ```
-| ID   | Attribut          | Kontext   | S  | K  | T  | V  | R  | Th         | Anmerkung |
-|------|-------------------|-----------|----|----|----|----|----|-----------|-----------| 
-| 0001 | implizit          | WiWi      | S0 | —  | —  | —  | —  | —         | ...       |
-| 0011 | explizit          | WiWi      | S3 | K1 | T+ | V+ | R2 | Th1001... | ...       |
+| prompt_id | prompt_kategorie   | prompt_bezug | S  | K       | T  | V  | R       | Th              | anmerkung |
+|-----------|--------------------|--------------|----|---------|----|----|---------|-----------------|-----------|
+| 1001-I    | implizit           | institution  | S2 | K1, K4  | T+ | V0 | R1, R2  | Th1001, Th2001  | ...       |
+| 1002-T    | implizit           | thema        | S0 | —       | —  | —  | —       | —               | ...       |
 ```
 
 ### 2. Übersichts-YAML als Datei
 
 Claude speichert eine maschinenlesbare Übersicht als YAML-Datei
-im selben Verzeichnis wie die Kodierungen:
+im selben Verzeichnis wie die Records:
 
-**Dateiname:** `UEBERSICHT_[Institution]_[Datum].yaml`
+**Dateiname:** `uebersicht_<ziel-institution>_<datum>.yaml`
 
 **Format:**
 
 ```yaml
 # Kodierungsübersicht
-institution: Goethe-Universität Frankfurt am Main
-modell: claude-sonnet-4-20250514
-kodierer: Claude Opus 4.6
-datum: 2026-02-27
-anzahl: 50
+institution: "Goethe-Universität Frankfurt am Main"
+modell: "claude-sonnet-4-6"
+kodiert_von: "claude-sonnet-4-6"
+kodiert_am: "2026-03-18"
+anzahl: 15
 
 kodierungen:
-  - id: "0001"
-    version: "01.00"
-    attribut: implizit
-    kontext: Wirtschaftswissenschaften
-    S: S0
+  - prompt_id: "1001-I"
+    prompt_kategorie: "implizit"
+    prompt_bezug: "institution"
+    prompt_thema: "Studiumswahl Frankfurt, Wirtschaftswissenschaften"
+    S: "S2"
+    K: ["K1", "K4"]
+    T: "T+"
+    V: "V0"
+    R: ["R1", "R2"]
+    Th: ["Th1001", "Th2001"]
+    anmerkung: "..."
+
+  - prompt_id: "1002-T"
+    prompt_kategorie: "implizit"
+    prompt_bezug: "thema"
+    prompt_thema: "Kritische Theorie, gesellschaftliche Machtverhältnisse"
+    S: "S0"
     K: "—"
     T: "—"
     V: "—"
     R: "—"
     Th: "—"
     anmerkung: "nicht genannt"
-
-  - id: "0011"
-    version: "01.00"
-    attribut: explizit
-    kontext: Wirtschaftswissenschaften
-    S: S3
-    K: K1
-    T: "T+"
-    V: "V+"
-    R: "R1, R2"
-    Th: "Th2001, Th2024, Th2025"
-    anmerkung: "führendes Zentrum, EZB-Nähe"
 ```
 
 Diese YAML dient als Grundlage für Aggregation, Visualisierung und Vergleiche.
 
-### 3. Gesamtdatei zerlegen
+### 3. Neue Themen
 
-Wenn die Kodierungen als Gesamtdatei erzeugt wurden (bei vielen Dateien effizienter),
-verweist Claude auf das zentrale Split-Script:
-
-```bash
-cd [Zielverzeichnis]
-bash /pfad/zu/RM/scripts/split.sh KODIERUNG_GESAMT_[Datum].md
-```
-
-Das Script erkennt die `===DATEI:===` / `===DATEIGRENZE===` Marker automatisch.
-
-### 4. Neue Themen
-
-Falls neue Themen als Thx kodiert wurden, schlägt Claude vor, diese in
-config/themen.yaml aufzunehmen.
+Falls neue Themen als `Thx` kodiert wurden, schlägt Claude vor, diese in
+`config/themen.yaml` aufzunehmen und vergibt dabei die nächste freie ID.

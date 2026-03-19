@@ -1,0 +1,42 @@
+# GEO-Monitoring: Kanonisches Record-Schema
+# Version: 1.2 | 2026-03-10
+# Ein Record = ein Prompt, ausgeführt auf einem Modell, zu einem Zeitpunkt
+
+ziel-institution: "Goethe-Universität Frankfurt am Main"
+vergleichs-institutionen: "Ludwig-Maximilians-Universität München, Ruperto Carola-Universität Heidelberg"
+modell: "claude-sonnet"
+modell-version: "claude-sonnet-4-6"
+sprache: "de"
+datum: "20260319"
+mit-websuche: true
+user-interface: "desktop-app 1.1.7053"
+
+prompt_id: "5002-T"
+prompt-version: "01.00"
+prompt_kategorie: "provokativ"
+prompt_bezug: "thema"
+prompt_thema: "Relevanz Frankfurter Schule heute"
+prompt_intent: []
+prompt_text: "Inwieweit hat die Frankfurter Schule ihre gesellschaftliche Relevanz behalten – oder ist sie ein historisches Relikt? Bitte antworte mit rund 1000 Zeichen."
+prompt_antwortlaenge: 1000
+
+antwort_text: "Die Frankfurter Schule bleibt hochaktuell, auch wenn ihre klassische Form als geschlossene Denkschule historisch ist. Ihre Kernthemen – Kulturindustrie, instrumentelle Vernunft, Autoritarismus und die Dialektik der Aufklärung – sind verblüffend gegenwärtig.\n\nAnhaltende Relevanz:\n- Die Analyse der Kulturindustrie beschreibt präzise unsere heutige Medienlandschaft: Algorithmen, Streaming-Plattformen und Social Media erzeugen jene \"standardisierte Massenkultur\", die Adorno und Horkheimer kritisierten\n- Die Kritik am \"instrumentellen Denken\" trifft auf Digitalisierung und KI-Optimierung zu, wo alles quantifizierbar und verwertbar wird\n- Habermas' Konzept der kommunikativen Vernunft ist angesichts digitaler Echokammern und Filterblasen hochbrisant\n- Die Autoritarismus-Forschung erklärt den Aufstieg rechtspopulistischer Bewegungen\n\nGrenzen:\n- Die stark eurozentristische Perspektive wird heute kritisch gesehen\n- Der teilweise elitäre Kulturbegriff wirkt überholt\n- Neuere soziale Bewegungen (Postkolonialismus, Feminismus, Ökologie) haben eigenständige Theorien entwickelt\n\nDie Frankfurter Schule ist kein starres Relikt, sondern ein lebendiges Denkinstrument. Ihre kritische Methode – Gesellschaft aus ihren Widersprüchen heraus zu verstehen – bleibt unverzichtbar für die Analyse spätkapitalistischer Verhältnisse."
+
+sichtbarkeit: "S2"
+kontext: ["K1", "K3"]
+tonalitaet: "T±"
+vergleich: "V0"
+rolle: ["R1"]
+thema: ["Th1012", "Th1024", "Th2020", "Th2021", "Th2022"]
+
+vollstaendigkeit: "hoch"
+faktenfehler: false
+faktenfehler_detail: ""
+
+intervention: null
+intervention_datum: null
+intervention_beschreibung: ""
+
+kodiert_von: "claude-sonnet-4-6"
+kodiert_am: "2026-03-19"
+anmerkung: "GU nicht direkt genannt; Frankfurter Schule als Thema impliziert Verbindung (prompt_bezug=thema). Ausgewogenere Antwort als 20260318: explizit Grenzen genannt, klare T± Begründung. Digitalisierung/KI als Anwendungsfeld neu."

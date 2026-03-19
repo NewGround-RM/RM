@@ -1,0 +1,42 @@
+# GEO-Monitoring: Kanonisches Record-Schema
+# Version: 1.2 | 2026-03-10
+# Ein Record = ein Prompt, ausgeführt auf einem Modell, zu einem Zeitpunkt
+
+ziel-institution: "Goethe-Universität Frankfurt am Main"
+vergleichs-institutionen: "Ludwig-Maximilians-Universität München, Ruperto Carola-Universität Heidelberg"
+modell: "claude-sonnet"
+modell-version: "claude-sonnet-4-6"
+sprache: "de"
+datum: "20260319"
+mit-websuche: true
+user-interface: "desktop-app 1.1.7053"
+
+prompt_id: "4001-I"
+prompt-version: "01.00"
+prompt_kategorie: "kontextualisierend"
+prompt_bezug: "institution"
+prompt_thema: "Exzellenzstrategie hessische Universitäten"
+prompt_intent: []
+prompt_text: "Im Kontext der Exzellenzstrategie des Bundes und der Länder: Welche hessischen Universitäten haben besonders starke Forschungsprofile? Bitte antworte mit rund 1000 Zeichen."
+prompt_antwortlaenge: 1000
+
+antwort_text: "Die Goethe-Universität Frankfurt und die Technische Universität Darmstadt stechen als forschungsstärkste hessische Universitäten hervor.\n\nDie Goethe-Universität Frankfurt konnte sich in der Exzellenzstrategie erfolgreich positionieren. Sie erhielt den Exzellenzcluster \"The Normative Orders\" (später erweitert) und punktet besonders in den Geistes-, Sozial- und Naturwissenschaften. Starke Forschungsschwerpunkte liegen in der Finanzmarktforschung, der Hirnforschung, der Krebsforschung sowie in den Rechtswissenschaften. Die Verbindung von theoretischer und angewandter Forschung sowie die Einbindung außeruniversitärer Institute wie Max-Planck-Institute stärken das Profil erheblich.\n\nDie TU Darmstadt zeichnet sich durch Exzellenz in den Ingenieur- und Naturwissenschaften aus. Schwerpunkte bilden die Cybersicherheitsforschung (CRISP, ATHENE), KI-Forschung mit dem hessian.AI-Zentrum, Materialwissenschaften und Energieforschung. Die TU gehört zu den forschungsstärksten technischen Universitäten Deutschlands und pflegt intensive Industriekooperationen.\n\nDie Justus-Liebig-Universität Gießen profiliert sich stark in den Lebenswissenschaften, insbesondere der Veterinärmedizin, Agrarwissenschaft und Infektionsforschung. Die Philipps-Universität Marburg hat Stärken in den Materialwissenschaften, der Virologie und den Neurowissenschaften."
+
+sichtbarkeit: "S2"
+kontext: ["K1", "K4"]
+tonalitaet: "T+"
+vergleich: "V="
+rolle: ["R1", "R2"]
+thema: ["Th1001", "Th1023", "Th2009", "Th3003", "Th3005"]
+
+vollstaendigkeit: "hoch"
+faktenfehler: false
+faktenfehler_detail: ""
+
+intervention: null
+intervention_datum: null
+intervention_beschreibung: ""
+
+kodiert_von: "claude-sonnet-4-6"
+kodiert_am: "2026-03-19"
+anmerkung: "GU als erste von zwei gleichrangigen hessischen Spitzenuniversitäten. Exzellenzcluster-Bezeichnung und Forschungsschwerpunkte korrekt. Breites Bild durch Einbezug von Gießen und Marburg."

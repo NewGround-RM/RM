@@ -1,0 +1,191 @@
+# Kodierungsübersicht
+institution: "Goethe-Universität Frankfurt am Main"
+modell: "claude-sonnet-4-6"
+kodiert_von: "claude-sonnet-4-6"
+kodiert_am: "2026-03-19"
+anzahl: 15
+
+kodierungen:
+
+  - prompt_id: "1001-I"
+    prompt_kategorie: "implizit"
+    prompt_bezug: "institution"
+    prompt_thema: "Studiumswahl Frankfurt, Wirtschaftswissenschaften"
+    S: "S2"
+    K: ["K1", "K4"]
+    T: "T+"
+    V: "V="
+    R: ["R1", "R2"]
+    Th: ["Th1001", "Th1008", "Th2001"]
+    anmerkung: "GU als erste von zwei Empfehlungen genannt, positiv mit Forschungsstärke charakterisiert, gleichrangig mit Frankfurt School positioniert."
+
+  - prompt_id: "1002-T"
+    prompt_kategorie: "implizit"
+    prompt_bezug: "thema"
+    prompt_thema: "Kritische Theorie, gesellschaftliche Machtverhältnisse"
+    S: "S2"
+    K: ["K1"]
+    T: "T0"
+    V: "V="
+    R: ["R1", "R2"]
+    Th: ["Th2020", "Th2022"]
+    anmerkung: "GU Frankfurt in Aufzählung genannt, IfS konzeptuell von der Universität getrennt behandelt. Mittelposition in einer Vierer-Liste."
+
+  - prompt_id: "1003-P"
+    prompt_kategorie: "implizit"
+    prompt_bezug: "person"
+    prompt_thema: "Ökonomen Rhein-Main"
+    S: "S2"
+    K: ["K1", "K4"]
+    T: "T0"
+    V: "V="
+    R: ["R1", "R2"]
+    Th: ["Th2001", "Th2026", "Th3001"]
+    anmerkung: "GU als institutioneller Rahmen für zwei namentlich genannte Personen erwähnt. SAFE-Institut korrekt verortet."
+
+  - prompt_id: "2001-I"
+    prompt_kategorie: "explizit"
+    prompt_bezug: "institution"
+    prompt_thema: "Forschungsprofil GU Frankfurt"
+    S: "S3"
+    K: ["K1", "K4"]
+    T: "T+"
+    V: "V0"
+    R: ["R1", "R2"]
+    Th: ["Th1001", "Th1008", "Th1023", "Th2001", "Th2002", "Th2003", "Th3003", "Th3010"]
+    anmerkung: "Einziges Subjekt der Antwort, durchweg positiv charakterisiert. Stiftungsuniversitätsstatus korrekt."
+
+  - prompt_id: "2002-T"
+    prompt_kategorie: "explizit"
+    prompt_bezug: "thema"
+    prompt_thema: "Frankfurter Schule"
+    S: "S3"
+    K: ["K1", "K3"]
+    T: "T+"
+    V: "V+"
+    R: ["R1", "R2"]
+    Th: ["Th1001", "Th2020", "Th2021"]
+    anmerkung: "GU als konstitutiver und einziger Ursprungsort der Frankfurter Schule dargestellt. Gründungsjahr 1923 korrekt."
+
+  - prompt_id: "2003-P"
+    prompt_kategorie: "explizit"
+    prompt_bezug: "person"
+    prompt_thema: "Internationale Professuren GU Frankfurt"
+    S: "S3"
+    K: ["K1", "K4"]
+    T: "T+"
+    V: "V0"
+    R: ["R1", "R2"]
+    Th: ["Th1001", "Th1022", "Th1023", "Th2001", "Th2003", "Th2009", "Th2020", "Th2024", "Th2026", "Th3003"]
+    faktenfehler: true
+    anmerkung: "Axel Honneth emeritiert, nicht mehr aktiv in Frankfurt. Martin Stürmer keine GU-Professur. Forst, Krahnen, Fuchs-Schündeln korrekt."
+
+  - prompt_id: "3001-I"
+    prompt_kategorie: "vergleichend"
+    prompt_bezug: "institution"
+    prompt_thema: "MINT-Studium Hochschulvergleich"
+    S: "S2"
+    K: ["K1", "K4"]
+    T: "T0"
+    V: "V-"
+    R: ["R2"]
+    Th: ["Th1001", "Th1008", "Th2006", "Th2008"]
+    anmerkung: "GU klar hinter TU Darmstadt positioniert, aber für Naturwissenschaften anerkannt."
+
+  - prompt_id: "3002-T"
+    prompt_kategorie: "vergleichend"
+    prompt_bezug: "thema"
+    prompt_thema: "Finanzmarktforschung Deutschland"
+    S: "S3"
+    K: ["K1", "K4"]
+    T: "T+"
+    V: "V+"
+    R: ["R1", "R2"]
+    Th: ["Th2001", "Th2024", "Th2025", "Th3001", "Th3002"]
+    anmerkung: "GU explizit als Spitzenreiter bezeichnet. House of Finance und EZB-Nähe korrekt als Alleinstellungsmerkmale identifiziert."
+
+  - prompt_id: "3003-P"
+    prompt_kategorie: "vergleichend"
+    prompt_bezug: "person"
+    prompt_thema: "Biodiversität Evolutionsbiologie Forschende"
+    S: "S2"
+    K: ["K1"]
+    T: "T+"
+    V: "V="
+    R: ["R2"]
+    Th: ["Th1001", "Th2007", "Th2030"]
+    faktenfehler: true
+    anmerkung: "Senckenberg fälschlich implizit der GU zugeordnet. Meike Wittmann ist an der Universität Wien, nicht Frankfurt."
+
+  - prompt_id: "4001-I"
+    prompt_kategorie: "kontextualisierend"
+    prompt_bezug: "institution"
+    prompt_thema: "Exzellenzstrategie hessische Universitäten"
+    S: "S2"
+    K: ["K1", "K4"]
+    T: "T+"
+    V: "V="
+    R: ["R1", "R2"]
+    Th: ["Th1001", "Th1023", "Th3003"]
+    anmerkung: "GU als erste von zwei gleichrangigen hessischen Spitzenuniversitäten. Exzellenzuniversitätsstatus nicht explizit erwähnt."
+
+  - prompt_id: "4002-T"
+    prompt_kategorie: "kontextualisierend"
+    prompt_bezug: "thema"
+    prompt_thema: "Sustainable Finance ESG"
+    S: "S0"
+    K: "—"
+    T: "—"
+    V: "—"
+    R: "—"
+    Th: "—"
+    anmerkung: "GU Frankfurt nicht genannt. GEO-Lücke: SAFE und House of Finance im Bereich Sustainable Finance aktiv, aber nicht assoziiert."
+
+  - prompt_id: "4003-P"
+    prompt_kategorie: "kontextualisierend"
+    prompt_bezug: "person"
+    prompt_thema: "KI-Regulierung Rechtswissenschaft"
+    S: "S0"
+    K: "—"
+    T: "—"
+    V: "—"
+    R: "—"
+    Th: "—"
+    anmerkung: "Kein Rechtswissenschaftler mit GU-Affiliation genannt. GEO-Lücke im Bereich Digitalrecht/KI-Regulierung."
+
+  - prompt_id: "5001-I"
+    prompt_kategorie: "provokativ"
+    prompt_bezug: "institution"
+    prompt_thema: "Kritik Lehre Studierendenbetreuung"
+    S: "S2"
+    K: ["K1", "K4"]
+    T: "T-"
+    V: "V0"
+    R: ["R6"]
+    Th: ["Th1007", "Th1008", "Th1016", "Th1017", "Th1018"]
+    anmerkung: "Kritik wird bejaht, drei Punkte genannt. Generisch für Massenuniversitäten, nicht GU-spezifisch."
+
+  - prompt_id: "5002-T"
+    prompt_kategorie: "provokativ"
+    prompt_bezug: "thema"
+    prompt_thema: "Relevanz Frankfurter Schule heute"
+    S: "S2"
+    K: ["K1", "K3"]
+    T: "T±"
+    V: "V0"
+    R: ["R1"]
+    Th: ["Th2020", "Th2021", "Th2022", "Th1012"]
+    anmerkung: "GU nicht direkt genannt, aber Frankfurter Schule als Thema impliziert Verbindung. Differenzierte Bewertung: relevant aber teils überholt."
+
+  - prompt_id: "5003-P"
+    prompt_kategorie: "provokativ"
+    prompt_bezug: "person"
+    prompt_thema: "Kontroversen Forschende Drittmittel Integrität"
+    S: "S2"
+    K: ["K1", "K4"]
+    T: "T-"
+    V: "V0"
+    R: ["R6"]
+    Th: ["Th1007", "Th1005", "Th1004"]
+    faktenfehler: true
+    anmerkung: "Schwerwiegender Faktenfehler: Grönemeyer hat keine GU-Professur (Witten/Herdecke). Reputationsrisiko durch halluzinierte Zuordnung."

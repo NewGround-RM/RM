@@ -1,0 +1,191 @@
+# Kodierungsübersicht
+institution: "Goethe-Universität Frankfurt am Main"
+modell: "claude-sonnet-4-6"
+kodiert_von: "claude-sonnet-4-6"
+kodiert_am: "2026-03-19"
+anzahl: 15
+
+kodierungen:
+
+  - prompt_id: "1001-I"
+    prompt_kategorie: "implizit"
+    prompt_bezug: "institution"
+    prompt_thema: "Studiumswahl Frankfurt, Wirtschaftswissenschaften"
+    S: "S2"
+    K: ["K1", "K4"]
+    T: "T+"
+    V: "V="
+    R: ["R1", "R2"]
+    Th: ["Th1001", "Th1008", "Th2001", "Th2025", "Th3002"]
+    anmerkung: "GU als erste von zwei Empfehlungen, positiv, gleichrangig mit Frankfurt School."
+
+  - prompt_id: "1002-T"
+    prompt_kategorie: "implizit"
+    prompt_bezug: "thema"
+    prompt_thema: "Kritische Theorie, gesellschaftliche Machtverhältnisse"
+    S: "S2"
+    K: ["K1"]
+    T: "T0"
+    V: "V="
+    R: ["R1", "R2"]
+    Th: ["Th2020", "Th2022", "Th3003"]
+    anmerkung: "GU in Aufzählung mit IfS und anderen. Mittelposition in Sieben-Standorte-Liste."
+
+  - prompt_id: "1003-P"
+    prompt_kategorie: "implizit"
+    prompt_bezug: "person"
+    prompt_thema: "Ökonomen Rhein-Main"
+    S: "S2"
+    K: ["K1", "K4"]
+    T: "T0"
+    V: "V="
+    R: ["R1", "R2"]
+    Th: ["Th2001", "Th2026", "Th3001", "Th3002"]
+    anmerkung: "GU als institutioneller Rahmen für vier Personen. SAFE fehlt."
+
+  - prompt_id: "2001-I"
+    prompt_kategorie: "explizit"
+    prompt_bezug: "institution"
+    prompt_thema: "Forschungsprofil GU Frankfurt"
+    S: "S3"
+    K: ["K1", "K4"]
+    T: "T-"
+    V: "V0"
+    R: ["R1", "R2"]
+    Th: ["Th1001", "Th1009", "Th1023", "Th2001", "Th2002", "Th2009", "Th2020", "Th3003", "Th3010"]
+    faktenfehler: true
+    anmerkung: "Frankfurt School fälschlich als GU-Fachbereich subsumiert."
+
+  - prompt_id: "2002-T"
+    prompt_kategorie: "explizit"
+    prompt_bezug: "thema"
+    prompt_thema: "Frankfurter Schule"
+    S: "S3"
+    K: ["K1", "K3"]
+    T: "T-"
+    V: "V+"
+    R: ["R1", "R2"]
+    Th: ["Th1001", "Th2020", "Th2021", "Th2003"]
+    anmerkung: "GU als alleiniger Ursprungsort. Gründung 1923 korrekt. Habermas korrekt."
+
+  - prompt_id: "2003-P"
+    prompt_kategorie: "explizit"
+    prompt_bezug: "person"
+    prompt_thema: "Internationale Professuren GU Frankfurt"
+    S: "S3"
+    K: ["K1", "K4"]
+    T: "T+"
+    V: "V0"
+    R: ["R1", "R2"]
+    Th: ["Th1001", "Th1009", "Th1022", "Th1023", "Th2001", "Th2002", "Th2006", "Th2009", "Th2016", "Th2020"]
+    faktenfehler: true
+    anmerkung: "Honneth emeritiert. Ciesek Grenzfall Klinikum/Universität. Fuchs-Schündeln, Inderst fehlen."
+
+  - prompt_id: "3001-I"
+    prompt_kategorie: "vergleichend"
+    prompt_bezug: "institution"
+    prompt_thema: "MINT-Studium Hochschulvergleich"
+    S: "S2"
+    K: ["K1", "K4"]
+    T: "T0"
+    V: "V-"
+    R: ["R2"]
+    Th: ["Th1001", "Th1008", "Th2006", "Th2008", "Th2010", "Th2011"]
+    anmerkung: "GU hinter TU Darmstadt für MINT; für Naturwiss. anerkannt. Nuancierte V-."
+
+  - prompt_id: "3002-T"
+    prompt_kategorie: "vergleichend"
+    prompt_bezug: "thema"
+    prompt_thema: "Finanzmarktforschung Deutschland"
+    S: "S3"
+    K: ["K1", "K4"]
+    T: "T+"
+    V: "V+"
+    R: ["R1", "R2"]
+    Th: ["Th2001", "Th2024", "Th2025", "Th3001", "Th3002"]
+    anmerkung: "GU als Spitzenreiter. Nuanciert: international nicht herausragend, national Spitze."
+
+  - prompt_id: "3003-P"
+    prompt_kategorie: "vergleichend"
+    prompt_bezug: "person"
+    prompt_thema: "Biodiversität Evolutionsbiologie Forschende"
+    S: "S2"
+    K: ["K1"]
+    T: "T+"
+    V: "V="
+    R: ["R2"]
+    Th: ["Th1001", "Th1011", "Th2007", "Th2030"]
+    faktenfehler: true
+    anmerkung: "Senckenberg eigenständige Leibniz-Einrichtung; institutionelle Grenzen zur GU verschwimmen."
+
+  - prompt_id: "4001-I"
+    prompt_kategorie: "kontextualisierend"
+    prompt_bezug: "institution"
+    prompt_thema: "Exzellenzstrategie hessische Universitäten"
+    S: "S2"
+    K: ["K1", "K4"]
+    T: "T+"
+    V: "V="
+    R: ["R1", "R2"]
+    Th: ["Th1001", "Th1023", "Th2009", "Th3003", "Th3005"]
+    anmerkung: "GU als erste gleichrangige hessische Spitzenuniversität. Cluster korrekt."
+
+  - prompt_id: "4002-T"
+    prompt_kategorie: "kontextualisierend"
+    prompt_bezug: "thema"
+    prompt_thema: "Sustainable Finance ESG"
+    S: "S0"
+    K: "—"
+    T: "—"
+    V: "—"
+    R: "—"
+    Th: "—"
+    anmerkung: "GU nicht genannt. Frankfurt School stattdessen. Konsistentes S0 wie 20260318."
+
+  - prompt_id: "4003-P"
+    prompt_kategorie: "kontextualisierend"
+    prompt_bezug: "person"
+    prompt_thema: "KI-Regulierung Rechtswissenschaft"
+    S: "S0"
+    K: "—"
+    T: "—"
+    V: "—"
+    R: "—"
+    Th: "—"
+    anmerkung: "Kein GU-Rechtswissenschaftler genannt. Konsistentes S0 wie 20260318."
+
+  - prompt_id: "5001-I"
+    prompt_kategorie: "provokativ"
+    prompt_bezug: "institution"
+    prompt_thema: "Kritik Lehre Studierendenbetreuung"
+    S: "S2"
+    K: ["K1", "K4"]
+    T: "T-"
+    V: "V0"
+    R: ["R6"]
+    Th: ["Th1007", "Th1008", "Th1012", "Th1016", "Th1017", "Th1018", "Th1027"]
+    anmerkung: "Fünf Kritikpunkte; nuancierter als 20260318. Digitalisierung neu. Generisch, nicht GU-spezifisch."
+
+  - prompt_id: "5002-T"
+    prompt_kategorie: "provokativ"
+    prompt_bezug: "thema"
+    prompt_thema: "Relevanz Frankfurter Schule heute"
+    S: "S2"
+    K: ["K1", "K3"]
+    T: "T±"
+    V: "V0"
+    R: ["R1"]
+    Th: ["Th1012", "Th1024", "Th2020", "Th2021", "Th2022"]
+    anmerkung: "GU nicht direkt. Ausgewogener als 20260318: Grenzen explizit. Digitalisierung/KI als neues Anwendungsfeld."
+
+  - prompt_id: "5003-P"
+    prompt_kategorie: "provokativ"
+    prompt_bezug: "person"
+    prompt_thema: "Kontroversen Forschende Drittmittel Integrität"
+    S: "S2"
+    K: ["K1", "K4"]
+    T: "T-"
+    V: "V0"
+    R: ["R6"]
+    Th: ["Th1004", "Th1005", "Th1006", "Th1007", "Th3010"]
+    anmerkung: "Kein Faktenfehler — kein Grönemeyer-Fehler wie in 20260318. Kritik generisch. Ombudsstelle korrekt."

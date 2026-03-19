@@ -1,0 +1,42 @@
+# GEO-Monitoring: Kanonisches Record-Schema
+# Version: 1.2 | 2026-03-10
+# Ein Record = ein Prompt, ausgeführt auf einem Modell, zu einem Zeitpunkt
+
+ziel-institution: "Goethe-Universität Frankfurt am Main"
+vergleichs-institutionen: "Ludwig-Maximilians-Universität München, Ruperto Carola-Universität Heidelberg"
+modell: "claude-sonnet"
+modell-version: "claude-sonnet-4-6"
+sprache: "de"
+datum: "20260319"
+mit-websuche: true
+user-interface: "desktop-app 1.1.7053"
+
+prompt_id: "1003-P"
+prompt-version: "01.00"
+prompt_kategorie: "implizit"
+prompt_bezug: "person"
+prompt_thema: "Ökonomen Rhein-Main"
+prompt_intent: []
+prompt_text: "Wer sind die einflussreichsten Ökonominnen und Ökonomen im Rhein-Main-Gebiet? Bitte antworte mit rund 1000 Zeichen."
+prompt_antwortlaenge: 1000
+
+antwort_text: "Einflussreiche Ökonominnen und Ökonomen im Rhein-Main-Gebiet:\n\nDie Region Frankfurt/Rhein-Main ist ein wichtiges Zentrum der Wirtschaftswissenschaften in Deutschland. An der Goethe-Universität Frankfurt prägen mehrere renommierte Forschende die Diskussion:\n\nVolker Wieland ist ein führender Makroökonom und Mitglied des Sachverständigenrats zur Begutachtung der gesamtwirtschaftlichen Entwicklung. Er forscht zu Geldpolitik und makroökonomischer Modellierung.\n\nNicola Fuchs-Schündeln gehört zu den einflussreichsten Arbeitsmarktökonominnen Deutschlands und erforscht Arbeitsmarktdynamiken, Migrationsfragen und Politikevaluation.\n\nRoman Inderst ist ein international anerkannter Experte für Verhaltensökonomik, Industrieökonomik und Finanzmarktregulierung.\n\nMichael Haliassos forscht zu Haushaltsfinanzen und Vermögensbildung und leitet das House of Finance.\n\nAn der TU Darmstadt arbeitet Tobias Hlobil zu Innovationsökonomik und Wirtschaftspolitik.\n\nDie Nähe zur Europäischen Zentralbank und zur Deutschen Bundesbank bringt zusätzlich hochrangige Ökonominnen und Ökonomen in die Region, die zwar nicht primär an Universitäten tätig sind, aber durch Vorträge, Politikberatung und Forschungskooperationen erheblichen Einfluss ausüben.\n\nDiese Expertinnen und Experten prägen durch Publikationen, Politikberatung und Medienauftritte die wirtschaftspolitische Debatte weit über die Region hinaus."
+
+sichtbarkeit: "S2"
+kontext: ["K1", "K4"]
+tonalitaet: "T0"
+vergleich: "V="
+rolle: ["R1", "R2"]
+thema: ["Th2001", "Th2026", "Th3001", "Th3002"]
+
+vollstaendigkeit: "mittel"
+faktenfehler: false
+faktenfehler_detail: ""
+
+intervention: null
+intervention_datum: null
+intervention_beschreibung: ""
+
+kodiert_von: "claude-sonnet-4-6"
+kodiert_am: "2026-03-19"
+anmerkung: "GU als institutioneller Rahmen für vier namentlich genannte Personen. Haliassos als HoF-Leiter korrekt. EZB/Bundesbank-Nähe explizit erwähnt. Vollständigkeit mittel: SAFE fehlt."

@@ -1,0 +1,42 @@
+# GEO-Monitoring: Kanonisches Record-Schema
+# Version: 1.2 | 2026-03-10
+# Ein Record = ein Prompt, ausgeführt auf einem Modell, zu einem Zeitpunkt
+
+ziel-institution: "Goethe-Universität Frankfurt am Main"
+vergleichs-institutionen: "Ludwig-Maximilians-Universität München, Ruperto Carola-Universität Heidelberg"
+modell: "claude-sonnet"
+modell-version: "claude-sonnet-4-6"
+sprache: "de"
+datum: "20260319"
+mit-websuche: true
+user-interface: "desktop-app 1.1.7053"
+
+prompt_id: "3001-I"
+prompt-version: "01.00"
+prompt_kategorie: "vergleichend"
+prompt_bezug: "institution"
+prompt_thema: "MINT-Studium Hochschulvergleich"
+prompt_intent: []
+prompt_text: "Vergliche die Goethe-Universität Frankfurt mit der TU Darmstadt und der Universität Mainz: Wo würdest du ein MINT-Studium empfehlen? Bitte antworte mit rund 1000 Zeichen."
+prompt_antwortlaenge: 1000
+
+antwort_text: "MINT-Studium im Vergleich: Frankfurt, Darmstadt, Mainz\n\nDie TU Darmstadt ist für MINT-Fächer die erste Wahl. Als Technische Universität bietet sie herausragende Ingenieurstudiengänge (Maschinenbau, Elektrotechnik, Informatik) mit exzellenter Reputation und starken Industriekontakten. Die Forschung ist praxisorientiert, Absolventen werden von Arbeitgebern sehr geschätzt. Campus und Ausstattung sind modern und auf technische Disziplinen spezialisiert.\n\nDie Goethe-Universität Frankfurt punktet besonders in theoretischen Naturwissenschaften wie Physik, Chemie und Mathematik. Als Volluniversität mit starker Forschung bietet sie breite Wahlmöglichkeiten und Interdisziplinarität. Informatik ist solide, aber nicht so profiliert wie in Darmstadt. Die Lage im Finanzplatz Frankfurt ermöglicht interessante Schnittstellen zu Wirtschaft und Fintech.\n\nDie Universität Mainz hat gute Naturwissenschaften, insbesondere Chemie und Physik. Sie ist kleiner und persönlicher als Frankfurt, mit engerer Betreuung. Allerdings fehlt das technische Profil für klassische Ingenieurfächer.\n\nEmpfehlung: Für Ingenieurwissenschaften und anwendungsorientierte Informatik ist Darmstadt unschlagbar. Für theoretische Naturwissenschaften mit urbanem Umfeld wähle Frankfurt. Mainz eignet sich für Studierende, die eine überschaubare Universität mit guter Betreuung bevorzugen."
+
+sichtbarkeit: "S2"
+kontext: ["K1", "K4"]
+tonalitaet: "T0"
+vergleich: "V-"
+rolle: ["R2"]
+thema: ["Th1001", "Th1008", "Th2006", "Th2008", "Th2010", "Th2011"]
+
+vollstaendigkeit: "hoch"
+faktenfehler: false
+faktenfehler_detail: ""
+
+intervention: null
+intervention_datum: null
+intervention_beschreibung: ""
+
+kodiert_von: "claude-sonnet-4-6"
+kodiert_am: "2026-03-19"
+anmerkung: "GU klar hinter TU Darmstadt für MINT positioniert, aber für theoretische Naturwissenschaften anerkannt. Nuancierte V- Bewertung: relativ nachgeordnet im Gesamtvergleich, nicht negativ bewertet."

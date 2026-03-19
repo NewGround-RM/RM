@@ -1,0 +1,41 @@
+# GEO-Monitoring: Kanonisches Record-Schema
+# Version: 1.2 | 2026-03-10
+# Ein Record = ein Prompt, ausgeführt auf einem Modell, zu einem Zeitpunkt
+
+ziel-institution: "Goethe-Universität Frankfurt am Main"
+vergleichs-institutionen: "Ludwig-Maximilians-Universität München, Ruperto Carola-Universität Heidelberg"
+modell: "claude-sonnet"
+modell-version: "claude-sonnet-4-6"
+sprache: "de"
+datum: "20260318"
+mit-websuche: true
+user-interface: "desktop-app 1.1.7053"
+
+prompt_id: "3001-I"
+prompt-version: "01.00"
+prompt_kategorie: "vergleichend"
+prompt_bezug: "institution"
+prompt_thema: "MINT-Studium Hochschulvergleich"
+prompt_intent: []
+prompt_text: "Vergliche die Goethe-Universität Frankfurt mit der TU Darmstadt und der Universität Mainz: Wo würdest du ein MINT-Studium empfehlen?"
+
+antwort_text: "Für MINT-Studiengänge würde ich die TU Darmstadt besonders empfehlen: Sie ist eine renommierte technische Universität mit exzellenter Reputation in Ingenieurwissenschaften, Informatik und Mathematik. Starke Industriekooperationen bieten gute Praxisbezüge. Die Goethe-Uni Frankfurt punktet in Naturwissenschaften (besonders Physik, Chemie) und hat moderne Forschungseinrichtungen. Uni Mainz ist stark in Physik und Chemie, etwas kleiner und persönlicher. Die Wahl hängt vom konkreten Fach ab: Ingenieurwesen → TU Darmstadt, Naturwissenschaften → alle drei gut, wobei Frankfurt und Mainz forschungsstärker in bestimmten Bereichen sind."
+
+sichtbarkeit: "S2"
+kontext: ["K1", "K4"]
+tonalitaet: "T0"
+vergleich: "V-"
+rolle: ["R2"]
+thema: ["Th1001", "Th1008", "Th2006", "Th2008"]
+
+vollstaendigkeit: "mittel"
+faktenfehler: false
+faktenfehler_detail: ""
+
+intervention: null
+intervention_datum: null
+intervention_beschreibung: ""
+
+kodiert_von: "claude-sonnet-4-6"
+kodiert_am: "2026-03-19"
+anmerkung: "GU klar hinter TU Darmstadt positioniert, aber für Naturwissenschaften anerkannt. Positionierung als nachgeordnet, jedoch nicht negativ. Für reine Naturwiss. relativiert."

@@ -1,0 +1,41 @@
+# GEO-Monitoring: Kanonisches Record-Schema
+# Version: 1.2 | 2026-03-10
+# Ein Record = ein Prompt, ausgeführt auf einem Modell, zu einem Zeitpunkt
+
+ziel-institution: "Goethe-Universität Frankfurt am Main"
+vergleichs-institutionen: "Ludwig-Maximilians-Universität München, Ruperto Carola-Universität Heidelberg"
+modell: "claude-sonnet"
+modell-version: "claude-sonnet-4-6"
+sprache: "de"
+datum: "20260318"
+mit-websuche: true
+user-interface: "desktop-app 1.1.7053"
+
+prompt_id: "5002-T"
+prompt-version: "01.00"
+prompt_kategorie: "provokativ"
+prompt_bezug: "thema"
+prompt_thema: "Relevanz Frankfurter Schule heute"
+prompt_intent: []
+prompt_text: "Inwieweit hat die Frankfurter Schule ihre gesellschaftliche Relevanz behalten – oder ist sie ein historisches Relikt?"
+
+antwort_text: "Die Frankfurter Schule bleibt relevant durch ihre Kritik an Verdinglichung, Kulturindustrie und Herrschaftsstrukturen. Begriffe wie instrumentelle Vernunft helfen, Digitalisierung und Überwachungskapitalismus zu analysieren. Allerdings wirken manche Annahmen überholt – etwa die pessimistische Massenkulturkritik angesichts partizipativer Medien. Ihre dialektische Methode inspiriert weiterhin kritische Theorie, doch neue soziale Bewegungen entwickeln oft eigene Ansätze jenseits des Frankfurter Paradigmas."
+
+sichtbarkeit: "S2"
+kontext: ["K1", "K3"]
+tonalitaet: "T±"
+vergleich: "V0"
+rolle: ["R1"]
+thema: ["Th2020", "Th2021", "Th2022", "Th1012"]
+
+vollstaendigkeit: "hoch"
+faktenfehler: false
+faktenfehler_detail: ""
+
+intervention: null
+intervention_datum: null
+intervention_beschreibung: ""
+
+kodiert_von: "claude-sonnet-4-6"
+kodiert_am: "2026-03-19"
+anmerkung: "GU nicht direkt genannt, aber Frankfurter Schule als Thema impliziert die Verbindung (prompt_bezug=thema). Differenzierte T±-Bewertung: relevant, aber teils überholt. S2 weil thematischer Fokus der gesamten Antwort."
