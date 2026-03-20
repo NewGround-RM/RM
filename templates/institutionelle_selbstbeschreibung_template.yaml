@@ -1,0 +1,146 @@
+# ==============================================================================
+# Soll-Profil -- Template
+# ==============================================================================
+#
+# Strukturierte Erfassung des Selbstbilds einer Institution.
+# Wird befuellt aus Kundeninformationen: Gespraeche, Webseiten, Dokumente,
+# Strategiepapiere, Praesentationen, Selbstberichte.
+#
+# Zweck: Abgleich mit der tatsaechlichen LLM-Repraesentation.
+# Frage ist nicht "stimmt das Soll?", sondern "bildet das LLM das Soll ab?"
+#
+# Workflow:
+#   1. Kunde liefert Rohmaterial (URLs, PDFs, Gespraeche, Folien)
+#   2. Claude extrahiert daraus einen Entwurf dieser YAML
+#   3. Kunde korrigiert und ergaenzt
+#   4. Erhebung + Kodierung messen die Ist-Repraesentation im LLM
+#   5. Audit-Report vergleicht Soll (diese Datei) mit Ist (Kodierungen)
+# ==============================================================================
+
+meta:
+  institution:     "{{INSTITUTION}}"
+  erstellt_am:     ""
+  aktualisiert_am: ""
+  erstellt_aus:    []    # Liste der Quellen, z.B.:
+    # - { typ: "webseite",       url: "https://..." }
+    # - { typ: "dokument",       datei: "Strategiepapier_2025.pdf" }
+    # - { typ: "gespraech",      mit: "Leitung Kommunikation", datum: "2026-03-20" }
+    # - { typ: "praesentation",  datei: "Jahresbericht.pptx" }
+    # - { typ: "datenbank",      name: "DFG GEPRIS", url: "https://gepris.dfg.de/..." }
+  ansprechpartner: ""    # Wer hat die Informationen geliefert?
+  status:          "entwurf"   # entwurf | vom_kunden_geprueft | freigegeben
+
+# -- Identitaet ----------------------------------------------------------------
+# Grundlegende Fakten, die das LLM korrekt wiedergeben sollte.
+
+identitaet:
+  offizieller_name:  ""
+  kurzname:          ""         # z.B. "GU", "KIT", "LMU"
+  alternative_namen: []         # z.B. ["Goethe-Uni", "Uni Frankfurt"]
+  typ:               ""         # z.B. Volluniversitaet, Technische Universitaet, Fachhochschule
+  traegerschaft:     ""         # z.B. Stiftungsuniversitaet, staatlich, privat
+  gruendungsjahr:    ""
+  standort:          ""
+  bundesland:        ""
+  besonderheiten:    []         # Stichpunkte, z.B. "Stiftungsuniversitaet seit 2008"
+
+# -- Strategische Positionierung -----------------------------------------------
+# Wie sieht sich die Institution selbst? Was ist der Anspruch?
+
+positionierung:
+  selbstverstaendnis: ""        # 2-3 Saetze: Wofuer steht die Institution?
+  claim:              ""        # Falls vorhanden: offizieller Slogan/Claim
+  leitbild_stichworte: []       # z.B. ["Forschungsstaerke", "Internationalitaet", "Transfer"]
+  differenzierung:    ""        # Was unterscheidet die Institution von vergleichbaren?
+  zielgruppen:        []        # Wen will die Institution ansprechen?
+    # z.B. ["Studierende international", "Forschende", "Politik", "Medien"]
+
+# -- Forschungsschwerpunkte ----------------------------------------------------
+# Themen, fuer die die Institution bekannt sein will.
+# soll_sichtbarkeit: Erwartung des Kunden, wie prominent dieses Thema
+# in LLM-Antworten auftauchen sollte (hoch / mittel / niedrig).
+
+forschungsschwerpunkte:
+  - thema:               ""
+    beschreibung:        ""     # 1-2 Saetze
+    soll_sichtbarkeit:   ""     # hoch | mittel | niedrig
+    strukturen:          []     # z.B. ["Exzellenzcluster X", "SFB 1234", "Institut fuer Y"]
+    schlagworte:         []     # Begriffe, die das LLM assoziieren sollte
+
+# -- Personen ------------------------------------------------------------------
+# Personen, die das LLM mit der Institution assoziieren sollte.
+# status ist wichtig: emeritiert, aktiv, Alumni etc. — Faktenfehlerquelle.
+
+kernpersonen:
+  - name:          ""
+    rolle:         ""           # z.B. "Professorin fuer Finanzwissenschaft"
+    fachgebiet:    ""
+    status:        ""           # aktiv | emeritiert | alumni | verstorben
+    bekannt_fuer:  ""           # Wofuer soll die Person bekannt sein?
+    soll_zuordnung: true        # Soll das LLM diese Person der Institution zuordnen?
+
+# -- Institutionelle Merkmale --------------------------------------------------
+# Strukturen, Partnerschaften, Rankings, Kennzahlen — alles, was das
+# institutionelle Profil praegt und im LLM auftauchen koennte/sollte.
+
+institutionelle_merkmale:
+  exzellenzcluster:    []       # z.B. ["Cardio-Pulmonary Institute"]
+  sonderforschungsbereiche: []
+  graduiertenkollegs:  []
+  zentrale_einrichtungen: []    # z.B. ["House of Finance", "SAFE"]
+  partnerschaften:     []       # z.B. ["RMU-Verbund", "LOEWE-Zentrum X"]
+  rankings:            []       # z.B. ["THE: Platz 201-250", "Shanghai: Platz 151-200"]
+  kennzahlen:                   # Optionale Fakten
+    studierende:       ""
+    professuren:       ""
+    drittmittel:       ""
+    gruendungsjahr:    ""
+
+# -- Themen, die NICHT assoziiert werden sollen --------------------------------
+# Abgrenzungen, haeufige Verwechslungen, falsche Zuordnungen.
+# Besonders wichtig fuer die Faktenfehler-Erkennung.
+
+abgrenzungen:
+  - thema:         ""
+    problem:       ""           # Was wird falsch assoziiert?
+    korrekt:       ""           # Was ist stattdessen korrekt?
+    # Beispiel:
+    # - thema: "Frankfurt School of Finance & Management"
+    #   problem: "Wird haeufig mit der Goethe-Uni verwechselt"
+    #   korrekt: "Eigenstaendige private Hochschule, nicht Teil der GU"
+    # - thema: "Axel Honneth"
+    #   problem: "Wird als aktiver GU-Professor dargestellt"
+    #   korrekt: "Emeritiert, nicht mehr an der GU taetig"
+
+# -- Wettbewerber --------------------------------------------------------------
+# Institutionen, mit denen der Kunde verglichen wird oder werden will.
+# Relevant fuer die Vergleichsdimension (V) und die Prompt-Gestaltung.
+
+wettbewerber:
+  - institution:   ""
+    kontext:       ""           # In welchem Themenfeld konkurriert man?
+    positionierung: ""          # Wie sieht sich der Kunde relativ? besser | gleichwertig | anders
+
+# -- Kommunikationsziele -------------------------------------------------------
+# Was will der Kunde mit seiner digitalen Praesenz erreichen?
+# Steuert die Priorisierung im Audit-Report.
+
+kommunikationsziele:
+  primaere_botschaften: []      # Was soll bei Zielgruppen ankommen?
+  schwaechen_bewusstsein: []    # Wo weiss der Kunde, dass er schwach ist?
+  blinde_flecken: []            # Themen, die der Kunde nicht auf dem Schirm hat
+                                # (wird im Laufe des Audits befuellt)
+
+# -- Rohmaterial ---------------------------------------------------------------
+# Referenzen auf die Originaldokumente des Kunden.
+# Werden nicht in den Report uebernommen, aber fuer Rueckfragen aufbewahrt.
+
+quellen:
+  webseiten:
+    - { url: "",  beschreibung: "",  abgerufen_am: "" }
+  dokumente:
+    - { datei: "",  typ: "",  beschreibung: "" }
+    # typ: strategiepapier | jahresbericht | praesentation | selbstbericht |
+    #      ranking | pressemitteilung | sonstiges
+  gespraeche:
+    - { datum: "",  mit: "",  notizen: "" }

@@ -1,0 +1,235 @@
+# ==============================================================================
+# GEO-Audit Report – Template
+# ==============================================================================
+#
+# Arbeitsformat fuer GEO-Audit-Berichte.
+# Wird per Skript in Word (.docx) gerendert (brand.yaml liefert das Design).
+#
+# Workflow:
+#   1. Claude erhaelt die uebersicht_*.yaml des gewuenschten Laufs (+ Vorlauf)
+#   2. Claude befuellt dieses Template mit echten Daten
+#   3. Thilo und Claude iterieren am Inhalt
+#   4. Wenn fertig: render_audit.js erzeugt das Word-Dokument
+#
+# Konventionen:
+#   - {{INSTITUTION}} = Platzhalter fuer den Institutionsnamen
+#   - {{MODELL}} = Platzhalter fuer das LLM-Modell
+#   - {{DATUM}} = Erhebungsdatum
+#   - {{VORLAUF}} = Datum des Vorlaufs
+#   - T+- = Plusminus (wird beim Rendern zu echtem Zeichen)
+#   - [THEMA: xyz] = Markierung: hier muss der Text etwas zu xyz sagen
+#   - [OFFEN: xyz] = Markierung: hier fehlt noch Information
+#   - Sichtbarkeit (S) wird nur fuer implizite, kontextualisierende und
+#     provokative Prompts ausgewertet (nicht fuer explizite und vergleichende,
+#     weil dort die Institution per Definition genannt wird)
+# ==============================================================================
+
+meta:
+  institution:     "{{INSTITUTION}}"
+  erhebungsdatum:  "{{DATUM}}"
+  vorlauf_datum:   "{{VORLAUF}}"
+  modell:          "{{MODELL}}"
+  anzahl_prompts:  15
+  version:         "0.2"
+  autor:           "New Ground / Thilo Koerkel"
+  sprache:         "de"
+
+# -- KPIs ----------------------------------------------------------------------
+# Sichtbarkeit: nur aus impliziten, kontextualisierenden und provokativen
+# Prompts berechnet (9 von 15). Explizite und vergleichende Prompts nennen
+# die Institution per Design, daher ist S dort nicht diagnostisch.
+
+kpis:
+  prompts_gesamt:             15
+  prompts_fuer_sichtbarkeit:  9       # implizit + kontextualisierend + provokativ
+  sichtbar:                   0       # S >= 1 (nur aus den 9 diagnostischen Prompts)
+  nicht_genannt:              0       # S0 (nur aus den 9 diagnostischen Prompts)
+  positiv:                    0       # T+ (aus allen kodierten Prompts)
+  neutral:                    0       # T0
+  ambivalent:                 0       # T+-
+  negativ:                    0       # T-
+  faktenfehler:               0
+
+deltas:
+  sichtbar:                   0
+  nicht_genannt:              0
+  positiv:                    0
+  faktenfehler:               0
+
+# -- Gesamtbewertung ----------------------------------------------------------
+# Laenge: mindestens 4 Absaetze. Muss folgende Themen abdecken:
+#   [THEMA: Sichtbarkeit] Wie sichtbar ist {{INSTITUTION}} insgesamt?
+#   [THEMA: Sichtbarkeitsprofil] Wo hoch (S3), wo mittel (S2), wo unsichtbar (S0)?
+#   [THEMA: Tonalitaet] Ueberwiegt positive, neutrale oder negative Darstellung?
+#   [THEMA: Tonalitaetsmuster] In welchen Promptkategorien ist die Tonalitaet
+#     positiv, wo negativ? Gibt es ein Muster (z.B. provokativ = immer negativ)?
+#   [THEMA: Vergleichspositionierung] Wie steht {{INSTITUTION}} im Vergleich
+#     zu Wettbewerbern? Wo besser, wo schlechter, wo gleichwertig?
+#   [THEMA: Kontextualisierung] In welchen inhaltlichen Kontexten (K1-K4) wird
+#     {{INSTITUTION}} verortet? Fehlen wichtige Kontexte?
+#   [THEMA: Rollenzuschreibung] Welche Rollen (R0-R7) schreibt das LLM
+#     {{INSTITUTION}} zu? Passt das zum Selbstbild?
+#   [THEMA: Themenassoziationen] Welche Themen dominieren die Repraesentation?
+#     Welche fehlen? Gibt es eine thematische Schieflage?
+#   [THEMA: Faktenfehler] Gibt es Faktenfehler? Wie schwerwiegend? Persistieren sie?
+#   [THEMA: Repraesentationsluecken] In welchen Bereichen ist {{INSTITUTION}}
+#     nicht oder kaum repraesentiert, obwohl sie dort aktiv ist?
+#   [THEMA: Trend] Verbessert oder verschlechtert sich die Repraesentation
+#     gegenueber dem Vorlauf?
+
+gesamtbewertung: |
+  [THEMA: Sichtbarkeit] {{INSTITUTION}} wird von {{MODELL}} in X von Y
+  diagnostischen Prompts erwaehnt (Sichtbarkeitsquote: X%). Damit ist die
+  Grundsichtbarkeit [hoch/mittel/niedrig]. [THEMA: Sichtbarkeitsprofil] Die
+  Sichtbarkeit ist besonders hoch bei [Themen], wo {{INSTITUTION}} dominant
+  (S3) positioniert wird. In den Bereichen [Themen] bleibt {{INSTITUTION}}
+  hingegen unsichtbar (S0) -- hier bestehen Repraesentationsluecken, die
+  gezielt adressiert werden koennen.
+
+  [THEMA: Tonalitaet] Die Tonalitaet ist ueberwiegend [positiv/neutral/negativ]:
+  X von Y kodierten Antworten sind positiv (T+), X neutral (T0), X ambivalent
+  (T+-) und X negativ (T-). [THEMA: Tonalitaetsmuster] Ein klares Muster zeigt
+  sich bei den Promptkategorien: [z.B. explizite und vergleichende Prompts
+  erzeugen ueberwiegend positive Darstellungen, waehrend provokative Prompts
+  erwartungsgemaess kritische Toene anschlagen]. Bemerkenswert ist [z.B. dass
+  auch bei kontextualisierenden Prompts die Tonalitaet positiv ausfaellt, was
+  auf eine solide inhaltliche Verankerung hindeutet].
+
+  [THEMA: Vergleichspositionierung] In vergleichenden Prompts wird
+  {{INSTITUTION}} [besser/gleichwertig/schlechter] als Wettbewerber dargestellt.
+  [THEMA: Kontextualisierung] Die inhaltliche Verortung erfolgt ueberwiegend
+  im [fachlich-wissenschaftlichen (K1) / politischen (K2) / gesellschaftlichen
+  (K3) / institutionellen (K4)] Kontext. [THEMA: Rollenzuschreibung] Das LLM
+  schreibt {{INSTITUTION}} primaer die Rolle einer [autoritativen Wissensquelle
+  (R1) / forschenden Institution (R2) / etc.] zu. [Passt das zum Selbstbild?
+  Fehlen Rollen wie z.B. gesellschaftlicher Akteur oder Innovationstreiber?]
+
+  [THEMA: Themenassoziationen] Die thematische Repraesentation wird dominiert
+  von [z.B. Frankfurter Schule, Finanzwissenschaften]. Andere Staerken von
+  {{INSTITUTION}} -- etwa [z.B. Biodiversitaetsforschung, Digitalisierung,
+  Nachhaltigkeitsforschung] -- sind im LLM kaum oder gar nicht repraesentiert.
+  [THEMA: Faktenfehler] Es bestehen X Faktenfehler, davon X persistierend.
+  [Beschreibung der schwerwiegendsten Fehler und ihres Reputationsrisikos.]
+  [THEMA: Repraesentationsluecken] Neben den thematischen Luecken faellt auf,
+  dass [z.B. bestimmte Personen falsch zugeordnet werden, bestimmte
+  Forschungsbereiche nicht mit {{INSTITUTION}} assoziiert werden].
+  [THEMA: Trend] Gegenueber dem Vorlauf ({{VORLAUF}}) zeigt sich [eine
+  Verbesserung / eine Verschlechterung / Stabilitaet] in X von Y Prompts.
+  [Zusammenfassung der wichtigsten Veraenderungen.]
+
+# -- Ergebnismatrix -----------------------------------------------------------
+# Jede Zelle: Liste von Kodierungen (skaliert bei mehreren Prompts pro Zelle)
+# S-Werte in expliziten und vergleichenden Prompts werden angezeigt, aber
+# nicht in die Sichtbarkeits-KPIs eingerechnet.
+# diagnostisch: true = dieser Prompt zaehlt fuer die Sichtbarkeitsauswertung
+
+ergebnismatrix:
+
+  explizit:
+    diagnostisch: false    # S hier nicht diagnostisch
+    institution:
+      - { id: "", S: "", T: "", V: "", thema: "" }
+    thema:
+      - { id: "", S: "", T: "", V: "", thema: "" }
+    person:
+      - { id: "", S: "", T: "", V: "", thema: "", faktenfehler: false }
+  
+  implizit:
+    diagnostisch: true
+    institution:
+      - { id: "", S: "", T: "", V: "", thema: "" }
+    thema:
+      - { id: "", S: "", T: "", V: "", thema: "" }
+    person:
+      - { id: "", S: "", T: "", V: "", thema: "" }
+
+  vergleichend:
+    diagnostisch: false    # S hier nicht diagnostisch
+    institution:
+      - { id: "", S: "", T: "", V: "", thema: "" }
+    thema:
+      - { id: "", S: "", T: "", V: "", thema: "" }
+    person:
+      - { id: "", S: "", T: "", V: "", thema: "" }
+
+  kontextualisierend:
+    diagnostisch: true
+    institution:
+      - { id: "", S: "", T: "", V: "", thema: "" }
+    thema:
+      - { id: "", S: "", T: "", V: "", thema: "" }
+    person:
+      - { id: "", S: "", T: "", V: "", thema: "" }
+
+  provokativ:
+    diagnostisch: true
+    institution:
+      - { id: "", S: "", T: "", V: "", thema: "" }
+    thema:
+      - { id: "", S: "", T: "", V: "", thema: "" }
+    person:
+      - { id: "", S: "", T: "", V: "", thema: "" }
+
+# -- Staerken ------------------------------------------------------------------
+
+staerken:
+  - ""
+
+# -- Schwaechen ----------------------------------------------------------------
+
+schwaechen:
+  - ""
+
+# -- Repraesentationsluecken ---------------------------------------------------
+# Bereiche, in denen {{INSTITUTION}} nicht oder
+# unzureichend im LLM repraesentiert wird, obwohl sie dort aktiv ist.
+
+repraesentationsluecken:
+  - thema:          ""
+    status:         ""       # z.B. "S0", "S0 -> S1", "S1 (schwach)"
+    einschaetzung:  ""
+
+# -- Laengsschnitt -------------------------------------------------------------
+
+laengsschnitt:
+  verbesserungen:
+    - { id: "", aenderung: "", kommentar: "" }
+
+  verschlechterungen:
+    - { id: "", aenderung: "", kommentar: "" }
+
+  persistent:
+    - { id: "", problem: "" }
+
+# -- Handlungsempfehlungen ----------------------------------------------------
+
+empfehlungen:
+  quick_wins:
+    titel: "Sofort umsetzbar"
+    items:
+      - ""
+
+  mittelfristig:
+    titel: "Mittelfristig (3-6 Monate)"
+    items:
+      - ""
+
+  strategisch:
+    titel: "Strategisch (6-12 Monate)"
+    items:
+      - ""
+
+# -- Methodik-Fussnote ---------------------------------------------------------
+# Wird am Ende des Berichts klein gedruckt.
+
+fussnote: |
+  Die Erhebung basiert auf {{anzahl_prompts}} systematischen Prompts in fuenf
+  Kategorien (explizit, implizit, vergleichend, kontextualisierend, provokativ)
+  mit drei Bezugsebenen (Institution, Thema, Person). Die Kodierung erfolgte
+  anhand eines standardisierten Schemas mit sechs Dimensionen: Sichtbarkeit (S),
+  Tonalitaet (T), Vergleichspositionierung (V), Kontextualisierung (K),
+  Rollenzuschreibung (R) und Themenassoziation (Th). Die Sichtbarkeitsauswertung
+  basiert ausschliesslich auf den {{prompts_fuer_sichtbarkeit}} diagnostischen
+  Prompts (implizit, kontextualisierend, provokativ), bei denen die Institution
+  nicht im Prompt selbst genannt wird. Die vollstaendigen Prompt-Texte sind im
+  beigelegten HTML-Dokument dokumentiert.

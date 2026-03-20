@@ -4,21 +4,6 @@
 # beschreibt die Beobachtungsabsicht der Kategorie und steuert die Auswertung
 # Dimensionen in Langform (Kurzformen siehe config/dimensionen.yaml)
 
-- id: implizit
-  label: Implizit
-  beschreibung: >
-    Institution wird im Erhebungs-Prompt nicht genannt –
-    getestet wird, ob sie von allein auftaucht.
-  id_range: "1001-1999"
-  primaer:
-    - Sichtbarkeit und Prominenz
-    - Themenassoziation
-  sekundaer:
-    - Kontextualisierung
-    - Tonalität und Bewertung
-    - Vergleich und Positionierung
-    - Rollen- und Akteurszuschreibung
-
 - id: explizit
   label: Explizit
   beschreibung: >
@@ -34,6 +19,21 @@
     - Vergleich und Positionierung
     - Themenassoziation
 
+- id: implizit
+  label: Implizit
+  beschreibung: >
+    Institution wird im Erhebungs-Prompt nicht genannt –
+    getestet wird, ob sie von allein auftaucht.
+  id_range: "1001-1999"
+  primaer:
+    - Sichtbarkeit und Prominenz
+    - Themenassoziation
+  sekundaer:
+    - Kontextualisierung
+    - Tonalität und Bewertung
+    - Vergleich und Positionierung
+    - Rollen- und Akteurszuschreibung
+
 - id: vergleichend
   label: Vergleichend
   beschreibung: >
@@ -47,6 +47,22 @@
     - Kontextualisierung
     - Tonalität und Bewertung
     - Rollen- und Akteurszuschreibung
+    - Themenassoziation
+
+- id: entscheidend
+  label: Entscheidend
+  beschreibung: >
+    Institution wird in eine konkrete Entscheidungssituation eingebettet –
+    getestet wird, ob und wie sie in Auswahl-, Empfehlungs- oder
+    Rankingkontexten berücksichtigt wird.
+  id_range: "6001-6999"
+  primaer:
+    - Vergleich und Positionierung
+    - Rollen- und Akteurszuschreibung
+  sekundaer:
+    - Tonalität und Bewertung
+    - Sichtbarkeit und Prominenz
+    - Kontextualisierung
     - Themenassoziation
 
 - id: kontextualisierend

@@ -1,0 +1,239 @@
+# ==============================================================================
+# Begriffsreferenz – Analytische Begriffe
+# ==============================================================================
+#
+# Zentrale Referenz fuer alle analytischen Begriffe im RM.
+# Jeder Begriff hat:
+#   id:         Maschinenlesbare ID (fuer Config-Dateien, Code, YAML-Records)
+#   label:      Kurzform fuer Tabellen, Dashboard, kompakte Darstellungen
+#   langform:   Ausfuehrliche Bezeichnung fuer Berichte und Prosa
+#   report:     Formulierung fuer den Berichtsfliesstext (mit Artikel, Praeposition etc.)
+#   erklaerung: Verstaendliche Definition fuer Glossar / Empfaenger des Berichts
+#
+# Wird referenziert von:
+#   - audit_report_template.yaml (Berichtsinhalt)
+#   - render_audit.js (Berichtsformatierung)
+#   - app.py (Dashboard-Beschriftungen)
+#   - beobachtungsdimensionen.yaml, promptkategorien.yaml etc. (Konsistenzquelle)
+#
+# Konvention: id ist immer kleingeschrieben oder Kurzcode (S, T, V, K, R, Th).
+#             In Berichten immer label oder langform verwenden, nie die id.
+# ==============================================================================
+
+
+# -- Beobachtungsdimensionen ---------------------------------------------------
+
+dimensionen:
+
+  - id: S
+    label: Sichtbarkeit
+    langform: Sichtbarkeit und Prominenz
+    report: die Sichtbarkeit und Prominenz
+    erklaerung: >
+      Wird die Institution in der KI-Antwort erwaehnt, und wie prominent?
+      Gemessen auf einer Skala von S0 (nicht erwaehnt) bis S3 (dominant,
+      Leitbeispiel). Die Sichtbarkeit wird nur bei diagnostischen Prompts
+      ausgewertet, bei denen die Institution nicht im Prompt selbst genannt wird.
+    codes:
+      - { id: S0, label: "nicht genannt",  report: "nicht erwaehnt" }
+      - { id: S1, label: "beilaeufig",     report: "beilaeufig erwaehnt" }
+      - { id: S2, label: "zentral",        report: "zentral genannt" }
+      - { id: S3, label: "dominant",       report: "dominant positioniert" }
+
+  - id: T
+    label: "Tonalitaet"
+    langform: "Tonalitaet und Bewertung"
+    report: "die Tonalitaet und Bewertung"
+    erklaerung: >
+      Wie wird die Institution dargestellt? Positiv, neutral, ambivalent oder
+      negativ? Die Tonalitaet erfasst den Gesamteindruck der KI-Antwort, nicht
+      einzelne Formulierungen.
+    codes:
+      - { id: "T+",  label: "positiv",     report: "positiv dargestellt" }
+      - { id: "T0",  label: "neutral",     report: "neutral beschrieben" }
+      - { id: "T+-", label: "ambivalent",  report: "ambivalent bewertet", zeichen: "T\u00b1" }
+      - { id: "T-",  label: "negativ",     report: "negativ dargestellt" }
+
+  - id: V
+    label: Vergleich
+    langform: Vergleich und Positionierung
+    report: die Vergleichspositionierung
+    erklaerung: >
+      Wie wird die Institution im Vergleich zu anderen eingeordnet?
+      Besser, gleichwertig, schlechter, oder wird kein Vergleich gezogen?
+    codes:
+      - { id: "V+",  label: "besser positioniert",     report: "besser als Vergleichsinstitutionen positioniert" }
+      - { id: "V=",  label: "gleichwertig",             report: "gleichwertig mit Vergleichsinstitutionen dargestellt" }
+      - { id: V0,    label: "kein Vergleich",           report: "ohne Vergleich dargestellt" }
+      - { id: "V-",  label: "schlechter positioniert",  report: "schlechter als Vergleichsinstitutionen positioniert" }
+      - { id: "V!=",  label: "nicht vergleichbar",       report: "als nicht vergleichbar eingestuft", zeichen: "V\u2260" }
+
+  - id: K
+    label: Kontext
+    langform: Kontextualisierung
+    report: die Kontextualisierung
+    erklaerung: >
+      In welchem inhaltlichen Rahmen wird die Institution dargestellt?
+      Fachlich-wissenschaftlich, politisch, gesellschaftlich oder institutionell?
+      Mehrfachkodierung moeglich.
+    codes:
+      - { id: K0, label: "kein Kontext",                 report: "ohne erkennbaren Kontext dargestellt" }
+      - { id: K1, label: "fachlich-wissenschaftlich",     report: "im fachlich-wissenschaftlichen Kontext verortet" }
+      - { id: K2, label: "politikbezogen",                report: "im politischen Kontext verortet" }
+      - { id: K3, label: "gesellschaftlich",              report: "im gesellschaftlichen Kontext verortet" }
+      - { id: K4, label: "institutionell",                report: "im institutionellen Kontext verortet" }
+
+  - id: R
+    label: Rolle
+    langform: Rollen- und Akteurszuschreibung
+    report: die Rollen- und Akteurszuschreibung
+    erklaerung: >
+      Welche Funktion schreibt die KI der Institution zu?
+      Wissensquelle, Forschungseinrichtung, politischer Akteur, Problemtraeger?
+      Mehrfachkodierung moeglich.
+    codes:
+      - { id: R0, label: "keine klare Rolle",              report: "ohne klare Rollenzuschreibung" }
+      - { id: R1, label: "autoritative Wissensquelle",     report: "als autoritative Wissensquelle dargestellt" }
+      - { id: R2, label: "forschende Institution",         report: "als forschende Institution dargestellt" }
+      - { id: R3, label: "beratende Institution",          report: "als beratende Institution dargestellt" }
+      - { id: R4, label: "umsetzende Akteurin",            report: "als umsetzende Akteurin dargestellt" }
+      - { id: R5, label: "politischer Akteur",             report: "als politischer Akteur dargestellt" }
+      - { id: R6, label: "Problemtraeger",                 report: "als Problemtraeger dargestellt" }
+      - { id: R7, label: "Vergleichsmassstab",             report: "als Vergleichsmassstab herangezogen" }
+
+  - id: Th
+    label: Thema
+    langform: Themenassoziation
+    report: die Themenassoziation
+    erklaerung: >
+      Mit welchen Themen verknuepft die KI die Institution?
+      Offene Kodierung – neue Themen werden laufend ergaenzt.
+      Mehrfachkodierung moeglich. Vollstaendige Themenliste
+      siehe config/themen.yaml.
+
+# -- Promptkategorien ----------------------------------------------------------
+
+promptkategorien:
+
+  - id: implizit
+    label: Implizit
+    langform: Implizite Prompts
+    report: implizite Prompts (Institution wird nicht genannt)
+    erklaerung: >
+      Die Institution wird im Prompt nicht erwaehnt. Getestet wird,
+      ob die KI sie von sich aus nennt. Diagnostisch fuer Sichtbarkeit.
+    diagnostisch_fuer_sichtbarkeit: true
+
+  - id: explizit
+    label: Explizit
+    langform: Explizite Prompts
+    report: explizite Prompts (Institution wird direkt genannt)
+    erklaerung: >
+      Die Institution wird im Prompt direkt genannt. Getestet wird,
+      wie sie dargestellt wird. Sichtbarkeit ist hier per Design gegeben
+      und daher nicht diagnostisch.
+    diagnostisch_fuer_sichtbarkeit: false
+
+  - id: vergleichend
+    label: Vergleichend
+    langform: Vergleichende Prompts
+    report: vergleichende Prompts (Institution im Wettbewerbskontext)
+    erklaerung: >
+      Die Institution wird gemeinsam mit Vergleichsinstitutionen genannt.
+      Getestet wird die relative Positionierung. Sichtbarkeit ist hier
+      per Design gegeben und daher nicht diagnostisch.
+    diagnostisch_fuer_sichtbarkeit: false
+
+  - id: kontextualisierend
+    label: Kontextualisierend
+    langform: Kontextualisierende Prompts
+    report: kontextualisierende Prompts (thematischer Rahmen vorgegeben)
+    erklaerung: >
+      Ein thematischer Kontext wird vorgegeben, ohne die Institution zu
+      nennen. Getestet wird, ob die Institution in diesem Kontext erscheint.
+      Diagnostisch fuer Sichtbarkeit.
+    diagnostisch_fuer_sichtbarkeit: true
+
+  - id: provokativ
+    label: Provokativ
+    langform: Provokative Prompts
+    report: provokative Prompts (negativer Framing-Kontext)
+    erklaerung: >
+      Ein negativer oder kritischer Kontext wird vorgegeben. Getestet wird,
+      ob und wie die Institution in Problemnarrativen erscheint.
+      Diagnostisch fuer Sichtbarkeit.
+    diagnostisch_fuer_sichtbarkeit: true
+
+# -- Promptbezuege -------------------------------------------------------------
+
+promptbezuege:
+
+  - id: institution
+    label: Institution
+    langform: Institutionsbezogene Prompts
+    report: institutionsbezogene Prompts
+    id_suffix: I
+    erklaerung: >
+      Der Prompt bezieht sich auf die Institution als Ganzes.
+      Getestet wird, wie die Institution insgesamt repraesentiert wird.
+
+  - id: thema
+    label: Thema
+    langform: Themenbezogene Prompts
+    report: themenbezogene Prompts
+    id_suffix: T
+    erklaerung: >
+      Der Prompt bezieht sich auf ein Fach-, Forschungs- oder
+      Gesellschaftsthema. Getestet wird, ob und wie die Institution
+      in diesem Themenfeld erscheint.
+
+  - id: person
+    label: Person
+    langform: Personenbezogene Prompts
+    report: personenbezogene Prompts
+    id_suffix: P
+    erklaerung: >
+      Der Prompt bezieht sich auf Personen (Forschende, Lehrende, Alumni).
+      Getestet wird, ob die institutionelle Zugehoerigkeit erkennbar ist.
+
+# -- Weitere Analysebegriffe ---------------------------------------------------
+
+analysebegriffe:
+
+  - id: repraesentationsluecke
+    label: Repraesentationsluecke
+    langform: Repraesentationsluecke
+    report: eine Repraesentationsluecke
+    erklaerung: >
+      Ein Bereich, in dem die Institution nicht oder unzureichend im LLM
+      repraesentiert wird, obwohl sie dort aktiv ist. Erkennbar durch
+      persistierendes S0 oder S1 bei diagnostischen Prompts.
+
+  - id: faktenfehler
+    label: Faktenfehler
+    langform: Faktenfehler
+    report: ein Faktenfehler
+    erklaerung: >
+      Eine sachlich falsche Aussage der KI ueber die Institution, z.B.
+      falsche Personenzuordnungen, falsche Daten oder erfundene Sachverhalte
+      (Halluzinationen). Faktenfehler sind ein direktes Reputationsrisiko.
+
+  - id: diagnostischer_prompt
+    label: Diagnostischer Prompt
+    langform: Diagnostischer Prompt (fuer Sichtbarkeit)
+    report: ein diagnostischer Prompt
+    erklaerung: >
+      Ein Prompt, bei dem die Institution nicht im Prompttext selbst
+      genannt wird. Nur solche Prompts sind aussagekraeftig fuer die
+      Messung der Sichtbarkeit, weil die KI die Institution eigenstaendig
+      erwaehnen muss. Implizite, kontextualisierende und provokative
+      Prompts sind diagnostisch; explizite und vergleichende nicht.
+
+  - id: vorlauf
+    label: Vorlauf
+    langform: Vorheriger Erhebungslauf
+    report: der vorherige Erhebungslauf
+    erklaerung: >
+      Der chronologisch vorhergehende Datensatz, gegen den der aktuelle
+      Lauf verglichen wird. Dient der Erkennung von Veraenderungen
+      und Trends in der KI-Repraesentation.

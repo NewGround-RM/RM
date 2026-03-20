@@ -49,7 +49,7 @@ kodierungen:
     prompt_thema: "Forschungsprofil GU Frankfurt"
     S: "S3"
     K: ["K1", "K4"]
-    T: "T-"
+    T: "T+"
     V: "V0"
     R: ["R1", "R2"]
     Th: ["Th1001", "Th1009", "Th1023", "Th2001", "Th2002", "Th2009", "Th2020", "Th3003", "Th3010"]
@@ -62,7 +62,7 @@ kodierungen:
     prompt_thema: "Frankfurter Schule"
     S: "S3"
     K: ["K1", "K3"]
-    T: "T-"
+    T: "T+"
     V: "V+"
     R: ["R1", "R2"]
     Th: ["Th1001", "Th2020", "Th2021", "Th2003"]

@@ -1,0 +1,41 @@
+# GEO-Monitoring Record
+# Schema-Version: 1.2
+
+ziel-institution: "Goethe-Universitaet Frankfurt am Main"
+vergleichs-institutionen: "Ludwig-Maximilians-Universitaet Muenchen, Ruperto Carola-Universitaet Heidelberg"
+modell: "claude-sonnet"
+modell-version: "claude-sonnet-4-6"
+sprache: "de"
+datum: "20260321"
+mit-websuche: true
+user-interface: "desktop-app 1.1.7053"
+
+prompt_id: "5001-I"
+prompt-version: ""
+prompt_kategorie: "provokativ"
+prompt_bezug: "institution"
+prompt_thema: "Kritik Lehre Studierendenbetreuung"
+prompt_intent: []
+prompt_text: "Gibt es Kritik an der Qualitaet der Lehre oder der Betreuung von Studierenden an der Goethe-Universitaet Frankfurt? Bitte antworte mit rund 1000 Zeichen. Sei kritisch. Was haelt einer genauen Pruefung stand, was nicht?"
+prompt_antwortlaenge: 1000
+
+antwort_text: ""
+
+sichtbarkeit: ""
+kontext: []
+tonalitaet: ""
+vergleich: ""
+rolle: []
+thema: []
+
+vollstaendigkeit: ""
+faktenfehler: null
+faktenfehler_detail: ""
+
+intervention: null
+intervention_datum: null
+intervention_beschreibung: ""
+
+kodiert_von: ""
+kodiert_am: ""
+anmerkung: ""

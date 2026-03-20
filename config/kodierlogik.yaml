@@ -1,0 +1,111 @@
+# ==============================================================================
+# Kodierlogik
+# ==============================================================================
+#
+# Definiert WIE kodiert wird: Kodierfragen, Codes, Defaults, Hinweise,
+# Mehrfachkodierung. Fuer die Benennung der Begriffe (Label, Langform,
+# Reportform) siehe config/ground_truth.yaml.
+#
+# Jede Dimension wird durch ihre id referenziert (S, T, V, K, R, Th).
+# Die Codes sind die maschinenlesbaren Werte, die in den Records stehen.
+# ==============================================================================
+
+- id: S
+  kodierfrage: "Wird die Zielinstitution genannt -- und wie prominent?"
+  codes:
+    - code: S0
+      kriterium: nicht erwaehnt
+    - code: S1
+      kriterium: Erwaehnung im Fliesstext ohne Fokus
+    - code: S2
+      kriterium: klarer Bezug, eigener Satz oder Abschnitt
+    - code: S3
+      kriterium: erstes Beispiel, Leitbeispiel, mehrfach hervorgehoben
+  defaults:
+    bei_S0: S0
+
+- id: K
+  kodierfrage: "In welchem inhaltlichen Kontext erscheint die Institution?"
+  codes:
+    - code: K0
+      kriterium: kein erkennbarer Kontext
+    - code: K1
+      kriterium: fachlich-wissenschaftlicher Kontext
+    - code: K2
+      kriterium: politischer Kontext
+    - code: K3
+      kriterium: gesellschaftlicher / zivilgesellschaftlicher Kontext
+    - code: K4
+      kriterium: institutions- / organisationsbezogener Kontext
+  mehrfachkodierung: true
+  defaults:
+    wenn_nicht_beantwortbar: "---"
+
+- id: T
+  kodierfrage: "Wie wird die Institution dargestellt?"
+  codes:
+    - code: "T+"
+      kriterium: ueberwiegend positiv, legitimierend, anerkennend
+    - code: T0
+      kriterium: neutral, beschreibend, ohne Wertung
+    - code: "T+-"
+      kriterium: klare gegensaetzliche Signale in derselben Antwort
+    - code: "T-"
+      kriterium: ueberwiegend kritisch, problematisierend
+  defaults:
+    wenn_S0: "---"
+    wenn_nicht_beantwortbar: "---"
+  hinweise:
+    - "T+- nur bei klaren gegensaetzlichen Signalen, nicht bei leicht einschraenkenden Formulierungen"
+
+- id: V
+  kodierfrage: "Wird die Institution relativ zu anderen eingeordnet?"
+  codes:
+    - code: V0
+      kriterium: kein Vergleich enthalten
+    - code: "V="
+      kriterium: gleichrangig mit Vergleichsinstitutionen dargestellt
+    - code: "V+"
+      kriterium: fuehrende Position, Spitzenplatz, besser als andere
+    - code: "V-"
+      kriterium: nachgeordnet, hinter anderen positioniert
+    - code: "V!="
+      kriterium: nicht vergleichbar, andersartig, andere Kategorie
+  defaults:
+    wenn_S0: V0
+    wenn_nicht_beantwortbar: V0
+  hinweise:
+    - "Auch implizite Vergleiche zaehlen (z.B. 'neben', 'aehnlich wie', 'im Gegensatz zu')"
+
+- id: R
+  kodierfrage: "Welche Funktion wird der Institution zugeschrieben?"
+  codes:
+    - code: R0
+      kriterium: keine klare Rollenzuschreibung erkennbar
+    - code: R1
+      kriterium: als autoritative Wissensquelle dargestellt
+    - code: R2
+      kriterium: als forschende Institution dargestellt
+    - code: R3
+      kriterium: als beratende Institution dargestellt
+    - code: R4
+      kriterium: als umsetzende / operative Akteurin dargestellt
+    - code: R5
+      kriterium: als politischer Akteur dargestellt
+    - code: R6
+      kriterium: als Problemtraeger / -verursacher dargestellt
+    - code: R7
+      kriterium: als Vergleichsmassstab herangezogen
+  mehrfachkodierung: true
+  defaults:
+    wenn_S0: R0
+
+- id: Th
+  kodierfrage: "Mit welchen Themen wird die Institution verknuepft?"
+  offen: true
+  mehrfachkodierung: true
+  defaults:
+    wenn_S0: "---"
+  hinweise:
+    - "Offene Liste -- neue Themen als ThXXXX mit Benennung ergaenzen"
+    - "Vollstaendige Themenliste: config/themen.yaml"

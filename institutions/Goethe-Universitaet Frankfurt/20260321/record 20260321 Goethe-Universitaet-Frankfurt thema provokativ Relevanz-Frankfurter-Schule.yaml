@@ -1,0 +1,41 @@
+# GEO-Monitoring Record
+# Schema-Version: 1.2
+
+ziel-institution: "Goethe-Universitaet Frankfurt am Main"
+vergleichs-institutionen: "Ludwig-Maximilians-Universitaet Muenchen, Ruperto Carola-Universitaet Heidelberg"
+modell: "claude-sonnet"
+modell-version: "claude-sonnet-4-6"
+sprache: "de"
+datum: "20260321"
+mit-websuche: true
+user-interface: "desktop-app 1.1.7053"
+
+prompt_id: "5002-T"
+prompt-version: ""
+prompt_kategorie: "provokativ"
+prompt_bezug: "thema"
+prompt_thema: "Relevanz Frankfurter Schule"
+prompt_intent: []
+prompt_text: "Inwieweit hat die Frankfurter Schule ihre gesellschaftliche Relevanz behalten -- oder ist sie ein historisches Relikt? Bitte antworte mit rund 1000 Zeichen. Sei kritisch. Was haelt einer genauen Pruefung stand, was nicht?"
+prompt_antwortlaenge: 1000
+
+antwort_text: ""
+
+sichtbarkeit: ""
+kontext: []
+tonalitaet: ""
+vergleich: ""
+rolle: []
+thema: []
+
+vollstaendigkeit: ""
+faktenfehler: null
+faktenfehler_detail: ""
+
+intervention: null
+intervention_datum: null
+intervention_beschreibung: ""
+
+kodiert_von: ""
+kodiert_am: ""
+anmerkung: ""
